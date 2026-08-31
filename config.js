@@ -17,7 +17,7 @@ window.HB_CONFIG = {
 
   // Add your actual donation destinations when ready.
   CASH_APP_URL: "https://cash.app/$HalfBakedIdeasLab",
-  PAYPAL_URL: "",
+  PAYPAL_URL: "https://www.paypal.com/ncp/payment/8R5SW6QKWUER5",
 
   BUSINESS_EMAIL: "Halfbakedideaslab@gmail.com",
   TEXT_NUMBER: "+15757072480"
