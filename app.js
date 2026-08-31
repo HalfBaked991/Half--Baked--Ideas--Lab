@@ -1,0 +1,384 @@
+const C = window.HB_CONFIG || {};
+const app = document.getElementById("app");
+const nav = document.getElementById("mainNav");
+const menuToggle = document.getElementById("menuToggle");
+
+const recipe = [
+  { label: "IDEA:", question: "What are we cooking?", icon: "💡", key: "idea" },
+  { label: "THE WHY:", question: "Why does this idea matter?", icon: "🧠", key: "why" },
+  { label: "WHO'S HUNGRY:", question: "Who might actually want this?", icon: "👥", key: "hungry" },
+  { label: "THE GOOD STUFF:", question: "What's already working?", icon: "👍", key: "good" },
+  { label: "THE SOGGY PARTS:", question: "What needs work?", icon: "🧪", key: "soggy" }
+];
+
+const state = {
+  route: "home",
+  step: 0,
+  customer: { name: "", email: "" },
+  answers: { idea: "", why: "", hungry: "", good: "", soggy: "" },
+  review: { name: "", rating: 5, text: "", privateName: false },
+  contact: { name: "", email: "", message: "" }
+};
+
+function go(route) {
+  state.route = route;
+  if (route === "recipe") {
+    // The Ideas Recipe starts with the customer's contact details.
+    state.route = "customer";
+    state.step = 0;
+  }
+  render();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+  nav.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded", "false");
+}
+
+function emailReady() {
+  return C.EMAILJS_PUBLIC_KEY && !C.EMAILJS_PUBLIC_KEY.startsWith("YOUR_")
+      && C.EMAILJS_SERVICE_ID && !C.EMAILJS_SERVICE_ID.startsWith("YOUR_");
+}
+
+function initEmailJS() {
+  if (window.emailjs && C.EMAILJS_PUBLIC_KEY && !C.EMAILJS_PUBLIC_KEY.startsWith("YOUR_")) {
+    emailjs.init({ publicKey: C.EMAILJS_PUBLIC_KEY });
+  }
+}
+initEmailJS();
+
+function escapeHtml(value) {
+  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  }[ch]));
+}
+
+function layout(content) {
+  return `<section class="screen">${content}</section>`;
+}
+
+function home() {
+  return layout(`
+    <section class="hero">
+      <img class="hero-logo" src="assets/logo.png" alt="Half Baked Ideas Lab">
+      <div class="kicker">Welcome to the Lab</div>
+      <h1>Got an <span class="script">idea?</span></h1>
+      <p>
+        We help brainstorm, organize, develop and explore ideas for businesses,
+        products, social media, parties, groups, and everything in between.
+        <strong>Even if it's a terrible idea.</strong> We actually like those.
+      </p>
+      <div class="action-stack">
+        <button class="btn primary" data-route="recipe">🥣 START AN IDEAS RECIPE</button>
+        <button class="btn" data-route="how">🧪 HOW IT WORKS</button>
+        <button class="btn primary" data-route="reviews">🧠 CUSTOMER REVIEWS</button>
+        <button class="btn" data-route="support">💗 SUPPORT THE LAB</button>
+        <button class="btn" data-route="contact">💬 CONTACT / TEXT US</button>
+      </div>
+      <div class="card pink">
+        <h3>From napkin to net worth.</h3>
+        <p>You decide how far we take it.</p>
+      </div>
+    </section>
+  `);
+}
+
+function how() {
+  const steps = [
+    ["💡", "YOU BRING THE IDEA", "Tell us what's bouncing around in your head. It can be polished, messy, ridiculous, or barely an idea at all."],
+    ["🧪", "WE COOK", "Your Ideas Recipe goes into the Lab. We spend 3–7 business days developing, organizing, brainstorming and exploring what's possible."],
+    ["🧠", "YOU GET YOUR IDEAS", "We'll send your completed work back to you using the contact information you provide."]
+  ];
+  return layout(`
+    <div class="section-title"><h2>How the Lab Works</h2><p>Simple. You bring the ingredients. We see what we can cook.</p></div>
+    <div class="grid">
+      ${steps.map(s => `<article class="card"><div style="font-size:2.4rem">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></article>`).join("")}
+    </div>
+    <div class="section-title" style="margin-top:34px"><h2>How far can we take it?</h2></div>
+    <div class="grid">
+      ${[
+        ["🥚","Just an Idea","“I have this thought…”"],
+        ["🥣","Half Baked","“I think there's something here.”"],
+        ["🍞","Fully Baked","“Let's develop this into a real concept.”"],
+        ["🔥","Napkin to Net Worth","“Let's explore the whole thing.”"]
+      ].map(x => `<article class="card pink"><h3>${x[0]} ${x[1]}</h3><p>${x[2]}</p></article>`).join("")}
+    </div>
+    <div class="action-stack"><button class="btn primary" data-route="recipe">🥣 START MY IDEAS RECIPE</button></div>
+  `);
+}
+
+function recipeStep() {
+  const r = recipe[state.step];
+  const pct = ((state.step + 1) / recipe.length) * 100;
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>Your Half Baked Idea Recipe</h2>
+        <p>Don't overthink it. Give us the messy version.</p>
+      </div>
+      <div class="progress-label"><span>STEP ${String(state.step+1).padStart(2,"0")} / ${recipe.length}</span><span>${Math.round(pct)}%</span></div>
+      <div class="progress"><span style="width:${pct}%"></span></div>
+      <article class="recipe-card">
+        <div class="recipe-icon">${r.icon}</div>
+        <div class="recipe-label">${r.label}</div>
+        <div class="recipe-question">${r.question}</div>
+        <textarea id="recipeAnswer" maxlength="5000" placeholder="Type your answer here...">${escapeHtml(state.answers[r.key])}</textarea>
+        <div class="hint">No perfect answers. No grammar test. No bad ideas.</div>
+        <div class="nav-row">
+          ${state.step > 0 ? `<button class="btn ghost" id="backStep">← BACK</button>` : `<button class="btn ghost" data-route="home">← CANCEL</button>`}
+          <button class="btn" id="nextStep">${state.step === recipe.length-1 ? "RECIPE COMPLETE ✓" : "NEXT INGREDIENT →"}</button>
+        </div>
+      </article>
+    </div>
+  `);
+}
+
+function customerInfo() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title"><h2>Who's Cooking?</h2><p>Give us a way to get your finished ideas back to you.</p></div>
+      <article class="recipe-card">
+        <div class="form-group"><label class="form-label" for="customerName">Your name</label><input id="customerName" type="text" value="${escapeHtml(state.customer.name)}" autocomplete="name" required></div>
+        <div class="form-group"><label class="form-label" for="customerEmail">Best email address</label><input id="customerEmail" type="email" value="${escapeHtml(state.customer.email)}" autocomplete="email" required></div>
+        <div class="notice">We use your email to send your completed work and important submission information.</div>
+        <div class="nav-row"><button class="btn ghost" id="backCustomer">← BACK</button><button class="btn" id="toRecipe">NEXT: MY IDEA →</button></div>
+      </article>
+    </div>
+  `);
+}
+
+function reviewRecipe() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title"><h2>Let's Review Your Recipe</h2><p>Take a look at what you've cooked up. You can go back and edit anything before sending it to the Lab.</p></div>
+      <article class="recipe-card">
+        <div class="summary-list">
+          ${recipe.map(r => `<div class="summary-item"><strong>${r.icon} ${r.label}</strong><p>${escapeHtml(state.answers[r.key]) || "<em>Nothing entered.</em>"}</p></div>`).join("")}
+        </div>
+        <div class="nav-row">
+          <button class="btn ghost" id="editRecipe">← EDIT RECIPE</button>
+          <button class="btn primary" id="sendRecipe">🧪 SEND TO THE LAB</button>
+        </div>
+        <p class="hint">By submitting this recipe, you're asking Half Baked Ideas Lab to review and develop your idea. We do not promise a particular outcome.</p>
+        <div id="sendStatus"></div>
+      </article>
+    </div>
+  `);
+}
+
+function success() {
+  return layout(`
+    <div class="success">
+      <div class="big">🔥</div>
+      <h2>IT'S IN THE OVEN!</h2>
+      <p>Your Half Baked Idea Recipe has been delivered to the Lab. Our idea cooks can now begin working on it.</p>
+      <p><strong>Please allow 3–7 business days for your idea to cook.</strong></p>
+      <div class="action-stack">
+        <button class="btn" data-route="home">🏠 BACK TO THE LAB</button>
+        <button class="btn primary" data-route="recipe">🥣 START ANOTHER RECIPE</button>
+      </div>
+    </div>
+  `);
+}
+
+function reviews() {
+  return layout(`
+    <div class="section-title"><h2>What Are People Saying?</h2><p>Real experiences can be added here as your Lab grows.</p></div>
+    <div class="card review"><div class="stars">★★★★★</div><p>“I came in with an idea that made absolutely no sense. They helped me find the actual business hiding inside it.”</p><div class="by">— Sample Review</div></div>
+    <div class="card review"><div class="stars">★★★★★</div><p>“They took my half-baked thought and turned it into a full-blown plan I could actually use.”</p><div class="by">— Sample Review</div></div>
+    <div class="action-stack"><button class="btn primary" data-route="leave-review">⭐ LEAVE A REVIEW</button></div>
+  `);
+}
+
+function leaveReview() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title"><h2>Tell Us How We Did</h2><p>Your feedback helps the Lab grow.</p></div>
+      <article class="recipe-card">
+        <div class="form-group"><label class="form-label">Your name</label><input id="reviewName" type="text" value="${escapeHtml(state.review.name)}"></div>
+        <div class="form-group">
+          <label class="form-label">How would you rate your experience?</label>
+          <div class="nav-row" style="flex-wrap:wrap">
+            ${[1,2,3,4,5].map(n => `<button type="button" class="btn ${state.review.rating===n?"primary":""}" data-rating="${n}" style="flex:0 0 auto">${"★".repeat(n)}</button>`).join("")}
+          </div>
+        </div>
+        <div class="form-group"><label class="form-label">Tell us about your experience</label><textarea id="reviewText" maxlength="3000" placeholder="What did you think?">${escapeHtml(state.review.text)}</textarea></div>
+        <label style="display:flex;gap:9px;align-items:center;color:var(--muted);margin:10px 0 18px"><input id="privateName" type="checkbox" ${state.review.privateName?"checked":""}> Keep my name private</label>
+        <button class="btn primary" id="sendReview">SEND MY REVIEW</button>
+        <div id="reviewStatus"></div>
+      </article>
+    </div>
+  `);
+}
+
+function support() {
+  const cash = C.CASH_APP_URL;
+  const paypal = C.PAYPAL_URL;
+  return layout(`
+    <div class="section-title"><h2>Got Some Extra Dough?</h2><p>Half Baked Ideas Lab exists because we believe ideas are worth exploring. If you want to help support the Lab, you can leave a tip or donation.</p></div>
+    <div class="grid">
+      <article class="card pink">
+        <h3>💵 CASH APP</h3>
+        <p>Support the Lab through Cash App.</p>
+        <div class="action-stack"><button class="btn primary" ${cash ? `onclick="window.open('${escapeHtml(cash)}','_blank','noopener')"` : "disabled"}>DONATE WITH CASH APP</button></div>
+      </article>
+      <article class="card">
+        <h3>💙 PAYPAL</h3>
+        <p>Support the Lab through PayPal.</p>
+        <div class="action-stack"><button class="btn" ${paypal ? `onclick="window.open('${escapeHtml(paypal)}','_blank','noopener')"` : "disabled"}>DONATE WITH PAYPAL</button></div>
+      </article>
+    </div>
+    <div class="notice" style="margin-top:16px;text-align:center">No pressure. Your ideas are welcome whether you donate a penny or not.</div>
+  `);
+}
+
+function contact() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title"><h2>Text Us!</h2><p>Have a question? Need help? We'd love to hear from you.</p></div>
+      <div class="grid">
+        <article class="card pink" style="text-align:center"><h3>💬 Text Only — No Calls</h3><p style="font-size:1.35rem;color:var(--cyan)">(575) 707-2480</p><div class="action-stack"><a class="btn primary" href="sms:+15757072480">TEXT US</a></div></article>
+        <article class="card" style="text-align:center"><h3>✉️ Email Us</h3><p style="font-size:1.05rem;color:var(--cyan)">Halfbakedideaslab@gmail.com</p><div class="action-stack"><a class="btn" href="mailto:Halfbakedideaslab@gmail.com">EMAIL US</a></div></article>
+      </div>
+      <div class="section-title" style="margin-top:34px"><h2>Or Send a Message</h2></div>
+      <article class="recipe-card">
+        <div class="form-group"><label class="form-label">Name</label><input id="contactName" type="text" value="${escapeHtml(state.contact.name)}"></div>
+        <div class="form-group"><label class="form-label">Email</label><input id="contactEmail" type="email" value="${escapeHtml(state.contact.email)}"></div>
+        <div class="form-group"><label class="form-label">Message</label><textarea id="contactMessage" maxlength="3000" placeholder="How can we help?">${escapeHtml(state.contact.message)}</textarea></div>
+        <button class="btn primary" id="sendContact">SEND MESSAGE</button>
+        <div id="contactStatus"></div>
+      </article>
+    </div>
+  `);
+}
+
+function render() {
+  const routes = {
+    home, how, reviews, support, contact, "leave-review": leaveReview,
+    "recipe": () => recipeStep(),
+    "customer": customerInfo,
+    "review-recipe": reviewRecipe,
+    success
+  };
+  app.innerHTML = (routes[state.route] || home)();
+  document.querySelectorAll("[data-route]").forEach(el => el.addEventListener("click", () => go(el.dataset.route)));
+  bindCurrent();
+}
+
+function bindCurrent() {
+  if (state.route === "recipe") {
+    document.getElementById("recipeAnswer")?.addEventListener("input", e => {
+      state.answers[recipe[state.step].key] = e.target.value;
+    });
+    document.getElementById("backStep")?.addEventListener("click", () => {
+      if (state.step > 0) { state.step--; render(); }
+    });
+    document.getElementById("nextStep")?.addEventListener("click", () => {
+      state.answers[recipe[state.step].key] = document.getElementById("recipeAnswer").value.trim();
+      if (state.step < recipe.length - 1) { state.step++; render(); }
+      else { state.route = "review-recipe"; render(); }
+    });
+  }
+  if (state.route === "customer") {
+    document.getElementById("customerName")?.addEventListener("input", e => state.customer.name = e.target.value);
+    document.getElementById("customerEmail")?.addEventListener("input", e => state.customer.email = e.target.value);
+    document.getElementById("backCustomer")?.addEventListener("click", () => go("home"));
+    document.getElementById("toRecipe")?.addEventListener("click", () => {
+      const name = document.getElementById("customerName").value.trim();
+      const email = document.getElementById("customerEmail").value.trim();
+      if (!name || !email) return alert("Please enter your name and email so we know where to send your finished ideas.");
+      state.customer = { name, email };
+      state.step = 0; state.route = "recipe"; render();
+    });
+  }
+  if (state.route === "review-recipe") {
+    document.getElementById("editRecipe")?.addEventListener("click", () => { state.step = 0; state.route = "recipe"; render(); });
+    document.getElementById("sendRecipe")?.addEventListener("click", sendRecipe);
+  }
+  if (state.route === "leave-review") {
+    document.querySelectorAll("[data-rating]").forEach(b => b.addEventListener("click", () => { state.review.rating = Number(b.dataset.rating); render(); }));
+    document.getElementById("sendReview")?.addEventListener("click", sendReview);
+  }
+  if (state.route === "contact") {
+    document.getElementById("sendContact")?.addEventListener("click", sendContact);
+  }
+}
+
+async function sendViaEmailJS(templateId, params) {
+  if (!emailReady() || !templateId || templateId.startsWith("YOUR_")) {
+    throw new Error("EmailJS is not connected yet. Add your EmailJS public key, service ID, and template ID in config.js.");
+  }
+  return emailjs.send(C.EMAILJS_SERVICE_ID, templateId, params);
+}
+
+async function sendRecipe() {
+  const status = document.getElementById("sendStatus");
+  status.innerHTML = `<p class="hint">🧪 Sending your recipe to the Lab...</p>`;
+  const params = {
+    form_type: "IDEAS RECIPE",
+    customer_name: state.customer.name,
+    customer_email: state.customer.email,
+    idea: state.answers.idea,
+    why: state.answers.why,
+    hungry: state.answers.hungry,
+    good_stuff: state.answers.good,
+    soggy_parts: state.answers.soggy,
+    submitted_at: new Date().toLocaleString()
+  };
+  try {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, params);
+    go("success");
+  } catch (err) {
+    status.innerHTML = `<div class="notice">We couldn't send the recipe yet. Please check your connection or text us at <strong>(575) 707-2480</strong>. The app is ready; EmailJS just needs to be connected.</div>`;
+    console.error(err);
+  }
+}
+
+async function sendReview() {
+  state.review.name = document.getElementById("reviewName").value.trim();
+  state.review.text = document.getElementById("reviewText").value.trim();
+  state.review.privateName = document.getElementById("privateName").checked;
+  const status = document.getElementById("reviewStatus");
+  if (!state.review.text) { status.innerHTML = `<p class="hint">Please tell us a little about your experience.</p>`; return; }
+  status.innerHTML = `<p class="hint">⭐ Sending your review...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_REVIEW_TEMPLATE_ID, {
+      form_type: "CUSTOMER REVIEW",
+      customer_name: state.review.privateName ? "Private" : state.review.name,
+      rating: state.review.rating,
+      review: state.review.text,
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">THANK YOU! ⭐ Your review has been sent to the Lab for review before publication.</div>`;
+  } catch (err) {
+    status.innerHTML = `<div class="notice">We couldn't send the review yet. Please text us at <strong>(575) 707-2480</strong>.</div>`;
+    console.error(err);
+  }
+}
+
+async function sendContact() {
+  state.contact.name = document.getElementById("contactName").value.trim();
+  state.contact.email = document.getElementById("contactEmail").value.trim();
+  state.contact.message = document.getElementById("contactMessage").value.trim();
+  const status = document.getElementById("contactStatus");
+  if (!state.contact.message) { status.innerHTML = `<p class="hint">Please enter a message.</p>`; return; }
+  status.innerHTML = `<p class="hint">📬 Sending...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_CONTACT_TEMPLATE_ID, {
+      form_type: "CONTACT MESSAGE",
+      customer_name: state.contact.name,
+      customer_email: state.contact.email,
+      message: state.contact.message,
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">📬 MESSAGE RECEIVED! We've got it. Thanks for reaching out.</div>`;
+  } catch (err) {
+    status.innerHTML = `<div class="notice">We couldn't send the message yet. You can email <strong>Halfbakedideaslab@gmail.com</strong> or text <strong>(575) 707-2480</strong>.</div>`;
+    console.error(err);
+  }
+}
+
+menuToggle.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(open));
+});
+
+render();
