@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#05050a">
+  <meta name="description" content="Half Baked Ideas Lab — where unfinished ideas get a chance to rise.">
+  <title>Half Baked Ideas Lab</title>
+  <link rel="icon" href="assets/logo.png">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</head>
+<body>
+  <div class="ambient ambient-pink"></div>
+  <div class="ambient ambient-blue"></div>
+
+  <header class="site-header">
+    <button class="brand-mini" data-route="home" aria-label="Go to home">
+      <img src="assets/logo.png" alt="Half Baked Ideas Lab logo">
+    </button>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    <nav id="mainNav" class="main-nav">
+      <button data-route="home">Home</button>
+      <button data-route="how">How It Works</button>
+      <button data-route="recipe">Ideas Recipe</button>
+      <button data-route="reviews">Reviews</button>
+      <button data-route="support">Support</button>
+      <button data-route="contact">Contact / Text</button>
+    </nav>
+  </header>
+
+  <main id="app" class="app-shell"></main>
+
+  <footer class="site-footer">
+    <div class="footer-contact">
+      <span>✉️ Halfbakedideaslab@gmail.com</span>
+      <span>💬 (575) 707-2480 — Text Only • No Calls</span>
+    </div>
+    <div class="footer-tag">Bad ideas welcome. Great ideas celebrated. Every idea gets a chance.</div>
+  </footer>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
