@@ -358,22 +358,30 @@ async function sendContact() {
   state.contact.name = document.getElementById("contactName").value.trim();
   state.contact.email = document.getElementById("contactEmail").value.trim();
   state.contact.message = document.getElementById("contactMessage").value.trim();
+
   const status = document.getElementById("contactStatus");
-  if (!state.contact.message) { status.innerHTML = `<p class="hint">Please enter a message.</p>`; return; }
-  status.innerHTML = `<p class="hint">📬 Sending...</p>`;
-  try {
-    await sendViaEmailJS(C.EMAILJS_CONTACT_TEMPLATE_ID, {
-      form_type: "CONTACT MESSAGE",
-      customer_name: state.contact.name,
-      customer_email: state.contact.email,
-      message: state.contact.message,
-      submitted_at: new Date().toLocaleString()
-    });
-    status.innerHTML = `<div class="notice">📬 MESSAGE RECEIVED! We've got it. Thanks for reaching out.</div>`;
-  } catch (err) {
-    status.innerHTML = `<div class="notice">We couldn't send the message yet. You can email <strong>Halfbakedideaslab@gmail.com</strong> or text <strong>(575) 707-2480</strong>.</div>`;
-    console.error(err);
+
+  if (!state.contact.name || !state.contact.email || !state.contact.message) {
+    status.innerHTML = `<p class="hint">Please enter your name, email, and message.</p>`;
+    return;
   }
+
+  const subject = encodeURIComponent("Contact Message - Half Baked Ideas Lab");
+
+  const body = encodeURIComponent(
+`Hello Half Baked Ideas Lab,
+
+Name: ${state.contact.name}
+Email: ${state.contact.email}
+
+Message:
+${state.contact.message}
+
+Sent through the Half Baked Ideas Lab website.`
+  );
+
+  window.location.href =
+    `mailto:Halfbakedideaslab@gmail.com?subject=${subject}&body=${body}`;
 }
 
 menuToggle.addEventListener("click", () => {
