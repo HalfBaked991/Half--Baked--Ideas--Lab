@@ -7,15 +7,19 @@ const recipe = [
   { label: "IDEA:", question: "What are we cooking?", icon: "💡", key: "idea" },
   { label: "THE WHY:", question: "Why does this idea matter?", icon: "🧠", key: "why" },
   { label: "WHO'S HUNGRY:", question: "Who might actually want this?", icon: "👥", key: "hungry" },
-  { label: "THE GOOD STUFF:", question: "What's already working?", icon: "👍", key: "good" },
-  { label: "THE SOGGY PARTS:", question: "What needs work?", icon: "🧪", key: "soggy" }
+  { 
+    label: "WHAT DO YOU WANT FROM US:", 
+    question: "In a few sentences, tell us what you want us to do for you specifically.", 
+    icon: "🎯", 
+    key: "want" 
+  }
 ];
 
 const state = {
   route: "home",
   step: 0,
   customer: { name: "", email: "" },
-  answers: { idea: "", why: "", hungry: "", good: "", soggy: "" },
+  answers: { idea: "", why: "", hungry: "", want: "" },
   review: { name: "", rating: 5, text: "", privateName: false },
   contact: { name: "", email: "", message: "" }
 };
@@ -313,16 +317,15 @@ async function sendRecipe() {
   const status = document.getElementById("sendStatus");
   status.innerHTML = `<p class="hint">🧪 Sending your recipe to the Lab...</p>`;
   const params = {
-    form_type: "IDEAS RECIPE",
-    customer_name: state.customer.name,
-    customer_email: state.customer.email,
-    idea: state.answers.idea,
-    why: state.answers.why,
-    hungry: state.answers.hungry,
-    good_stuff: state.answers.good,
-    soggy_parts: state.answers.soggy,
-    submitted_at: new Date().toLocaleString()
-  };
+  form_type: "IDEAS RECIPE",
+  customer_name: state.customer.name,
+  customer_email: state.customer.email,
+  idea: state.answers.idea,
+  why: state.answers.why,
+  hungry: state.answers.hungry,
+  what_you_want: state.answers.want,
+  submitted_at: new Date().toLocaleString()
+};
   try {
     await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, params);
     go("success");
