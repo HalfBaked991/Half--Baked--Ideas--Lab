@@ -443,12 +443,34 @@ async function sendContact() {
   state.contact.email = document.getElementById("contactEmail").value.trim();
   state.contact.message = document.getElementById("contactMessage").value.trim();
 
-  const status = document.getElementById("contactStatus");
+    const status = document.getElementById("contactStatus");
 
   if (!state.contact.name || !state.contact.email || !state.contact.message) {
     status.innerHTML = `<p class="hint">Please enter your name, email, and message.</p>`;
     return;
   }
+  
+  status.innerHTML = `<p class="hint">Sending...</p>`;
+  
+  try {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+      form_type: "CONTACT MESSAGE",
+      customer_name: state.contact.name,
+      customer_email: state.contact.email,
+      message: state.contact.message,
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
+    state.contact = { name: "", email: "", message: "" };
+    document.getElementById("contactName").value = "";
+    document.getElementById("contactEmail").value = "";
+    document.getElementById("contactMessage").value = "";
+  } catch (err) {
+    status.innerHTML = `<div class="notice">We couldn't send the message yet. Please text us at <strong>(575) 707-2480</strong>.</div>`;
+    console.error(err);
+  }
+}  // <-- closes sendContact()
+
 // Chat Widget Logic
 const chatBubble = document.getElementById("chatBubble");
 const chatModal = document.getElementById("chatModal");
@@ -502,5 +524,6 @@ if (chatBubble && chatModal) {
   });
 }
 
-render();
+render();  //
+
   
