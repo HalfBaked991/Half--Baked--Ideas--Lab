@@ -127,6 +127,56 @@ function how() {
     <div class="notice" style="margin-top:16px;text-align:center">Pick a tier above to start your recipe.</div>
   `);
 }
+function tierHalfBaked() {
+  return layout(`
+    <div class="section-title">
+      <h2>🥣 Tier ($49) - Half Baked: Reality Check Sprint</h2>
+      <p><em>"I think there's something here."</em></p>
+    </div>
+
+    <article class="card">
+      <h3>What you get:</h3>
+      <p>We spend 7 days figuring out if real people would actually pay for your idea.</p>
+
+      <h3>Here's how it works:</h3>
+      
+      <p><strong>1. We find your first customers</strong><br>
+      You get the exact words to post on Reddit, LinkedIn, or wherever your customers hang out. 
+      It asks one question: <em>"If this existed, would you pay for it?"</em> You post it.</p>
+
+      <p><strong>2. We build your test page</strong><br>
+      We make you a 1-page test site in 24 hours using free tools. It explains your idea and has one button: "Join waitlist" or "Pre-order." Nobody gets charged. We're just counting how many people click.</p>
+
+      <p><strong>3. We run the test together</strong><br>
+      You share the post. You share the page. We watch what happens for 5 days. 
+      How many people visited? How many clicked? What did they say?</p>
+
+      <p><strong>4. You get the verdict</strong><br>
+      We send you a <strong>Demand Results email</strong>. It tells you 3 things:</p>
+      <ul>
+        <li><strong>Do people actually want this?</strong> Yes or no.</li>
+        <li><strong>What did they really ask for?</strong></li>
+        <li><strong>Should you kill it, change it, or go all in?</strong> No guessing.</li>
+      </ul>
+
+      <h3>What you keep forever:</h3>
+      <ol>
+        <li>The exact post that got people talking</li>
+        <li>The test site + all the clicks/emails you collected</li>
+        <li>The Demand Results write-up with customer comments + next steps</li>
+      </ol>
+
+      <h3>What this IS NOT:</h3>
+      <p>We don't build your app. We don't become your lawyer, accountant, or developer. We don't promise you'll make money. We test if strangers care enough to click "buy."</p>
+
+      <p><strong>Time from you:</strong> About 2 hours total over 7 days. Post once. Share a link. Read the results in your email and make your kill it, change it, or go all in decision!</p>
+
+      <a href="#/recipe?tier=half-baked" class="btn primary" style="display:block; text-align:center; margin-top:30px;">
+        🥣 START MY RECIPE
+      </a>
+    </article>
+  `);
+}
 function tierEgg() {
   return layout(`
     <div class="section-title">
@@ -359,9 +409,13 @@ function bindCurrent() {
       state.step = 0; state.route = "recipe"; render();
     });
   }   if (state.route === "how") {
-    document.querySelectorAll('[data-tier="egg"]')?.forEach(el => {
-      el.addEventListener('click', () => go('tier-egg'));
-    });
+  document.querySelectorAll('[data-tier="egg"]')?.forEach(el => {
+    el.addEventListener('click', () => go('tier-egg'));
+  });
+  document.querySelectorAll('[data-tier="half-baked"]')?.forEach(el => {
+    el.addEventListener('click', () => go('tier-half-baked'));
+  });
+  }
   }
   if (state.route === "review-recipe") {
     document.getElementById("editRecipe")?.addEventListener("click", () => { state.step = 0; state.route = "recipe"; render(); });
