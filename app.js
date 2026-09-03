@@ -1,6 +1,7 @@
 const C = window.HB_CONFIG || {};
 const app = document.getElementById("app");
-
+const nav = document.getElementById("mainNav");
+const menuToggle = document.getElementById("menuToggle");
 
 const recipe = [
   { label: "IDEA:", question: "What are we cooking?", icon: "💡", key: "idea" },
@@ -34,7 +35,8 @@ function go(route) {
   }
   render();
   window.scrollTo({ top: 0, behavior: "smooth" });
-  
+  nav.classList.remove("open");
+  menuToggle.setAttribute("aria-expanded", "false");
 }
 
 function emailReady() {
@@ -111,10 +113,10 @@ function how() {
         <h3>🥚 Just an Idea</h3>
         <p>"I have this thought..."</p>
       </article>
-      <article class="card pink tier-card" data-tier="half-baked">
-  <h3>🥣 Half Baked</h3>
-  <p>"I think there's something here."</p>
-</article>
+      <article class="card tier-card disabled">
+        <h3>🥣 Half Baked</h3>
+        <p>"I think there's something here."</p>
+      </article>
       <article class="card tier-card disabled">
         <h3>🍞 Fully Baked</h3>
         <p>"Let's develop this into a real concept."</p>
@@ -125,56 +127,6 @@ function how() {
       </article>
     </div>
     <div class="notice" style="margin-top:16px;text-align:center">Pick a tier above to start your recipe.</div>
-  `);
-}
-function tierHalfBaked() {
-  return layout(`
-    <div class="section-title">
-      <h2>🥣 Tier ($49) - Half Baked: Reality Check Sprint</h2>
-      <p><em>"I think there's something here."</em></p>
-    </div>
-
-    <article class="card">
-      <h3>What you get:</h3>
-      <p>We spend 7 days figuring out if real people would actually pay for your idea.</p>
-
-      <h3>Here's how it works:</h3>
-      
-      <p><strong>1. We find your first customers</strong><br>
-      You get the exact words to post on Reddit, LinkedIn, or wherever your customers hang out. 
-      It asks one question: <em>"If this existed, would you pay for it?"</em> You post it.</p>
-
-      <p><strong>2. We build your test page</strong><br>
-      We make you a 1-page test site in 24 hours using free tools. It explains your idea and has one button: "Join waitlist" or "Pre-order." Nobody gets charged. We're just counting how many people click.</p>
-
-      <p><strong>3. We run the test together</strong><br>
-      You share the post. You share the page. We watch what happens for 5 days. 
-      How many people visited? How many clicked? What did they say?</p>
-
-      <p><strong>4. You get the verdict</strong><br>
-      We send you a <strong>Demand Results email</strong>. It tells you 3 things:</p>
-      <ul>
-        <li><strong>Do people actually want this?</strong> Yes or no.</li>
-        <li><strong>What did they really ask for?</strong></li>
-        <li><strong>Should you kill it, change it, or go all in?</strong> No guessing.</li>
-      </ul>
-
-      <h3>What you keep forever:</h3>
-      <ol>
-        <li>The exact post that got people talking</li>
-        <li>The test site + all the clicks/emails you collected</li>
-        <li>The Demand Results write-up with customer comments + next steps</li>
-      </ol>
-
-      <h3>What this IS NOT:</h3>
-      <p>We don't build your app. We don't become your lawyer, accountant, or developer. We don't promise you'll make money. We test if strangers care enough to click "buy."</p>
-
-      <p><strong>Time from you:</strong> About 2 hours total over 7 days. Post once. Share a link. Read the results in your email and make your kill it, change it, or go all in decision!</p>
-
-      <a href="#/recipe?tier=half-baked" class="btn primary" style="display:block; text-align:center; margin-top:30px;">
-        🥣 START MY RECIPE
-      </a>
-    </article>
   `);
 }
 function tierEgg() {
@@ -373,7 +325,6 @@ function render() {
     
     home, how, reviews, support, contact, "leave-review": leaveReview,
     "tier-egg": tierEgg,
-    "tier-half-baked": tierHalfBaked,
     "recipe": () => recipeStep(),
     "customer": customerInfo,
     "review-recipe": reviewRecipe,
@@ -409,18 +360,10 @@ function bindCurrent() {
       state.customer = { name, email };
       state.step = 0; state.route = "recipe"; render();
     });
-  if (state.route === "how") {
-  document.querySelectorAll('[data-tier="egg"]')?.forEach(el => {
-    el.addEventListener('click', () => go('tier-egg'));
-  });
-  document.querySelectorAll('[data-tier="half-baked"]')?.forEach(el => {
-    el.addEventListener('click', () => go('tier-half-baked'));
-  });
-  }
-  document.querySelectorAll('[data-tier="half-baked"]')?.forEach(el => {
-    el.addEventListener('click', () => go('tier-half-baked'));
-  });
-  }
+  }   if (state.route === "how") {
+    document.querySelectorAll('[data-tier="egg"]')?.forEach(el => {
+      el.addEventListener('click', () => go('tier-egg'));
+    });
   }
   if (state.route === "review-recipe") {
     document.getElementById("editRecipe")?.addEventListener("click", () => { state.step = 0; state.route = "recipe"; render(); });
@@ -433,13 +376,6 @@ function bindCurrent() {
     go('customer');
   });
   }
-if (state.route === "tier-half-baked") {
-  document.querySelector('[href="#/recipe?tier=half-baked"]')?.addEventListener('click', (e) => {
-    e.preventDefault();
-    state.selectedTier = "half-baked"; 
-    go('customer');
-  });
-}
   if (state.route === "leave-review") {
     document.querySelectorAll("[data-rating]").forEach(b => b.addEventListener("click", () => { state.review.rating = Number(b.dataset.rating); render(); }));
     document.getElementById("sendReview")?.addEventListener("click", sendReview);
@@ -507,87 +443,34 @@ async function sendContact() {
   state.contact.email = document.getElementById("contactEmail").value.trim();
   state.contact.message = document.getElementById("contactMessage").value.trim();
 
-    const status = document.getElementById("contactStatus");
+  const status = document.getElementById("contactStatus");
 
   if (!state.contact.name || !state.contact.email || !state.contact.message) {
     status.innerHTML = `<p class="hint">Please enter your name, email, and message.</p>`;
     return;
   }
-  
-  status.innerHTML = `<p class="hint">Sending...</p>`;
-  
-  try {
-    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
-      form_type: "CONTACT MESSAGE",
-      customer_name: state.contact.name,
-      customer_email: state.contact.email,
-      message: state.contact.message,
-      submitted_at: new Date().toLocaleString()
-    });
-    status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
-    state.contact = { name: "", email: "", message: "" };
-    document.getElementById("contactName").value = "";
-    document.getElementById("contactEmail").value = "";
-    document.getElementById("contactMessage").value = "";
-  } catch (err) {
-    status.innerHTML = `<div class="notice">We couldn't send the message yet. Please text us at <strong>(575) 707-2480</strong>.</div>`;
-    console.error(err);
-  }
-}  // <-- closes sendContact()
 
-// Chat Widget Logic
-const chatBubble = document.getElementById("chatBubble");
-const chatModal = document.getElementById("chatModal");
-const closeChat = document.getElementById("closeChat");
-const sendChat = document.getElementById("sendChat");
+  const subject = encodeURIComponent("Contact Message - Half Baked Ideas Lab");
 
-if (chatBubble && chatModal) {
-  chatBubble.addEventListener("click", function() {
-    console.log("Chat bubble clicked");
-    chatModal.classList.toggle("open");
-  });
+  const body = encodeURIComponent(
+`Hello Half Baked Ideas Lab,
 
-  closeChat?.addEventListener("click", function() {
-    chatModal.classList.remove("open");
-  });
+Name: ${state.contact.name}
+Email: ${state.contact.email}
 
-  sendChat?.addEventListener("click", async function() {
-    const name = document.getElementById("chatName").value.trim();
-    const contact = document.getElementById("chatContact").value.trim();
-    const message = document.getElementById("chatMessage").value.trim();
-    const status = document.getElementById("chatStatus");
-    
-    if (!name || !contact || !message) {
-      status.innerHTML = `<p class="hint">Please fill out all fields.</p>`;
-      return;
-    }
-    
-    status.innerHTML = `<p class="hint">Sending...</p>`;
-    
-    try {
-      await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
-        form_type: "LIVE CHAT QUESTION",
-        customer_name: name,
-        customer_contact: contact,
-        message: message,
-        page: state.route,
-        submitted_at: new Date().toLocaleString()
-      });
-      status.innerHTML = `<div class="notice">Sent! We'll text you back ASAP.</div>`;
-      setTimeout(() => {
-        chatModal.classList.remove("open");
-        document.getElementById("chatName").value = "";
-        document.getElementById("chatContact").value = "";
-        document.getElementById("chatMessage").value = "";
-        status.innerHTML = "";
-      }, 2000);
-    } catch (err) {
-      status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
-      console.error("Chat error:", err);
-    }
-  });
+Message:
+${state.contact.message}
+
+Sent through the Half Baked Ideas Lab website.`
+  );
+
+  window.location.href =
+    `mailto:Halfbakedideaslab@gmail.com?subject=${subject}&body=${body}`;
 }
 
-render();  //
+menuToggle.addEventListener("click", () => {
+  const open = nav.classList.toggle("open");
+  menuToggle.setAttribute("aria-expanded", String(open));
+});
 
-  
+render();
