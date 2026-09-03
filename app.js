@@ -392,13 +392,15 @@ async function sendViaEmailJS(templateId, params) {
   return emailjs.send(C.EMAILJS_SERVICE_ID, templateId, params);
 }
 
-async function sendRecipe() {
+ async function sendRecipe() {
   const status = document.getElementById("sendStatus");
   status.innerHTML = `<p class="hint">🧪 Sending your recipe to the Lab...</p>`;
   const params = {
   form_type: "IDEAS RECIPE",
   customer_name: state.customer.name,
   customer_email: state.customer.email,
+  tier: state.selectedTier || "none",  // <-- ADD THIS LINE
+  tier_name: state.selectedTier === "egg" ? "Free - Idea Roast" : "No tier",  // <-- ADD THIS LINE
   idea: state.answers.idea,
   why: state.answers.why,
   hungry: state.answers.hungry,
