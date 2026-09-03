@@ -449,47 +449,23 @@ async function sendContact() {
     status.innerHTML = `<p class="hint">Please enter your name, email, and message.</p>`;
     return;
   }
+// Chat Widget Logic
+const chatBubble = document.getElementById("chatBubble");
+const chatModal = document.getElementById("chatModal");
+const closeChat = document.getElementById("closeChat");
+const sendChat = document.getElementById("sendChat");
 
-  const subject = encodeURIComponent("Contact Message - Half Baked Ideas Lab");
-
-  const body = encodeURIComponent(
-`Hello Half Baked Ideas Lab,
-
-Name: ${state.contact.name}
-Email: ${state.contact.email}
-
-Message:
-${state.contact.message}
-
-Sent through the Half Baked Ideas Lab website.`
-  );
-
-  window.location.href =
-    `mailto:Halfbakedideaslab@gmail.com?subject=${subject}&body=${body}`;
-}
-
-menuToggle.addEventListener("click", () => {
-  const open = nav.classList.toggle("open");
-  menuToggle.setAttribute("aria-expanded", String(open));
-});
-// Chat Widget Logic - runs after DOM is ready
-function initChatWidget() {
-  const chatBubble = document.getElementById("chatBubble");
-  const chatModal = document.getElementById("chatModal");
-  const closeChat = document.getElementById("closeChat");
-  const sendChat = document.getElementById("sendChat");
-
-  if (!chatBubble) return; // Exit if HTML not found
-
-  chatBubble.addEventListener("click", () => {
+if (chatBubble && chatModal) {
+  chatBubble.addEventListener("click", function() {
+    console.log("Chat bubble clicked");
     chatModal.classList.toggle("open");
   });
 
-  closeChat?.addEventListener("click", () => {
+  closeChat?.addEventListener("click", function() {
     chatModal.classList.remove("open");
   });
 
-  sendChat?.addEventListener("click", async () => {
+  sendChat?.addEventListener("click", async function() {
     const name = document.getElementById("chatName").value.trim();
     const contact = document.getElementById("chatContact").value.trim();
     const message = document.getElementById("chatMessage").value.trim();
@@ -521,11 +497,10 @@ function initChatWidget() {
       }, 2000);
     } catch (err) {
       status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
-      console.error(err);
+      console.error("Chat error:", err);
     }
   });
 }
 
-// Call it after render
-initChatWidget();
 render();
+  
