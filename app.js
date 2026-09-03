@@ -373,6 +373,7 @@ function render() {
     
     home, how, reviews, support, contact, "leave-review": leaveReview,
     "tier-egg": tierEgg,
+    "tier-half-baked": tierHalfBaked,
     "recipe": () => recipeStep(),
     "customer": customerInfo,
     "review-recipe": reviewRecipe,
@@ -428,6 +429,13 @@ function bindCurrent() {
     go('customer');
   });
   }
+if (state.route === "tier-half-baked") {
+  document.querySelector('[href="#/recipe?tier=half-baked"]')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    state.selectedTier = "half-baked"; 
+    go('customer');
+  });
+}
   if (state.route === "leave-review") {
     document.querySelectorAll("[data-rating]").forEach(b => b.addEventListener("click", () => { state.review.rating = Number(b.dataset.rating); render(); }));
     document.getElementById("sendReview")?.addEventListener("click", sendReview);
