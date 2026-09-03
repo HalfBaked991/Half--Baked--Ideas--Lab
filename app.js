@@ -77,10 +77,7 @@ function home() {
         <button class="btn" data-route="support">💗 SUPPORT THE LAB</button>
         <button class="btn" data-route="contact">💬 CONTACT / TEXT US</button>
       </div>
-      <div class="card pink">
-        <h3>From napkin to net worth.</h3>
-        <p>You decide how far we take it.</p>
-      </div>
+      
     </section>
   `);
 }
