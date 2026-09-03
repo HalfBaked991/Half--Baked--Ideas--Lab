@@ -566,7 +566,7 @@ function paywallHalfBaked() {
           <button class="btn primary" onclick="window.open('https://paypal.me/halfbakedideaslab/49','_blank','noopener')">💙 PAY WITH PAYPAL</button>
           <button class="btn" onclick="window.open('https://cash.app/$HalfBakedIdeasLab/49','_blank','noopener')">💵 PAY WITH CASH APP</button>
         </div>
-        <div class="notice" style="margin-top:20px;text-align:center;background:#fff3cd;border:1px solid #ffe69c;padding:12px;border-radius:8px">
+        <div class="notice" <div class="notice" style="margin-top:20px;text-align:center;background:#fff3cd;border:1px solid #ffe69c;padding:12px;border-radius:8px;color:#000;">
           <strong>Important:</strong> After paying, come back to this page and tap the button below to continue to your recipe.
         </div>
         <button class="btn" id="skipPaywall" style="width:100%;margin-top:12px">I'VE PAID → START MY RECIPE</button>
