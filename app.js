@@ -1,7 +1,6 @@
 const C = window.HB_CONFIG || {};
 const app = document.getElementById("app");
-const nav = document.getElementById("mainNav");
-const menuToggle = document.getElementById("menuToggle");
+
 
 const recipe = [
   { label: "IDEA:", question: "What are we cooking?", icon: "💡", key: "idea" },
@@ -35,8 +34,7 @@ function go(route) {
   }
   render();
   window.scrollTo({ top: 0, behavior: "smooth" });
-  nav.classList.remove("open");
-  menuToggle.setAttribute("aria-expanded", "false");
+  
 }
 
 function emailReady() {
