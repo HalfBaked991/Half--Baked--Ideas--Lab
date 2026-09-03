@@ -185,7 +185,7 @@ function tierHalfBaked() {
       <h3>What this IS NOT:</h3>
       <p>We don't build your app. We don't become your lawyer, accountant, or developer. We don't promise you'll make money. We test if strangers care enough to click "buy."</p>
       <p><strong>Time from you:</strong> About 2 hours total over 7 days. Post once. Share a link. Read the results in your email and make your kill it, change it, or go all in decision!</p>
-      <button class="btn primary" data-route="paywall-half-baked data-selected-tier="half-baked" style="display:block; text-align:center; margin-top:30px;">
+      <button class="btn primary" data-route="paywall-half-baked" data-selected-tier="half-baked" style="display:block; text-align:center; margin-top:30px;">
         🥣 START MY RECIPE
       </button>
     </article>
