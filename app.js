@@ -24,11 +24,7 @@ const state = {
   review: { name: "", rating: 5, text: "", privateName: false },
   contact: { name: "", email: "", message: "" }
 };
-    customer: { name: "", email: "" },
-    answers: { idea: "", why: "", hungry: "", want: "" },
-   review: { name: "", rating: 5, text: "", privateName: false },
-    contact: { name: "", email: "", message: "" }
-  };
+    
 
 function go(route) {
   state.route = route;
