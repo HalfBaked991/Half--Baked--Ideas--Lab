@@ -18,6 +18,11 @@ const recipe = [
 const state = {
   route: "home",
   step: 0,
+  const state = {
+  route: "home",
+  selectedTier: null, // <-- add this line
+  ...
+};
   customer: { name: "", email: "" },
   answers: { idea: "", why: "", hungry: "", want: "" },
   review: { name: "", rating: 5, text: "", privateName: false },
@@ -158,7 +163,7 @@ function tierEgg() {
       </div>
       
       <div class="action-stack" style="margin-top:24px">
-        <button class="btn primary" data-route="recipe" data-selected-tier="egg">🥣 START MY IDEA ROAST</button>
+        <button class="btn primary" data-route="customer" data-selected-tier="egg">🥣 START MY IDEA ROAST</button>
         <button class="btn ghost" data-route="how">← BACK TO TIERS</button>
       </div>
     </article>
@@ -357,6 +362,13 @@ function bindCurrent() {
   if (state.route === "review-recipe") {
     document.getElementById("editRecipe")?.addEventListener("click", () => { state.step = 0; state.route = "recipe"; render(); });
     document.getElementById("sendRecipe")?.addEventListener("click", sendRecipe);
+  }
+  if (state.route === "tier-egg") {
+  document.querySelector('[data-route="customer"]')?.addEventListener('click', (e) => {
+    const tier = e.target.dataset.selectedTier;
+    if (tier) state.selectedTier = tier; // save "egg" to state
+    go('customer');
+  });
   }
   if (state.route === "leave-review") {
     document.querySelectorAll("[data-rating]").forEach(b => b.addEventListener("click", () => { state.review.rating = Number(b.dataset.rating); render(); }));
