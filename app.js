@@ -193,9 +193,18 @@ function recipeStep() {
 }
 
 function customerInfo() {
+  const tierLabel = state.selectedTier === "egg" 
+    ? "🥚 Free Tier - Idea Roast" 
+    : "No tier selected";
+
   return layout(`
     <div class="step-shell">
       <div class="section-title"><h2>Who's Cooking?</h2><p>Give us a way to get your finished ideas back to you.</p></div>
+      
+      <div class="notice" style="margin-bottom:16px">
+        <strong>Selected:</strong> ${tierLabel}
+      </div>
+      
       <article class="recipe-card">
         <div class="form-group"><label class="form-label" for="customerName">Your name</label><input id="customerName" type="text" value="${escapeHtml(state.customer.name)}" autocomplete="name" required></div>
         <div class="form-group"><label class="form-label" for="customerEmail">Best email address</label><input id="customerEmail" type="email" value="${escapeHtml(state.customer.email)}" autocomplete="email" required></div>
