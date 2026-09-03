@@ -500,7 +500,7 @@ sendChat?.addEventListener("click", async () => {
   status.innerHTML = `<p class="hint">Sending...</p>`;
   
   try {
-    await sendViaEmailJS(C.EMAILJS_CHAT_TEMPLATE_ID || C.EMAILJS_TEMPLATE_ID, {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
       form_type: "LIVE CHAT QUESTION",
       customer_name: name,
       customer_contact: contact,
