@@ -42,5 +42,22 @@
 
   <script src="config.js"></script>
   <script src="app.js"></script>
+  <!-- Chat Widget -->
+<div id="chatBubble">💬</div>
+
+<div id="chatModal" class="chat-modal">
+  <div class="chat-header">
+    <span>Ask the Lab</span>
+    <button id="closeChat">✕</button>
+  </div>
+  <div class="chat-body">
+    <p class="hint">Got a quick question? Send it here and we'll text you back ASAP.</p>
+    <input id="chatName" type="text" placeholder="Your name" />
+    <input id="chatContact" type="text" placeholder="Email or phone" />
+    <textarea id="chatMessage" placeholder="What's your question?" rows="4"></textarea>
+    <button id="sendChat" class="btn primary">SEND</button>
+    <div id="chatStatus"></div>
+  </div>
+</div>
 </body>
 </html>
