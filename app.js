@@ -71,7 +71,7 @@ function home() {
         <strong>Even if it's a terrible idea.</strong> We actually like those.
       </p>
       <div class="action-stack">
-        <button class="btn primary" data-route="recipe">🥣 START AN IDEAS RECIPE</button>
+        
         <button class="btn" data-route="how">🧪 HOW IT WORKS</button>
         <button class="btn primary" data-route="reviews">🧠 CUSTOMER REVIEWS</button>
         <button class="btn" data-route="support">💗 SUPPORT THE LAB</button>
@@ -86,29 +86,87 @@ function home() {
 }
 
 function how() {
-  const steps = [
-    ["💡", "YOU BRING THE IDEA", "Tell us what's bouncing around in your head. It can be polished, messy, ridiculous, or barely an idea at all."],
-    ["🧪", "WE COOK", "Your Ideas Recipe goes into the Lab. We spend 3–7 business days developing, organizing, brainstorming and exploring what's possible."],
-    ["🧠", "YOU GET YOUR IDEAS", "We'll send your completed work back to you using the contact information you provide."]
-  ];
   return layout(`
     <div class="section-title"><h2>How the Lab Works</h2><p>Simple. You bring the ingredients. We see what we can cook.</p></div>
     <div class="grid">
-      ${steps.map(s => `<article class="card"><div style="font-size:2.4rem">${s[0]}</div><h3>${s[1]}</h3><p>${s[2]}</p></article>`).join("")}
+      <article class="card">
+        <div style="font-size:2.4rem">💡</div>
+        <h3>YOU BRING THE IDEA</h3>
+        <p>Tell us what's bouncing around in your head. It can be polished, messy, ridiculous, or barely an idea at all.</p>
+      </article>
+      
+      <article class="card">
+        <div style="font-size:2.4rem">🧪</div>
+        <h3>WE COOK</h3>
+        <p>Your Ideas Recipe goes into the Lab. We spend dedicated time to develop, organize, brainstorm and exploring what's possible.</p>
+      </article>
+      
+      <article class="card">
+        <div style="font-size:2.4rem">🧠</div>
+        <h3>YOU GET YOUR IDEAS</h3>
+        <p>We'll send your completed work back to you using the contact information you provide within 7 Days (Depends on Tier chosen).</p>
+      </article>
     </div>
+    
     <div class="section-title" style="margin-top:34px"><h2>How far can we take it?</h2></div>
     <div class="grid">
-      ${[
-        ["🥚","Just an Idea","“I have this thought…”"],
-        ["🥣","Half Baked","“I think there's something here.”"],
-        ["🍞","Fully Baked","“Let's develop this into a real concept.”"],
-        ["🔥","Napkin to Net Worth","“Let's explore the whole thing.”"]
-      ].map(x => `<article class="card pink"><h3>${x[0]} ${x[1]}</h3><p>${x[2]}</p></article>`).join("")}
+      <article class="card pink tier-card" data-tier="egg">
+        <h3>🥚 Just an Idea</h3>
+        <p>"I have this thought..."</p>
+      </article>
+      <article class="card tier-card disabled">
+        <h3>🥣 Half Baked</h3>
+        <p>"I think there's something here."</p>
+      </article>
+      <article class="card tier-card disabled">
+        <h3>🍞 Fully Baked</h3>
+        <p>"Let's develop this into a real concept."</p>
+      </article>
+      <article class="card tier-card disabled">
+        <h3>🔥 Napkin to Net Worth</h3>
+        <p>"Let's explore the whole thing."</p>
+      </article>
     </div>
-    <div class="action-stack"><button class="btn primary" data-route="recipe">🥣 START MY IDEAS RECIPE</button></div>
+    <div class="notice" style="margin-top:16px;text-align:center">Pick a tier above to start your recipe.</div>
   `);
 }
-
+function tierEgg() {
+  return layout(`
+    <div class="section-title">
+      <h2>🥚 Tier (Free) - Just an Idea</h2>
+      <p>This is the IDEA ROAST. No fluff, no follow-ups, just signal.</p>
+    </div>
+    
+    <article class="card">
+      <h3>You get:</h3>
+      
+      <div class="tier-spec">
+        <p><strong>1. Gut Reaction:</strong><br>
+        This is my honest, no-BS first impression of your idea. I’ll tell you if the core problem feels real, who’d actually care, and what similar ideas have tried before — good or bad. You’ll know in 30 seconds if you’re onto something or if there’s a landmine you didn’t see.</p>
+        
+        <p><strong>2. 3 ways this could go:</strong><br>
+        • <strong>The lazy test:</strong> How to test in 1 day, $0<br>
+        • <strong>The scrappy version:</strong> What a v1 could look like if you built it this weekend<br>
+        • <strong>The “if you had money” version:</strong> Big picture if this actually worked</p>
+        
+        <p><strong>3. Do THIS next:</strong><br>
+        This is the exact, single action I’d take today if I were you. Not “research your market” — I mean the one click, post, email, or conversation that moves you from thinking to knowing. It’ll be specific to your idea and take under 15 minutes. Do this before you spend another dollar or hour on it.</p>
+        
+        <p><strong>4. Biggest risk to watch:</strong><br>
+        This is the #1 reason your idea would fail that most people miss. I’ll call out the legal, demand, or competition landmine you’re most likely to hit. You get 1 sentence that could save you months of wasted work. If you only avoid one mistake, avoid this one.</p>
+      </div>
+      
+      <div class="notice">
+        <strong>Delivery:</strong> 12-24 hours • <strong>Follow-ups:</strong> 1 clarification email max if needed • <strong>Price:</strong> Free • Donations appreciated but never required
+      </div>
+      
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn primary" data-route="recipe" data-selected-tier="egg">🥣 START MY IDEA ROAST</button>
+        <button class="btn ghost" data-route="how">← BACK TO TIERS</button>
+      </div>
+    </article>
+  `);
+}
 function recipeStep() {
   const r = recipe[state.step];
   const pct = ((state.step + 1) / recipe.length) * 100;
@@ -256,7 +314,9 @@ function contact() {
 
 function render() {
   const routes = {
+    
     home, how, reviews, support, contact, "leave-review": leaveReview,
+    "tier-egg": tierEgg,
     "recipe": () => recipeStep(),
     "customer": customerInfo,
     "review-recipe": reviewRecipe,
@@ -291,6 +351,10 @@ function bindCurrent() {
       if (!name || !email) return alert("Please enter your name and email so we know where to send your finished ideas.");
       state.customer = { name, email };
       state.step = 0; state.route = "recipe"; render();
+    });
+  }   if (state.route === "how") {
+    document.querySelectorAll('[data-tier="egg"]')?.forEach(el => {
+      el.addEventListener('click', () => go('tier-egg'));
     });
   }
   if (state.route === "review-recipe") {
