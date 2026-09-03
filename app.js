@@ -20,13 +20,15 @@ const state = {
   step: 0,
   selectedTier: null, // 
   customer: { name: "", email: "" },
-};
-  
-  customer: { name: "", email: "" },
-  answers: { idea: "", why: "", hungry: "", want: "" },
-  review: { name: "", rating: 5, text: "", privateName: false },
-  contact: { name: "", email: "", message: "" }
-};
+18  const state = {
+19    route: "home",
+20    step: 0,
+21    selectedTier: null,
+22    customer: { name: "", email: "" },
+23    answers: { idea: "", why: "", hungry: "", want: "" },
+24    review: { name: "", rating: 5, text: "", privateName: false },
+25    contact: { name: "", email: "", message: "" }
+26  };
 
 function go(route) {
   state.route = route;
