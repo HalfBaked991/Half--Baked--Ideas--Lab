@@ -18,17 +18,17 @@ const recipe = [
 const state = {
   route: "home",
   step: 0,
-  selectedTier: null, // 
+  selectedTier: null,
   customer: { name: "", email: "" },
-18  const state = {
-19    route: "home",
-20    step: 0,
-21    selectedTier: null,
-22    customer: { name: "", email: "" },
-23    answers: { idea: "", why: "", hungry: "", want: "" },
-24    review: { name: "", rating: 5, text: "", privateName: false },
-25    contact: { name: "", email: "", message: "" }
-26  };
+  answers: { idea: "", why: "", hungry: "", want: "" },
+  review: { name: "", rating: 5, text: "", privateName: false },
+  contact: { name: "", email: "", message: "" }
+};
+    customer: { name: "", email: "" },
+    answers: { idea: "", why: "", hungry: "", want: "" },
+   review: { name: "", rating: 5, text: "", privateName: false },
+    contact: { name: "", email: "", message: "" }
+  };
 
 function go(route) {
   state.route = route;
