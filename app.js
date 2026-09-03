@@ -111,10 +111,10 @@ function how() {
         <h3>🥚 Just an Idea</h3>
         <p>"I have this thought..."</p>
       </article>
-      <article class="card tier-card disabled">
-        <h3>🥣 Half Baked</h3>
-        <p>"I think there's something here."</p>
-      </article>
+      <article class="card pink tier-card" data-tier="half-baked">
+  <h3>🥣 Half Baked</h3>
+  <p>"I think there's something here."</p>
+</article>
       <article class="card tier-card disabled">
         <h3>🍞 Fully Baked</h3>
         <p>"Let's develop this into a real concept."</p>
