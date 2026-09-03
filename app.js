@@ -185,7 +185,7 @@ function tierHalfBaked() {
       <h3>What this IS NOT:</h3>
       <p>We don't build your app. We don't become your lawyer, accountant, or developer. We don't promise you'll make money. We test if strangers care enough to click "buy."</p>
       <p><strong>Time from you:</strong> About 2 hours total over 7 days. Post once. Share a link. Read the results in your email and make your kill it, change it, or go all in decision!</p>
-      <button class="btn primary" data-route="customer" data-selected-tier="half-baked" style="display:block; text-align:center; margin-top:30px;">
+      <button class="btn primary" data-route="paywall-half-baked data-selected-tier="half-baked" style="display:block; text-align:center; margin-top:30px;">
         🥣 START MY RECIPE
       </button>
     </article>
@@ -349,6 +349,8 @@ function render() {
     home, how, reviews, support, contact, "leave-review": leaveReview,
     "tier-egg": tierEgg,
     "tier-half-baked": tierHalfBaked,
+    "paywall-half-baked": paywallHalfBaked,
+  
     "recipe": () => recipeStep(),
     "customer": customerInfo,
     "review-recipe": reviewRecipe,
@@ -403,7 +405,14 @@ function bindCurrent() {
       if (tier) state.selectedTier = tier;
       go('customer');
     });
-  }
+  
+ }
+  if (state.route === "paywall-half-baked") {
+  document.getElementById("skipPaywall")?.addEventListener("click", () => {
+    state.selectedTier = "half-baked";
+    go("customer");
+  });
+}
   if (state.route === "leave-review") {
     document.querySelectorAll("[data-rating]").forEach(b => b.addEventListener("click", () => { state.review.rating = Number(b.dataset.rating); render(); }));
     document.getElementById("sendReview")?.addEventListener("click", sendReview);
@@ -541,5 +550,29 @@ if (chatBubble && chatModal) {
     }
   });
 }
-
+function paywallHalfBaked() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>🥣 Half Baked - Reality Check Sprint</h2>
+        <p>Complete your $49 payment to start your 7-day test.</p>
+      </div>
+      <article class="recipe-card">
+        <div class="notice" style="margin-bottom:20px">
+          <strong>What happens next:</strong> After payment, you'll fill out your Ideas Recipe. We'll email you within 24 hours to kick off your Reality Check Sprint.
+        </div>
+        <h3 style="text-align:center;margin-bottom:20px">Pay $49 to Continue</h3>
+        <div class="action-stack">
+          <button class="btn primary" onclick="window.open('https://paypal.me/halfbakedideaslab/49','_blank','noopener')">💙 PAY WITH PAYPAL</button>
+          <button class="btn" onclick="window.open('https://cash.app/$HalfBakedIdeasLab/49','_blank','noopener')">💵 PAY WITH CASH APP</button>
+        </div>
+        <div class="notice" style="margin-top:20px;text-align:center">
+          <strong>Already paid?</strong> Tap below to continue to your recipe.
+        </div>
+        <button class="btn" id="skipPaywall" style="width:100%;margin-top:12px">I'VE PAID → START MY RECIPE</button>
+        <button class="btn ghost" data-route="tier-half-baked" style="width:100%;margin-top:8px">← BACK</button>
+      </article>
+    </div>
+  `);
+}
 render();
