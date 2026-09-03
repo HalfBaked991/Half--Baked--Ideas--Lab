@@ -23,6 +23,11 @@ const state = {
   selectedTier: null, // <-- add this line
   ...
 };
+  const state = {
+  route: "home",
+  selectedTier: null, // <-- add this line
+  ...
+};
   customer: { name: "", email: "" },
   answers: { idea: "", why: "", hungry: "", want: "" },
   review: { name: "", rating: 5, text: "", privateName: false },
@@ -358,7 +363,7 @@ function bindCurrent() {
     document.querySelectorAll('[data-tier="egg"]')?.forEach(el => {
       el.addEventListener('click', () => go('tier-egg'));
     });
-  }
+  } <button class="btn primary" data-route="customer" data-selected-tier="egg">🥣 START MY IDEA ROAST</button>
   if (state.route === "review-recipe") {
     document.getElementById("editRecipe")?.addEventListener("click", () => { state.step = 0; state.route = "recipe"; render(); });
     document.getElementById("sendRecipe")?.addEventListener("click", sendRecipe);
