@@ -409,10 +409,14 @@ function bindCurrent() {
       state.customer = { name, email };
       state.step = 0; state.route = "recipe"; render();
     });
-  }   if (state.route === "how") {
+  if (state.route === "how") {
   document.querySelectorAll('[data-tier="egg"]')?.forEach(el => {
     el.addEventListener('click', () => go('tier-egg'));
   });
+  document.querySelectorAll('[data-tier="half-baked"]')?.forEach(el => {
+    el.addEventListener('click', () => go('tier-half-baked'));
+  });
+  }
   document.querySelectorAll('[data-tier="half-baked"]')?.forEach(el => {
     el.addEventListener('click', () => go('tier-half-baked'));
   });
