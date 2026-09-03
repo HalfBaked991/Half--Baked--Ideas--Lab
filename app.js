@@ -18,16 +18,10 @@ const recipe = [
 const state = {
   route: "home",
   step: 0,
-  const state = {
-  route: "home",
-  selectedTier: null, // <-- add this line
-  ...
+  selectedTier: null, // 
+  customer: { name: "", email: "" },
 };
-  const state = {
-  route: "home",
-  selectedTier: null, // <-- add this line
-  ...
-};
+  
   customer: { name: "", email: "" },
   answers: { idea: "", why: "", hungry: "", want: "" },
   review: { name: "", rating: 5, text: "", privateName: false },
