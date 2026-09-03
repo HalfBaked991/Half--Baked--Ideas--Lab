@@ -355,7 +355,7 @@ function bindCurrent() {
     document.querySelectorAll('[data-tier="egg"]')?.forEach(el => {
       el.addEventListener('click', () => go('tier-egg'));
     });
-  } <button class="btn primary" data-route="customer" data-selected-tier="egg">🥣 START MY IDEA ROAST</button>
+  }
   if (state.route === "review-recipe") {
     document.getElementById("editRecipe")?.addEventListener("click", () => { state.step = 0; state.route = "recipe"; render(); });
     document.getElementById("sendRecipe")?.addEventListener("click", sendRecipe);
