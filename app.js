@@ -363,6 +363,9 @@ function leaveReview() {
         <div id="reviewStatus"></div>
       </article>
     </div>
+          <div class="action-stack" style="margin-top:32px">
+        <button class="btn ghost" data-route="home">← Back to Home</button>
+      </div>
   `);
 }
 
@@ -384,6 +387,9 @@ function support() {
       </article>
     </div>
     <div class="notice" style="margin-top:16px;text-align:center">No pressure. Your ideas are welcome whether you donate a penny or not.</div>
+    <div class="action-stack" style="margin-top:32px">
+  <button class="btn ghost" data-route="home">← Back to Home</button>
+</div>
   `);
 }
 
