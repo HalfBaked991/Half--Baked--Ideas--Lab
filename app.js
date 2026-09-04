@@ -97,6 +97,51 @@ function home() {
     </section>
   `);
 }
+function privacy() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>Privacy Policy</h2>
+      </div>
+      <article class="recipe-card">
+        <h3>What we collect</h3>
+        <p>Name and email when you submit your idea. Payment handled by Cash App/PayPal — we never see card details.</p>
+        
+        <h3>How we use it</h3>
+        <p>To deliver your recipe and contact you about your submission. We don’t sell your data.</p>
+        
+        <h3>Delete your data</h3>
+        <p>Email hello@halfbakedideaslab.com</p>
+        
+        <p><em>Last updated: Sept 4, 2026</em></p>
+        
+        <div class="action-stack" style="margin-top:24px">
+          <button class="btn ghost" data-route="home">← Back to Home</button>
+        </div>
+      </article>
+    </div>
+  `);
+}
+
+function terms() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>Terms of Service</h2>
+      </div>
+      <article class="recipe-card">
+        <p>By using Half Baked Ideas Lab, you agree not to submit illegal ideas. All digital product sales are final.</p>
+        <p>We reserve the right to refuse service.</p>
+        
+        <p><em>Last updated: Sept 4, 2026</em></p>
+        
+        <div class="action-stack" style="margin-top:24px">
+          <button class="btn ghost" data-route="home">← Back to Home</button>
+        </div>
+      </article>
+    </div>
+  `);
+}
 
 function how() {
   return layout(`
