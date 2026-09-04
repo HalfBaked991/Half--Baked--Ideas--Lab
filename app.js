@@ -502,10 +502,14 @@ function render() {
     "recipe": () => recipeStep(),
     "customer": customerInfo,
     "review-recipe": reviewRecipe,
-    success
+    "success": success,
+    "privacy": privacy,
+    "terms": terms
   };
   app.innerHTML = (routes[state.route] || home)();
-  document.querySelectorAll("[data-route]").forEach(el => el.addEventListener("click", () => go(el.dataset.route)));
+  document.querySelectorAll("[data-route]").forEach(el => el.addEventListener("click", 
+    (e) => { e.preventDefault(); go(el.dataset.route); }
+  ));
   bindCurrent();
 }
 
