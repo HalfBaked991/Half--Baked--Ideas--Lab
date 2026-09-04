@@ -50,9 +50,31 @@ function escapeHtml(value) {
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
   }[ch]));
 }
-
+function footer() {
+  return `
+    <footer class="app-footer">
+      <div class="footer-content">
+        <p>&copy; 2026 Half Baked Ideas Lab</p>
+        <div class="footer-links">
+          <a href="#" data-route="privacy">Privacy Policy</a>
+          <span>·</span>
+          <a href="#" data-route="terms">Terms of Service</a>
+          <a href="#" data-route="contact">Contact</a>
+        </div>
+      </div>
+    </footer>
+  `;
+}
 function layout(content) {
-  return `<section class="screen">${content}</section>`;
+  return `
+    <div class="app">
+      ${nav()}
+      <main>
+        ${content}
+      </main>
+      ${footer()}
+    </div>
+  `;
 }
 
 function home() {
