@@ -518,13 +518,18 @@ function bindCurrent() {
     document.getElementById("editRecipe")?.addEventListener("click", () => { state.step = 0; state.route = "recipe"; render(); });
     document.getElementById("sendRecipe")?.addEventListener("click", sendRecipe);
   }
-  if (state.route === "tier-egg" || state.route === "tier-half-baked") {
-    document.querySelector('[data-route="customer"]')?.addEventListener('click', (e) => {
-      const tier = e.target.dataset.selectedTier;
-      if (tier) state.selectedTier = tier;
-      go('customer');
-    });
-  }
+  if (state.route === "tier-egg") {
+  document.querySelector('[data-selected-tier="egg"]')?.addEventListener('click', (e) => {
+    state.selectedTier = "egg";
+    go('customer');
+  });
+}
+if (state.route === "tier-half-baked") {
+  document.querySelector('[data-selected-tier="half-baked"]')?.addEventListener('click', (e) => {
+    state.selectedTier = "half-baked";
+    go('paywall-half-baked');
+  });
+}
 
   if (state.route === "paywall-fully-baked") {
   document.querySelector('[data-selected-tier="fully-baked"]')?.addEventListener('click', (e) => {
