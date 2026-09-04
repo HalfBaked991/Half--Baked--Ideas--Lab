@@ -222,7 +222,21 @@ function tierFullyBaked() {
       </div>
       
       <div class="action-stack" style="margin-top:24px">
-        <button class="btn primary" onclick="alert('Add your Stripe Payment Link here')">
+        <div class="action-stack">
+  <button class="btn primary" onclick="window.open('https://paypal.me/halfbakedideaslab/299','_blank','noopener')">
+    💙 PAY WITH PAYPAL
+  </button>
+  <button class="btn" onclick="window.open('https://cash.app/$HalfBakedIdeasLab/299','_blank','noopener')">
+    💵 PAY WITH CASH APP
+  </button>
+</div>
+<div class="notice" style="margin-top:20px;text-align:center;background:#fff3cd;border:1px solid #ffe69c;padding:12px;border-radius:8px;color:#000;">
+  <strong>Important:</strong> After paying, come back to this page and tap the button below to continue to your recipe.
+</div>
+<button class="btn" onclick="go('customer')" data-selected-tier="fully-baked" style="width:100%;margin-top:12px">
+  I'VE PAID → START MY RECIPE
+</button>
+<button class="btn ghost" data-route="how" style="width:100%;margin-top:8px">← Pick a different tier</button>
           Start My $299 Plan →
         </button>
         <button class="btn ghost" data-route="how">← Pick a different tier</button>
@@ -482,7 +496,14 @@ function bindCurrent() {
       state.selectedTier = "half-baked";
       go("customer");
     });
+  
   }
+    if (state.route === "tier-fully-baked") {
+    document.querySelector('[data-selected-tier="fully-baked"]')?.addEventListener('click', (e) => {
+      state.selectedTier = "fully-baked";
+      go('customer');
+    });
+    }
   if (state.route === "leave-review") {
     document.querySelectorAll("[data-rating]").forEach(b => b.addEventListener("click", () => { state.review.rating = Number(b.dataset.rating); render(); }));
     document.getElementById("sendReview")?.addEventListener("click", sendReview);
@@ -622,5 +643,5 @@ if (chatBubble && chatModal) {
   });
 }
 
-// THIS IS THE LAST LINE - MUST BE HERE
+// 
 render();
