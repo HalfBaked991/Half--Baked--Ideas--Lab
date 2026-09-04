@@ -111,11 +111,7 @@ function how() {
   <h3>🍞 Fully Baked</h3>
   <p>"Let's develop this into a real concept."</p>
 </article>
-      <article class="card tier-card disabled">
-        <h3>🔥 Napkin to Net Worth</h3>
-        <p>"Let's explore the whole thing."</p>
-      </article>
-    </div>
+      
     <div class="notice" style="margin-top:16px;text-align:center">Pick a tier above to start your recipe.</div>
   `);
 }
