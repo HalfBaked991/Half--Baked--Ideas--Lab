@@ -107,10 +107,10 @@ function how() {
         <h3>🥣 Half Baked</h3>
         <p>"I think there's something here."</p>
       </article>
-      <article class="card tier-card disabled">
-        <h3>🍞 Fully Baked</h3>
-        <p>"Let's develop this into a real concept."</p>
-      </article>
+      <div class="tier-card" onclick="showFullyBakedPage()">
+  <h3>🍞 Fully Baked</h3>
+  <p>"Let's develop this into a real concept."</p>
+</div>
       <article class="card tier-card disabled">
         <h3>🔥 Napkin to Net Worth</h3>
         <p>"Let's explore the whole thing."</p>
