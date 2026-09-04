@@ -612,8 +612,8 @@ function paywallHalfBaked() {
   </div>
   `;
   }
-}//
+
 function showFullyBakedPage() {
   document.getElementById('app').innerHTML = tierFullyBaked();
 }
-render();
+
