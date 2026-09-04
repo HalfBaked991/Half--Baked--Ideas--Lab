@@ -192,6 +192,33 @@ function tierHalfBaked() {
   `);
 }
 
+function paywallFullyBaked() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>🍞 Fully Baked - $299 Plan</h2>
+        <p>Complete your $299 payment to get your 1-page concept plan.</p>
+      </div>
+      <article class="recipe-card">
+        <div class="notice" style="margin-bottom:20px">
+          <strong>What happens next:</strong> After payment, you'll fill out your Ideas Recipe + a short form we email you. Your plan arrives in 5-7 days.
+        </div>
+        <h3 style="text-align:center;margin-bottom:20px">Pay $299 to Continue</h3>
+        <div class="action-stack">
+          <button class="btn primary" onclick="window.open('https://paypal.me/halfbakedideaslab/299','_blank','noopener')">💙 PAY WITH PAYPAL</button>
+          <button class="btn" onclick="window.open('https://cash.app/$HalfBakedIdeasLab/299','_blank','noopener')">💵 PAY WITH CASH APP</button>
+        </div>
+        <div class="notice" style="margin-top:20px;text-align:center;background:#fff3cd;border:1px solid #ffe69c;padding:12px;border-radius:8px;color:#000;">
+          <strong>Important:</strong> After paying, come back to this page and tap the button below to continue to your recipe.
+        </div>
+        <button class="btn" data-selected-tier="fully-baked" style="width:100%;margin-top:12px">I'VE PAID → START MY RECIPE</button>
+        <button class="btn ghost" data-route="tier-fully-baked" style="width:100%;margin-top:8px">← BACK</button>
+      </article>
+    </div>
+  `);
+}
+
+
 function tierFullyBaked() {
   return layout(`
     <div class="section-title">
