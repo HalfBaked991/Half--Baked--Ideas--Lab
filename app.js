@@ -34,19 +34,19 @@ function go(route) {
 }
 
 function emailReady() {
-  return C.EMAILJS_PUBLIC_KEY && !C.EMAILJS_PUBLIC_KEY.startsWith("YOUR_")
-      && C.EMAILJS_SERVICE_ID && !C.EMAILJS_SERVICE_ID.startsWith("YOUR_");
+  return C.EMAILJS_PUBLIC_KEY &&!C.EMAILJS_PUBLIC_KEY.startsWith("YOUR_")
+      && C.EMAILJS_SERVICE_ID &&!C.EMAILJS_SERVICE_ID.startsWith("YOUR_");
 }
 
 function initEmailJS() {
-  if (window.emailjs && C.EMAILJS_PUBLIC_KEY && !C.EMAILJS_PUBLIC_KEY.startsWith("YOUR_")) {
+  if (window.emailjs && C.EMAILJS_PUBLIC_KEY &&!C.EMAILJS_PUBLIC_KEY.startsWith("YOUR_")) {
     emailjs.init({ publicKey: C.EMAILJS_PUBLIC_KEY });
   }
 }
 initEmailJS();
 
 function escapeHtml(value) {
-  return String(value ?? "").replace(/[&<>"']/g, ch => ({
+  return String(value?? "").replace(/[&<>"']/g, ch => ({
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
   }[ch]));
 }
@@ -108,9 +108,9 @@ function how() {
         <p>"I think there's something here."</p>
       </article>
       <div class="tier-card" onclick="showFullyBakedPage()">
-  <h3>🍞 Fully Baked</h3>
-  <p>"Let's develop this into a real concept."</p>
-</div>
+        <h3>🍞 Fully Baked</h3>
+        <p>"Let's develop this into a real concept."</p>
+      </div>
       <article class="card tier-card disabled">
         <h3>🔥 Napkin to Net Worth</h3>
         <p>"Let's explore the whole thing."</p>
@@ -130,15 +130,15 @@ function tierEgg() {
       <h3>You get:</h3>
       <div class="tier-spec">
         <p><strong>1. Gut Reaction:</strong><br>
-        This is my honest, no-BS first impression of your idea. I’ll tell you if the core problem feels real, who’d actually care, and what similar ideas have tried before — good or bad. You’ll know in 30 seconds if you’re onto something or if there’s a landmine you didn’t see.</p>
+        This is my honest, no-BS first impression of your idea. I'll tell you if the core problem feels real, who'd actually care, and what similar ideas have tried before — good or bad. You'll know in 30 seconds if you're onto something or if there's a landmine you didn't see.</p>
         <p><strong>2. 3 ways this could go:</strong><br>
         • <strong>The lazy test:</strong> How to test in 1 day, $0<br>
         • <strong>The scrappy version:</strong> What a v1 could look like if you built it this weekend<br>
         • <strong>The “if you had money” version:</strong> Big picture if this actually worked</p>
         <p><strong>3. Do THIS next:</strong><br>
-        This is the exact, single action I’d take today if I were you. Not “research your market” — I mean the one click, post, email, or conversation that moves you from thinking to knowing. It’ll be specific to your idea and take under 15 minutes. Do this before you spend another dollar or hour on it.</p>
+        This is the exact, single action I'd take today if I were you. Not "research your market" — I mean the one click, post, email, or conversation that moves you from thinking to knowing. It'll be specific to your idea and take under 15 minutes. Do this before you spend another dollar or hour on it.</p>
         <p><strong>4. Biggest risk to watch:</strong><br>
-        This is the #1 reason your idea would fail that most people miss. I’ll call out the legal, demand, or competition landmine you’re most likely to hit. You get 1 sentence that could save you months of wasted work. If you only avoid one mistake, avoid this one.</p>
+        This is the #1 reason your idea would fail that most people miss. I'll call out the legal, demand, or competition landmine you're most likely to hit. You get 1 sentence that could save you months of wasted work. If you only avoid one mistake, avoid this one.</p>
       </div>
       <div class="notice">
         <strong>Delivery:</strong> 12-24 hours • <strong>Follow-ups:</strong> 1 clarification email max if needed • <strong>Price:</strong> Free • Donations appreciated but never required
@@ -192,6 +192,45 @@ function tierHalfBaked() {
   `);
 }
 
+function tierFullyBaked() {
+  return layout(`
+    <div class="section-title">
+      <h2>🍞 Tier ($299) - Fully Baked</h2>
+      <p><em>"Let's develop this into a real concept."</em></p>
+    </div>
+    <article class="card">
+      <h3>What you get:</h3>
+      <p><strong>1. We use your Idea Recipe from the app.</strong><br>
+      You've told us your idea and who it's for. We start there.</p>
+      
+      <p><strong>2. You answer 8 short questions</strong><br>
+      We email you a form. Takes 20 minutes. No calls.</p>
+      
+      <p><strong>3. We send you a 1-page plan in 5-7 days.</strong><br>
+      Shows why people buy, what to charge, what could go wrong, and who you're up against.</p>
+      
+      <p><strong>4. We send you a 1-page cheat sheet</strong><br>
+      Shows first 3 steps to take, and when to quit if it's not working.</p>
+      
+      <p><strong>5. You can ask 3 questions by email</strong><br>
+      For 7 days after we send your plan. Then email help ends.</p>
+      
+      <div class="notice">
+        <strong>What this is Not-</strong><br>
+        We do not build websites. We don't find customers. We don't promise sales. We give you a plan based on your idea.<br>
+        <strong>Delivery: 5-7 Days • Follow-ups: 3 clarification emails in 7 days Max if needed</strong>
+      </div>
+      
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn primary" onclick="alert('Add your Stripe Payment Link here')">
+          Start My $299 Plan →
+        </button>
+        <button class="btn ghost" data-route="how">← Pick a different tier</button>
+      </div>
+    </article>
+  `);
+}
+
 function recipeStep() {
   const r = recipe[state.step];
   const pct = ((state.step + 1) / recipe.length) * 100;
@@ -210,8 +249,8 @@ function recipeStep() {
         <textarea id="recipeAnswer" maxlength="5000" placeholder="Type your answer here...">${escapeHtml(state.answers[r.key])}</textarea>
         <div class="hint">No perfect answers. No grammar test. No bad ideas.</div>
         <div class="nav-row">
-          ${state.step > 0 ? `<button class="btn ghost" id="backStep">← BACK</button>` : `<button class="btn ghost" data-route="home">← CANCEL</button>`}
-          <button class="btn" id="nextStep">${state.step === recipe.length-1 ? "RECIPE COMPLETE ✓" : "NEXT INGREDIENT →"}</button>
+          ${state.step > 0? `<button class="btn ghost" id="backStep">← BACK</button>` : `<button class="btn ghost" data-route="home">← CANCEL</button>`}
+          <button class="btn" id="nextStep">${state.step === recipe.length-1? "RECIPE COMPLETE ✓" : "NEXT INGREDIENT →"}</button>
         </div>
       </article>
     </div>
@@ -222,6 +261,7 @@ function customerInfo() {
   let tierLabel = "No tier selected";
   if (state.selectedTier === "egg") tierLabel = "🥚 Free Tier - Idea Roast";
   if (state.selectedTier === "half-baked") tierLabel = "🥣 $49 Tier - Reality Check Sprint";
+  if (state.selectedTier === "fully-baked") tierLabel = "🍞 $299 Tier - Fully Baked";
 
   return layout(`
     <div class="step-shell">
@@ -312,12 +352,12 @@ function support() {
       <article class="card pink">
         <h3>💵 CASH APP</h3>
         <p>Support the Lab through Cash App.</p>
-        <div class="action-stack"><button class="btn primary" ${cash ? `onclick="window.open('${escapeHtml(cash)}','_blank','noopener')"` : "disabled"}>DONATE WITH CASH APP</button></div>
+        <div class="action-stack"><button class="btn primary" ${cash? `onclick="window.open('${escapeHtml(cash)}','_blank','noopener')"` : "disabled"}>DONATE WITH CASH APP</button></div>
       </article>
       <article class="card">
         <h3>💙 PAYPAL</h3>
         <p>Support the Lab through PayPal.</p>
-        <div class="action-stack"><button class="btn" ${paypal ? `onclick="window.open('${escapeHtml(paypal)}','_blank','noopener')"` : "disabled"}>DONATE WITH PAYPAL</button></div>
+        <div class="action-stack"><button class="btn" ${paypal? `onclick="window.open('${escapeHtml(paypal)}','_blank','noopener')"` : "disabled"}>DONATE WITH PAYPAL</button></div>
       </article>
     </div>
     <div class="notice" style="margin-top:16px;text-align:center">No pressure. Your ideas are welcome whether you donate a penny or not.</div>
@@ -344,13 +384,44 @@ function contact() {
   `);
 }
 
+function paywallHalfBaked() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>🥣 Half Baked - Reality Check Sprint</h2>
+        <p>Complete your $49 payment to start your 7-day test.</p>
+      </div>
+      <article class="recipe-card">
+        <div class="notice" style="margin-bottom:20px">
+          <strong>What happens next:</strong> After payment, you'll fill out your Ideas Recipe. We'll email you within 24 hours to kick off your Reality Check Sprint.
+        </div>
+        <h3 style="text-align:center;margin-bottom:20px">Pay $49 to Continue</h3>
+        <div class="action-stack">
+          <button class="btn primary" onclick="window.open('https://paypal.me/halfbakedideaslab/49','_blank','noopener')">💙 PAY WITH PAYPAL</button>
+          <button class="btn" onclick="window.open('https://cash.app/$HalfBakedIdeasLab/49','_blank','noopener')">💵 PAY WITH CASH APP</button>
+        </div>
+        <div class="notice" style="margin-top:20px;text-align:center;background:#fff3cd;border:1px solid #ffe69c;padding:12px;border-radius:8px;color:#000;">
+          <strong>Important:</strong> After paying, come back to this page and tap the button below to continue to your recipe.
+        </div>
+        <button class="btn" id="skipPaywall" style="width:100%;margin-top:12px">I'VE PAID → START MY RECIPE</button>
+        <button class="btn ghost" data-route="tier-half-baked" style="width:100%;margin-top:8px">← BACK</button>
+      </article>
+    </div>
+  `);
+}
+
+function showFullyBakedPage() {
+  state.route = "tier-fully-baked";
+  render();
+}
+
 function render() {
   const routes = {
     home, how, reviews, support, contact, "leave-review": leaveReview,
     "tier-egg": tierEgg,
     "tier-half-baked": tierHalfBaked,
+    "tier-fully-baked": tierFullyBaked,
     "paywall-half-baked": paywallHalfBaked,
-  
     "recipe": () => recipeStep(),
     "customer": customerInfo,
     "review-recipe": reviewRecipe,
@@ -382,11 +453,11 @@ function bindCurrent() {
     document.getElementById("toRecipe")?.addEventListener("click", () => {
       const name = document.getElementById("customerName").value.trim();
       const email = document.getElementById("customerEmail").value.trim();
-      if (!name || !email) return alert("Please enter your name and email so we know where to send your finished ideas.");
+      if (!name ||!email) return alert("Please enter your name and email so we know where to send your finished ideas.");
       state.customer = { name, email };
       state.step = 0; state.route = "recipe"; render();
     });
-  }   
+  } 
   if (state.route === "how") {
     document.querySelectorAll('[data-tier="egg"]')?.forEach(el => {
       el.addEventListener('click', () => go('tier-egg'));
@@ -405,14 +476,13 @@ function bindCurrent() {
       if (tier) state.selectedTier = tier;
       go('customer');
     });
-  
- }
+  }
   if (state.route === "paywall-half-baked") {
-  document.getElementById("skipPaywall")?.addEventListener("click", () => {
-    state.selectedTier = "half-baked";
-    go("customer");
-  });
-}
+    document.getElementById("skipPaywall")?.addEventListener("click", () => {
+      state.selectedTier = "half-baked";
+      go("customer");
+    });
+  }
   if (state.route === "leave-review") {
     document.querySelectorAll("[data-rating]").forEach(b => b.addEventListener("click", () => { state.review.rating = Number(b.dataset.rating); render(); }));
     document.getElementById("sendReview")?.addEventListener("click", sendReview);
@@ -423,7 +493,7 @@ function bindCurrent() {
 }
 
 async function sendViaEmailJS(templateId, params) {
-  if (!emailReady() || !templateId || templateId.startsWith("YOUR_")) {
+  if (!emailReady() ||!templateId || templateId.startsWith("YOUR_")) {
     throw new Error("EmailJS is not connected yet. Add your EmailJS public key, service ID, and template ID in config.js.");
   }
   return emailjs.send(C.EMAILJS_SERVICE_ID, templateId, params);
@@ -437,7 +507,7 @@ async function sendRecipe() {
     customer_name: state.customer.name,
     customer_email: state.customer.email,
     tier: state.selectedTier || "none",
-    tier_name: state.selectedTier === "egg" ? "Free - Idea Roast" : state.selectedTier === "half-baked" ? "$49 - Reality Check Sprint" : "No tier",
+    tier_name: state.selectedTier === "egg"? "Free - Idea Roast" : state.selectedTier === "half-baked"? "$49 - Reality Check Sprint" : state.selectedTier === "fully-baked"? "$299 - Fully Baked" : "No tier",
     idea: state.answers.idea,
     why: state.answers.why,
     hungry: state.answers.hungry,
@@ -463,7 +533,7 @@ async function sendReview() {
   try {
     await sendViaEmailJS(C.EMAILJS_REVIEW_TEMPLATE_ID, {
       form_type: "CUSTOMER REVIEW",
-      customer_name: state.review.privateName ? "Private" : state.review.name,
+      customer_name: state.review.privateName? "Private" : state.review.name,
       rating: state.review.rating,
       review: state.review.text,
       submitted_at: new Date().toLocaleString()
@@ -480,7 +550,7 @@ async function sendContact() {
   state.contact.email = document.getElementById("contactEmail").value.trim();
   state.contact.message = document.getElementById("contactMessage").value.trim();
   const status = document.getElementById("contactStatus");
-  if (!state.contact.name || !state.contact.email || !state.contact.message) {
+  if (!state.contact.name ||!state.contact.email ||!state.contact.message) {
     status.innerHTML = `<p class="hint">Please enter your name, email, and message.</p>`;
     return;
   }
@@ -493,127 +563,4 @@ async function sendContact() {
       message: state.contact.message,
       submitted_at: new Date().toLocaleString()
     });
-    status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
-    state.contact = { name: "", email: "", message: "" };
-    document.getElementById("contactName").value = "";
-    document.getElementById("contactEmail").value = "";
-    document.getElementById("contactMessage").value = "";
-  } catch (err) {
-    status.innerHTML = `<div class="notice">We couldn't send the message yet. Please text us at <strong>(575) 707-2480</strong>.</div>`;
-    console.error(err);
-  }
-}
-
-// Chat Widget Logic
-const chatBubble = document.getElementById("chatBubble");
-const chatModal = document.getElementById("chatModal");
-const closeChat = document.getElementById("closeChat");
-const sendChat = document.getElementById("sendChat");
-
-if (chatBubble && chatModal) {
-  chatBubble.addEventListener("click", function() {
-    chatModal.classList.toggle("open");
-  });
-  closeChat?.addEventListener("click", function() {
-    chatModal.classList.remove("open");
-  });
-  sendChat?.addEventListener("click", async function() {
-    const name = document.getElementById("chatName").value.trim();
-    const contact = document.getElementById("chatContact").value.trim();
-    const message = document.getElementById("chatMessage").value.trim();
-    const status = document.getElementById("chatStatus");
-    if (!name || !contact || !message) {
-      status.innerHTML = `<p class="hint">Please fill out all fields.</p>`;
-      return;
-    }
-    status.innerHTML = `<p class="hint">Sending...</p>`;
-    try {
-      await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
-        form_type: "LIVE CHAT QUESTION",
-        customer_name: name,
-        customer_contact: contact,
-        message: message,
-        page: state.route,
-        submitted_at: new Date().toLocaleString()
-      });
-      status.innerHTML = `<div class="notice">Sent! We'll text you back ASAP.</div>`;
-      setTimeout(() => {
-        chatModal.classList.remove("open");
-        document.getElementById("chatName").value = "";
-        document.getElementById("chatContact").value = "";
-        document.getElementById("chatMessage").value = "";
-        status.innerHTML = "";
-      }, 2000);
-    } catch (err) {
-      status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
-      console.error("Chat error:", err);
-    }
-  });
-}
-function paywallHalfBaked() {
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title">
-        <h2>🥣 Half Baked - Reality Check Sprint</h2>
-        <p>Complete your $49 payment to start your 7-day test.</p>
-      </div>
-      <article class="recipe-card">
-        <div class="notice" style="margin-bottom:20px">
-          <strong>What happens next:</strong> After payment, you'll fill out your Ideas Recipe. We'll email you within 24 hours to kick off your Reality Check Sprint.
-        </div>
-        <h3 style="text-align:center;margin-bottom:20px">Pay $49 to Continue</h3>
-        <div class="action-stack">
-          <button class="btn primary" onclick="window.open('https://paypal.me/halfbakedideaslab/49','_blank','noopener')">💙 PAY WITH PAYPAL</button>
-          <button class="btn" onclick="window.open('https://cash.app/$HalfBakedIdeasLab/49','_blank','noopener')">💵 PAY WITH CASH APP</button>
-        </div>
-        <div class="notice" <div class="notice" style="margin-top:20px;text-align:center;background:#fff3cd;border:1px solid #ffe69c;padding:12px;border-radius:8px;color:#000;">
-          <strong>Important:</strong> After paying, come back to this page and tap the button below to continue to your recipe.
-        </div>
-        <button class="btn" id="skipPaywall" style="width:100%;margin-top:12px">I'VE PAID → START MY RECIPE</button>
-        <button class="btn ghost" data-route="tier-half-baked" style="width:100%;margin-top:8px">← BACK</button>
-      </article>
-    </div>
-  `);
-  function tierFullyBaked() {
-  return `
-  <div class="tier-page" id="fully-baked">
-    <h1>🍞 Fully Baked — $299</h1>
-    <h2>“We turn your app idea into a simple plan.”</h2>
-    
-    <div class="section">
-      <h3>What you get:</h3>
-      <p><strong>1. We use your Idea Recipe from the app.</strong><br>
-      You've told us your idea and who it's for. We start there.</p>
-      
-      <p><strong>2. You answer 8 short questions</strong><br>
-      We email you a form. Takes 20 minutes. No calls.</p>
-      
-      <p><strong>3. We send you a 1-page plan in 5-7 days.</strong><br>
-      Shows why people buy, what to charge, what could go wrong, and who you're up against.</p>
-      
-      <p><strong>4. We send you a 1-page cheat sheet</strong><br>
-      Shows first 3 steps to take, and when to quit if it's not working.</p>
-      
-      <p><strong>5. You can ask 3 questions by email</strong><br>
-      For 7 days after we send your plan. Then email help ends.</p>
-    </div>
-
-    <div class="section disclaimer">
-      <h3>What this is Not-</h3>
-      <p>We do not build websites. We don't find customers. We don't promise sales. We give you a plan based on your idea.</p>
-      <p><strong>Delivery: 5-7 Days • Follow-ups: 3 clarification emails in 7 days Max if needed</strong></p>
-    </div>
-
-    <button class="cta-button" onclick="startFullyBakedCheckout()">
-      Start My $299 Plan →
-    </button>
-    
-    <p class="back-link" onclick="showTierSelect()">← Pick a different tier</p>
-  </div>
-  `;
-  }
-
-function showFullyBakedPage() {
-  document.getElementById('app').innerHTML = tierFullyBaked();
-}
-
+    status.innerHTML = `<div class="notice">Sent! We'll get back to you
