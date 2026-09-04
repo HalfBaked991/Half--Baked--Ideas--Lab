@@ -525,12 +525,12 @@ function bindCurrent() {
       go('customer');
     });
   }
-  if (state.route === "paywall-half-baked") {
-    document.getElementById("skipPaywall")?.addEventListener("click", () => {
-      state.selectedTier = "half-baked";
-      go("customer");
-    });
-  
+
+  if (state.route === "paywall-fully-baked") {
+  document.querySelector('[data-selected-tier="fully-baked"]')?.addEventListener('click', (e) => {
+    state.selectedTier = "fully-baked";
+    go('customer');
+  });
   }
     if (state.route === "tier-fully-baked") {
     document.querySelector('[data-selected-tier="fully-baked"]')?.addEventListener('click', (e) => {
