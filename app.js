@@ -363,10 +363,10 @@ function leaveReview() {
         <div id="reviewStatus"></div>
       </article>
     </div>
-          <div class="action-stack" style="margin-top:32px">
+          
+ <div class="action-stack" style="margin-top:32px">
         <button class="btn ghost" data-route="home">← Back to Home</button>
-      </div>
-  `);
+      </div> `);
 }
 
 function support() {
