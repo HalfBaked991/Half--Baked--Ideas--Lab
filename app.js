@@ -574,5 +574,46 @@ function paywallHalfBaked() {
       </article>
     </div>
   `);
+  function tierFullyBaked() {
+  return `
+  <div class="tier-page" id="fully-baked">
+    <h1>🍞 Fully Baked — $299</h1>
+    <h2>“We turn your app idea into a simple plan.”</h2>
+    
+    <div class="section">
+      <h3>What you get:</h3>
+      <p><strong>1. We use your Idea Recipe from the app.</strong><br>
+      You've told us your idea and who it's for. We start there.</p>
+      
+      <p><strong>2. You answer 8 short questions</strong><br>
+      We email you a form. Takes 20 minutes. No calls.</p>
+      
+      <p><strong>3. We send you a 1-page plan in 5-7 days.</strong><br>
+      Shows why people buy, what to charge, what could go wrong, and who you're up against.</p>
+      
+      <p><strong>4. We send you a 1-page cheat sheet</strong><br>
+      Shows first 3 steps to take, and when to quit if it's not working.</p>
+      
+      <p><strong>5. You can ask 3 questions by email</strong><br>
+      For 7 days after we send your plan. Then email help ends.</p>
+    </div>
+
+    <div class="section disclaimer">
+      <h3>What this is Not-</h3>
+      <p>We do not build websites. We don't find customers. We don't promise sales. We give you a plan based on your idea.</p>
+      <p><strong>Delivery: 5-7 Days • Follow-ups: 3 clarification emails in 7 days Max if needed</strong></p>
+    </div>
+
+    <button class="cta-button" onclick="startFullyBakedCheckout()">
+      Start My $299 Plan →
+    </button>
+    
+    <p class="back-link" onclick="showTierSelect()">← Pick a different tier</p>
+  </div>
+  `;
+  }
+}//
+function showFullyBakedPage() {
+  document.getElementById('app').innerHTML = tierFullyBaked();
 }
 render();
