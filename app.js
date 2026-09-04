@@ -183,7 +183,15 @@ function tierHalfBaked() {
       <p><strong>Time from you:</strong> About 2 hours total over 7 days. Post once. Share a link. Read the results in your email and make your kill it, change it, or go all in decision!</p>
       <button class="btn primary" data-route="paywall-half-baked" data-selected-tier="half-baked" style="display:block; text-align:center; margin-top:30px;">
         🥣 START MY RECIPE
-      </button>
+      <div class="action-stack" style="margin-top:24px">
+  <button class="btn primary" data-selected-tier="half-baked">
+    🥪 START MY RECIPE
+  </button>
+  <button class="btn ghost" data-route="how">← Back to tiers</button>
+</div>
+</article>
+```);
+}
     </article>
   `);
 }
