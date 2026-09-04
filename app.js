@@ -68,7 +68,7 @@ function footer() {
 function layout(content) {
   return `
     <div class="app">
-      ${nav()}
+      
       <main>
         ${content}
       </main>
