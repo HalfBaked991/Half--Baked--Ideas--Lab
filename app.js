@@ -155,7 +155,7 @@ function how() {
       <article class="card">
         <div style="font-size:2.4rem">🧪</div>
         <h3>WE COOK</h3>
-        <p>Your Ideas Recipe goes into the Lab. We spend dedicated time to develop, organize, brainstorm and explore what's possible.</p>
+        <p>Your Ideas Recipe goes into the Lab. We spend dedicated time brainstorming and exploring what's possible.</p>
       </article>
       <article class="card">
         <div style="font-size:2.4rem">🧠</div>
