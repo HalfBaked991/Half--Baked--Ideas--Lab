@@ -155,12 +155,12 @@ function how() {
       <article class="card">
         <div style="font-size:2.4rem">🧪</div>
         <h3>WE COOK</h3>
-        <p>Your Ideas Recipe goes into the Lab. We spend dedicated time to develop, organize, brainstorm and exploring what's possible.</p>
+        <p>Your Ideas Recipe goes into the Lab. We spend dedicated time to develop, organize, brainstorm and explore what's possible.</p>
       </article>
       <article class="card">
         <div style="font-size:2.4rem">🧠</div>
         <h3>YOU GET YOUR IDEAS</h3>
-        <p>We'll send your completed work back to you using the contact information you provide within 7 Days (Depends on Tier chosen).</p>
+        <p>We'll send your completed work back to you using the contact information you provide within 3-5 Days.</p>
       </article>
     </div>
     
