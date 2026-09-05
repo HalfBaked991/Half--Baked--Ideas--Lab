@@ -84,9 +84,9 @@ function home() {
       <div class="kicker">Welcome to the Lab</div>
       <h1>Got an <span class="script">idea?</span></h1>
       <p>
-        We help brainstorm, organize, develop and explore ideas for businesses,
-        products, social media, parties, groups, and everything in between.
-        <strong>Even if it's a terrible idea.</strong> We actually like those.
+        We help name it and make it real. Business names, product names, logos, mascots, stickers, merch, and characters for your socials.  
+If you can describe it badly, we can make it look good.  
+        </strong> We actually like those.
       </p>
       <div class="action-stack">
         <button class="btn" data-route="how">🧪 HOW IT WORKS</button>
