@@ -145,13 +145,7 @@ function terms() {
 
 function how() {
   return layout(`
-    <div class="section-title"><h2>How the Lab Works</h2><p>Step 1: Pick Your Experiment  
-  
-🎨 Sticker Drop $15 — 3 concepts, pick 1 final  
-🌀 Logo Spawn $30 — 3 concepts, pick 1 final  
-👕 Tee Concept $20 — 2 mockups, pick 1 final    
-😈 Mascot Birth $35 —  1 finished character. Lab Delivers Once.  
-Need a different result? Start a new experiment with Mascot Resurrection $35.</p></div>
+    <div class="section-title"><h2>How the Lab Works</h2><p></p></div>
     <div class="grid">
       <article class="card">
         <div style="font-size:2.4rem">💡</div>
