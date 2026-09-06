@@ -134,39 +134,43 @@ function terms() {
 
 function how() {
   return layout(`
-    <div class="section-title"><h2>How the Lab Works</h2><p></p></div>
-    <div class="grid">
-      <article class="card">
-        <div style="font-size:2.4rem">💡</div>
-        <h3>YOU BRING THE IDEA</h3>
-        <p>Tell us what's bouncing around in your head. It can be polished, messy, ridiculous, or barely an idea at all.</p>
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>How the Lab Works</h2>
+        <p>Pick an experiment. We’ll make it real.</p>
+      </div>
+      
+      <div class="grid">
+        <article class="card">
+          <div style="font-size:2.4rem">🎲</div>
+          <h3>MULTI-ROLL</h3>
+          <p><strong>Stickers, Logos, Tees</strong><br>
+          We make 2-3 options. You pick your fave. 1 tiny tweak included. 48hrs.</p>
+        </article>
+        
+        <article class="card">
+          <div style="font-size:2.4rem">🎯</div>
+          <h3>ONE-SHOT</h3>
+          <p><strong>Mascot Birth</strong><br>
+          We aim once. 1 finished character. No redos. 72hrs. New birth = $35.</p>
+        </article>
+      </div>
+
+      <article class="recipe-card" style="margin-top:24px">
+        <h3>🧪 LAB RULES</h3>
+        <p><strong>What we DO:</strong> Name things. Make visuals. Stickers, logos, tees, mascots.</p>
+        <p><strong>What we DON'T do:</strong> Build apps, websites, or business plans. We're not your co-founder.</p>
+        <p><strong>No calls. No Zooms.</strong> Text/email only.</p>
+        <p><strong>Turnaround starts</strong> after you fill the form, not when you pay.</p>
       </article>
-      <article class="card">
-        <div style="font-size:2.4rem">🧪</div>
-        <h3>WE COOK</h3>
-        <p>Your Ideas Recipe goes into the Lab. We spend dedicated time brainstorming and exploring what's possible.</p>
-      </article>
-      <article class="card">
-        <div style="font-size:2.4rem">🧠</div>
-        <h3>YOU GET YOUR IDEAS</h3>
-        <p>We'll send your completed work back to you using the contact information you provide within 3-5 Days.</p>
-      </article>
+
+      <div class="action-stack" style="margin-top:32px">
+        <button class="btn primary" data-route="experiments">🧪 ENTER THE LAB</button>
+        <button class="btn ghost" data-route="home">← Back to Home</button>
+      </div>
     </div>
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
+  `);
+}
 
 
 function reviews() {
