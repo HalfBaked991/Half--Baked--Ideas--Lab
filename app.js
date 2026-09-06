@@ -73,10 +73,10 @@ function home() {
       <div class="kicker">Welcome to the Lab</div>
       <h1>Got an <span class="script">idea?</span></h1>
       <p>
-        We help name it and make it real. Business names, product names, logos, mascots, stickers, merch, and characters for your socials.  
-If you can describe it badly, we can make it look good.  
-        </strong> We actually like those.
-      </p>
+  We help name it and make it real. Business names, product names, logos, mascots, stickers, merch, and characters for your socials.<br>
+  If you can describe it badly, we can make it look good.<br>
+  <strong>Even if it's a terrible idea. We actually like those.</strong>
+</p>
       <div class="action-stack">
         <button class="btn" data-route="how">🧪 HOW IT WORKS</button>
         <button class="btn primary" data-route="reviews">🧠 CUSTOMER REVIEWS</button>
@@ -253,15 +253,7 @@ function contact() {
 function render() {
   const routes = {
     home, how, reviews, support, contact, "leave-review": leaveReview,
-    "tier-egg": tierEgg,
-    "tier-half-baked": tierHalfBaked,
-    "tier-fully-baked": tierFullyBaked,
-    "paywall-half-baked": paywallHalfBaked,
-    "paywall-fully-baked": paywallFullyBaked,
-    "recipe": () => recipeStep(),
-    "customer": customerInfo,
-    "review-recipe": reviewRecipe,
-    "success": success,
+    "experiments": experiments,
     "privacy": privacy,
     "terms": terms
   };
@@ -298,43 +290,7 @@ function bindCurrent() {
       state.step = 0; state.route = "recipe"; render();
     });
   } 
-  if (state.route === "how") {
-    document.querySelectorAll('[data-tier="egg"]')?.forEach(el => {
-      el.addEventListener('click', () => go('tier-egg'));
-    });
-    document.querySelectorAll('[data-tier="half-baked"]')?.forEach(el => {
-      el.addEventListener('click', () => go('tier-half-baked'));
-    });
-  }
-  if (state.route === "review-recipe") {
-    document.getElementById("editRecipe")?.addEventListener("click", () => { state.step = 0; state.route = "recipe"; render(); });
-    document.getElementById("sendRecipe")?.addEventListener("click", sendRecipe);
-  }
-  if (state.route === "tier-egg") {
-  document.querySelector('[data-selected-tier="egg"]')?.addEventListener('click', (e) => {
-    state.selectedTier = "egg";
-    go('customer');
-  });
-}
-if (state.route === "tier-half-baked") {
-  document.querySelector('[data-selected-tier="half-baked"]')?.addEventListener('click', (e) => {
-    state.selectedTier = "half-baked";
-    go('paywall-half-baked');
-  });
-}
-
-  if (state.route === "paywall-fully-baked") {
-  document.querySelector('[data-selected-tier="fully-baked"]')?.addEventListener('click', (e) => {
-    state.selectedTier = "fully-baked";
-    go('customer');
-  });
-  }
-    if (state.route === "tier-fully-baked") {
-    document.querySelector('[data-selected-tier="fully-baked"]')?.addEventListener('click', (e) => {
-      state.selectedTier = "fully-baked";
-      go('customer');
-    });
-    }
+  
   if (state.route === "leave-review") {
     document.querySelectorAll("[data-rating]").forEach(b => b.addEventListener("click", () => { state.review.rating = Number(b.dataset.rating); render(); }));
     document.getElementById("sendReview")?.addEventListener("click", sendReview);
