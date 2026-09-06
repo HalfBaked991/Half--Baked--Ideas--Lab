@@ -16,8 +16,8 @@ window.HB_CONFIG = {
   EMAILJS_CONTACT_TEMPLATE_ID: "YOUR_CONTACT_TEMPLATE_ID",
 
   // Add your actual donation destinations when ready.
-  CASH_APP_URL: "https://cash.app/$HalfBakedIdeasLab",
-  PAYPAL_URL: "https://www.paypal.com/ncp/payment/8R5SW6QKWUER5",
+  CASH_APP_URL: "https://cash.app/$Dreadnought1212",
+  PAYPAL_URL: "https://https://www.paypal.me/AmeliaBaDillia",
 
   BUSINESS_EMAIL: "Halfbakedideaslab@gmail.com",
   TEXT_NUMBER: "+15757072480"
