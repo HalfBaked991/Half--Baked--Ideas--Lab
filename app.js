@@ -299,20 +299,7 @@ function paywallMascot() {
   `);
 }
 
-      <div class="action-stack" style="margin-top:32px">
-        <button class="btn ghost" data-route="how">← Back to How It Works</button>
-      </div>
-    </div>
-  `);
-}
-
-      <div class="action-stack" style="margin-top:32px">
-        <button class="btn ghost" data-route="how">← Back to How It Works</button>
-      </div>
-    </div>
-  `);
-}
-
+      
 function reviews() {
   return layout(`
     <div class="section-title"><h2>What Are People Saying?</h2><p>Real experiences can be added here as your Lab grows.</p></div>
