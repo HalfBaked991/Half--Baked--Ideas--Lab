@@ -332,11 +332,6 @@ function formSticker() {
           <label class="form-label">4. Vibe/Style</label>
           <input id="stickerVibe" type="text" placeholder="Ex: Cute but deadly, retro cartoon, vaporwave">
         </div>
-        
-        <div class="form-group">
-          <label class="form-label">5. Where will you use it?</label>
-          <input id="stickerUse" type="text" placeholder="Ex: Laptop, water bottle, Discord server">
-        </div>
 
         <button class="btn primary" id="sendSticker">SEND TO THE LAB →</button>
         <div id="stickerStatus"></div>
@@ -872,8 +867,7 @@ async function sendStickerForm() {
   const name = document.getElementById("stickerName").value.trim();
   const email = document.getElementById("stickerEmail").value.trim();
   const desc = document.getElementById("stickerDesc").value.trim();
-  const vibe = document.getElementById("stickerVibe").value.trim();
-  const use = document.getElementById("stickerUse").value.trim();
+  
   const status = document.getElementById("stickerStatus");
   
   if (!name || !email || !desc) {
