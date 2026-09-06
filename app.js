@@ -92,14 +92,14 @@ function how() {
           <div style="font-size:2.4rem">🎲</div>
           <h3>MULTI-ROLL</h3>
           <p><strong>Stickers, Logos, Tees</strong><br>
-          We make 2-3 options. You pick your fave. 1 tiny tweak included. 48hrs.</p>
+          We make 2-3 options. You pick your fave. 1 tiny tweak included. Delivery:24- 48hrs.</p>
         </article>
         
         <article class="card">
           <div style="font-size:2.4rem">🎯</div>
           <h3>ONE-SHOT</h3>
           <p><strong>Mascot Birth</strong><br>
-          We aim once. 1 finished character. No redos. 72hrs. New birth = $35.</p>
+          We aim once. 1 finished character. No redos. Delivery:48-72hrs.</p>
         </article>
       </div>
 
@@ -130,7 +130,7 @@ function experiments() {
       <div class="grid">
         <article class="card">
           <div class="roll-badge">🎲 MULTI-ROLL</div>
-          <h3>🎨 Sticker Drop — $15</h3>
+          <h3>🎨 Sticker Drop — $5</h3>
           <p>3 concepts → pick 1 final sticker</p>
           <div class="action-stack">
             <button class="btn primary" data-route="paywall-sticker">Start Experiment</button>
@@ -139,7 +139,7 @@ function experiments() {
 
         <article class="card">
           <div class="roll-badge">🎲 MULTI-ROLL</div>
-          <h3>🌀 Logo Spawn — $30</h3>
+          <h3>🌀 Logo Spawn — $7</h3>
           <p>3 concepts → pick 1 final logo</p>
           <div class="action-stack">
             <button class="btn primary" data-route="paywall-logo">Start Experiment</button>
@@ -148,7 +148,7 @@ function experiments() {
 
         <article class="card">
           <div class="roll-badge">🎲 MULTI-ROLL</div>
-          <h3>👕 Tee Concept — $20</h3>
+          <h3>👕 Tee Concept — $5</h3>
           <p>2 mockups → pick 1 final</p>
           <div class="action-stack">
             <button class="btn primary" data-route="paywall-tee">Start Experiment</button>
@@ -157,7 +157,7 @@ function experiments() {
 
         <article class="card">
           <div class="roll-badge">🎯 ONE-SHOT</div>
-          <h3>😈 Mascot Birth — $35</h3>
+          <h3>😈 Mascot Birth — $5</h3>
           <p>1 finished character. One-Shot Only.</p>
           <div class="action-stack">
             <button class="btn primary" data-route="paywall-mascot">Start Experiment</button>
@@ -176,7 +176,7 @@ function paywallSticker() {
   return layout(`
     <div class="step-shell">
       <div class="section-title">
-        <h2>🎨 Sticker Drop — $15</h2>
+        <h2>🎨 Sticker Drop — $5</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
       
@@ -208,7 +208,7 @@ function paywallLogo() {
   return layout(`
     <div class="step-shell">
       <div class="section-title">
-        <h2>🌀 Logo Spawn — $30</h2>
+        <h2>🌀 Logo Spawn — $5</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
       
@@ -240,7 +240,7 @@ function paywallTee() {
   return layout(`
     <div class="step-shell">
       <div class="section-title">
-        <h2>👕 Tee Concept — $20</h2>
+        <h2>👕 Tee Concept — $5</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
       
@@ -272,7 +272,7 @@ function paywallMascot() {
   return layout(`
     <div class="step-shell">
       <div class="section-title">
-        <h2>😈 Mascot Birth — $35</h2>
+        <h2>😈 Mascot Birth — $5</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
       
