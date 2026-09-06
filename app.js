@@ -157,7 +157,7 @@ function experiments() {
 
         <article class="card">
           <div class="roll-badge">🎯 ONE-SHOT</div>
-          <h3>😈 Mascot Birth — $5</h3>
+          <h3>😈 Mascot Birth — $7</h3>
           <p>1 finished character. One-Shot Only.</p>
           <div class="action-stack">
             <button class="btn primary" data-route="paywall-mascot">Start Experiment</button>
