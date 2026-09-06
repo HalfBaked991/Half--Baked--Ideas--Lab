@@ -92,7 +92,7 @@ function how() {
           <div style="font-size:2.4rem">🎲</div>
           <h3>MULTI-ROLL</h3>
           <p><strong>Stickers, Logos, Tees</strong><br>
-          We make 2-3 options. You pick your fave. 1 tiny tweak included. Delivery:24-48hrs.</p>
+          We make 2-3 options. You pick your fave. Delivery:24-48hrs.</p>
         </article>
         
         <article class="card">
