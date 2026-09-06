@@ -472,45 +472,6 @@ function formMascot() {
       </div>
     </div>
   `);
-}function formSticker() {
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title">
-        <h2>🎨 Sticker Drop Brief</h2>
-        <p>Step 2 of 2: Tell us what to make</p>
-      </div>
-      
-      <article class="recipe-card">
-        <div class="form-group">
-          <label class="form-label">1. Your name</label>
-          <input id="stickerName" type="text" placeholder="What should we call you?">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">2. Your email</label>
-          <input id="stickerEmail" type="email" placeholder="Where we send your final">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">3. What should your sticker be?</label>
-          <textarea id="stickerDesc" rows="6" placeholder="Go wild with detail! What's the character doing? Colors? Mood? Background? Props? The more you tell us, the better we can cook."></textarea>
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">4. Vibe/Style</label>
-          <input id="stickerVibe" type="text" placeholder="Ex: Cute but deadly, retro cartoon, vaporwave">
-        </div>
-        
-      
-        <button class="btn primary" id="sendSticker">SEND TO THE LAB →</button>
-        <div id="stickerStatus"></div>
-      </article>
-
-      <div class="action-stack" style="margin-top:24px">
-        <button class="btn ghost" data-route="paywall-sticker">← Back to Payment</button>
-      </div>
-    </div>
-  `);
 }
 
 function formLogo() {
@@ -925,24 +886,7 @@ async function sendStickerForm() {
 }
   
   
-  status.innerHTML = `<p class="hint">🧪 Sending to the lab...</p>`;
-  try {
-    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
-      form_type: "STICKER DROP ORDER",
-      customer_name: name,
-      customer_email: email,
-      product: "Sticker Drop - $15",
-      description: desc,
-      vibe: vibe,
-      usage: use,
-      submitted_at: new Date().toLocaleString()
-    });
-    status.innerHTML = `<div class="notice">LAB RECEIVED! 🎨 We'll verify payment and start cooking. Check your email in 48hrs.</div>`;
-  } catch (err) {
-    status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
-    console.error(err);
-  }
-}
+  
 
 async function sendLogoForm() {
   const name = document.getElementById("logoName").value.trim();
