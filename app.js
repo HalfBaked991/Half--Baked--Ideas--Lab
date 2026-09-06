@@ -222,6 +222,9 @@ function paywallLogo() {
           <h3>Step 2: Tell us your idea</h3>
           <p><strong>After payment, click below to submit your brief.</strong></p>
           <div class="action-stack">
+          
+          <a class="btn primary" href="https://cash.app/$Dreadnought1212/15" target="_blank">Pay $15 with Cash App</a>
+          <a class="btn" href="https://paypal.me/https://www.paypal.me/AmeliaBaDillia/15" target="_blank">Pay $15 with PayPal</a>
             <button class="btn primary" data-route="form-logo">I Paid, Continue to Form →</button>
           </div>
           <p class="hint"><small>We verify all payments before starting work. Put "Logo Spawn" in payment note so we can match it.</small></p>
