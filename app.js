@@ -690,6 +690,32 @@ async function sendContact() {
       customer_name: state.contact.name,
       customer_email: state.contact.email,
       idea: state.contact.message,
+      message: state.contact.message, // THIS FIXES VIBE/STYLE - puts their message there
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
+    state.contact = { name: "", email: "", message: "" };
+    document.getElementById("contactName").value = "";
+    document.getElementById("contactEmail").value = "";
+    document.getElementById("contactMessage").value = "";
+  } catch (err) {
+    status.innerHTML = `<div class="notice">We couldn't send the message yet. Please text us at <strong>(575) 707-2480</strong>.</div>`;
+    console.error(err);
+  }
+}
+  
+  if (!state.contact.name ||!state.contact.email ||!state.contact.message) {
+    status.innerHTML = `<p class="hint">Please enter your name, email, and message.</p>`;
+    return;
+  }
+  status.innerHTML = `<p class="hint">Sending...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+      form_type: "CONTACT MESSAGE",
+      tier_name: "General Inquiry",
+      customer_name: state.contact.name,
+      customer_email: state.contact.email,
+      idea: state.contact.message,
       message: "",
       submitted_at: new Date().toLocaleString()
     });
@@ -844,6 +870,31 @@ if (chatBubble && chatModal) {
       status.innerHTML = `<p class="hint">Please fill out all fields.</p>`;
       return;
     }
+    
+    status.innerHTML = `<p class="hint">Sending...</p>`;
+    try {
+      await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+        form_type: "LIVE CHAT QUESTION",
+        tier_name: "Live Chat Inquiry",
+        customer_name: name,
+        customer_email: contact,
+        idea: message,
+        message: message, // THIS FIXES VIBE/STYLE - puts their message there
+        submitted_at: new Date().toLocaleString()
+      });
+      status.innerHTML = `<div class="notice">Sent! We'll text you back ASAP.</div>`;
+      setTimeout(() => {
+        chatModal.classList.remove("open");
+        document.getElementById("chatName").value = "";
+        document.getElementById("chatContact").value = "";
+        document.getElementById("chatMessage").value = "";
+        status.innerHTML = "";
+      }, 2000);
+    } catch (err) {
+      status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
+      console.error("Chat error:", err);
+    }
+});
     
     status.innerHTML = `<p class="hint">Sending...</p>`;
     try {
