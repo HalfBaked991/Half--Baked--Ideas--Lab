@@ -506,11 +506,7 @@ function formMascot() {
           <input id="stickerVibe" type="text" placeholder="Ex: Cute but deadly, retro cartoon, vaporwave">
         </div>
         
-        <div class="form-group">
-          <label class="form-label">5. Where will you use it?</label>
-          <input id="stickerUse" type="text" placeholder="Ex: Laptop, water bottle, Discord server">
-        </div>
-
+      
         <button class="btn primary" id="sendSticker">SEND TO THE LAB →</button>
         <div id="stickerStatus"></div>
       </article>
@@ -879,6 +875,28 @@ async function sendStickerForm() {
   const vibe = document.getElementById("stickerVibe").value.trim();
   const use = document.getElementById("stickerUse").value.trim();
   const status = document.getElementById("stickerStatus");
+  
+  if (!name || !email || !desc) {
+    status.innerHTML = `<p class="hint">Please fill name, email, and description.</p>`;
+    return;
+  }
+  status.innerHTML = `<p class="hint">🧪 Sending to the lab...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+      form_type: "STICKER DROP ORDER",
+      tier_name: "Sticker Drop - $15",    // ← Must be tier_name
+      customer_name: name,                // ← Must be customer_name  
+      customer_email: email,              // ← Must be customer_email
+      idea: desc,                         // ← Must be idea
+      message: `Vibe: ${vibe} | Usage: ${use}`, // ← Must be message
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">LAB RECEIVED! 🎨 We'll verify payment and start cooking. Check your email in 48hrs.</div>`;
+  } catch (err) {
+    status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
+    console.error(err);
+  }
+}
   
   if (!name || !email || !desc) {
     status.innerHTML = `<p class="hint">Please fill name, email, and description.</p>`;
