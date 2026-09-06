@@ -1,23 +1,14 @@
 const C = window.HB_CONFIG || {};
 const app = document.getElementById("app");
 
-
 const state = {
   route: "home",
-  step: 0,
-  selectedTier: null,
-  customer: { name: "", email: "" },
-  answers: { idea: "", why: "", hungry: "", want: "" },
   review: { name: "", rating: 5, text: "", privateName: false },
   contact: { name: "", email: "", message: "" }
 };
 
 function go(route) {
   state.route = route;
-  if (route === "recipe") {
-    state.route = "customer";
-    state.step = 0;
-  }
   render();
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
@@ -39,6 +30,7 @@ function escapeHtml(value) {
     "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
   }[ch]));
 }
+
 function footer() {
   return `
     <footer class="app-footer">
@@ -54,10 +46,10 @@ function footer() {
     </footer>
   `;
 }
+
 function layout(content) {
   return `
     <div class="app">
-      
       <main>
         ${content}
       </main>
@@ -73,10 +65,10 @@ function home() {
       <div class="kicker">Welcome to the Lab</div>
       <h1>Got an <span class="script">idea?</span></h1>
       <p>
-  We help name it and make it real. Business names, product names, logos, mascots, stickers, merch, and characters for your socials.<br>
-  If you can describe it badly, we can make it look good.<br>
-  <strong>Even if it's a terrible idea. We actually like those.</strong>
-</p>
+        We help name it and make it real. Business names, product names, logos, mascots, stickers, merch, and characters for your socials.<br>
+        If you can describe it badly, we can make it look good.<br>
+        <strong>Even if it's a terrible idea. We actually like those.</strong>
+      </p>
       <div class="action-stack">
         <button class="btn" data-route="how">🧪 HOW IT WORKS</button>
         <button class="btn primary" data-route="reviews">🧠 CUSTOMER REVIEWS</button>
@@ -84,51 +76,6 @@ function home() {
         <button class="btn" data-route="contact">💬 CONTACT / TEXT US</button>
       </div>
     </section>
-  `);
-}
-function privacy() {
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title">
-        <h2>Privacy Policy</h2>
-      </div>
-      <article class="recipe-card">
-        <h3>What we collect</h3>
-        <p>Name and email when you submit your idea. Payment handled by Cash App/PayPal — we never see card details.</p>
-        
-        <h3>How we use it</h3>
-        <p>To deliver your recipe and contact you about your submission. We don’t sell your data.</p>
-        
-        <h3>Delete your data</h3>
-        <p>Email hello@halfbakedideaslab.com</p>
-        
-        <p><em>Last updated: Sept 4, 2026</em></p>
-        
-        <div class="action-stack" style="margin-top:24px">
-          <button class="btn ghost" data-route="home">← Back to Home</button>
-        </div>
-      </article>
-    </div>
-  `);
-}
-
-function terms() {
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title">
-        <h2>Terms of Service</h2>
-      </div>
-      <article class="recipe-card">
-        <p>By using Half Baked Ideas Lab, you agree not to submit illegal ideas. All digital product sales are final.</p>
-        <p>We reserve the right to refuse service.</p>
-        
-        <p><em>Last updated: Sept 4, 2026</em></p>
-        
-        <div class="action-stack" style="margin-top:24px">
-          <button class="btn ghost" data-route="home">← Back to Home</button>
-        </div>
-      </article>
-    </div>
   `);
 }
 
@@ -172,6 +119,78 @@ function how() {
   `);
 }
 
+function experiments() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>🧪 PICK YOUR EXPERIMENT</h2>
+        <p>Multi-Roll = you get options. One-Shot = lab speaks once.</p>
+      </div>
+      
+      <div class="grid">
+        <article class="card">
+          <div class="roll-badge">🎲 MULTI-ROLL</div>
+          <h3>🎨 Sticker Drop — $15</h3>
+          <p>3 concepts → pick 1 final sticker</p>
+          <ul>
+            <li>48hr turnaround</li>
+            <li>1 tiny tweak included</li>
+            <li>PNG, transparent bg</li>
+          </ul>
+          <div class="action-stack">
+            <button class="btn primary" onclick="window.open('https://gumroad.com/l/sticker','_blank')">Start Experiment</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="roll-badge">🎲 MULTI-ROLL</div>
+          <h3>🌀 Logo Spawn — $30</h3>
+          <p>3 concepts → pick 1 final logo</p>
+          <ul>
+            <li>48hr turnaround</li>
+            <li>Color + B&W versions</li>
+            <li>1 tiny tweak included</li>
+          </ul>
+          <div class="action-stack">
+            <button class="btn primary" onclick="window.open('https://gumroad.com/l/logo','_blank')">Start Experiment</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="roll-badge">🎲 MULTI-ROLL</div>
+          <h3>👕 Tee Concept — $20</h3>
+          <p>2 mockups → pick 1 final</p>
+          <ul>
+            <li>48hr turnaround</li>
+            <li>Front/back shown</li>
+            <li>Print-ready +$5</li>
+          </ul>
+          <div class="action-stack">
+            <button class="btn primary" onclick="window.open('https://gumroad.com/l/tee','_blank')">Start Experiment</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="roll-badge">🎯 ONE-SHOT</div>
+          <h3>😈 Mascot Birth — $35</h3>
+          <p>1 finished character. One-Shot Only.</p>
+          <ul>
+            <li>72hr turnaround</li>
+            <li>Name + backstory included</li>
+            <li>No redos. New birth = $35</li>
+          </ul>
+          <div class="action-stack">
+            <button class="btn primary" onclick="window.open('https://gumroad.com/l/mascot','_blank')">Start Experiment</button>
+          </div>
+        </article>
+      </div>
+
+      <div class="action-stack" style="margin-top:32px">
+        <button class="btn ghost" data-route="how">← Back to How It Works</button>
+      </div>
+    </div>
+  `);
+}
 
 function reviews() {
   return layout(`
@@ -200,10 +219,9 @@ function leaveReview() {
         <div id="reviewStatus"></div>
       </article>
     </div>
-          <div class="action-stack" style="margin-top:32px">
-        <button class="btn ghost" data-route="home">← Back to Home</button>
-      </div>
-          
+    <div class="action-stack" style="margin-top:32px">
+      <button class="btn ghost" data-route="home">← Back to Home</button>
+    </div>
   `);
 }
 
@@ -226,8 +244,8 @@ function support() {
     </div>
     <div class="notice" style="margin-top:16px;text-align:center">No pressure. Your ideas are welcome whether you donate a penny or not.</div>
     <div class="action-stack" style="margin-top:32px">
-  <button class="btn ghost" data-route="home">← Back to Home</button>
-</div>
+      <button class="btn ghost" data-route="home">← Back to Home</button>
+    </div>
   `);
 }
 
@@ -240,6 +258,7 @@ function contact() {
         <article class="card" style="text-align:center"><h3>✉️ Email Us</h3><p style="font-size:1.05rem;color:var(--cyan)">Halfbakedideaslab@gmail.com</p><div class="action-stack"><a class="btn" href="mailto:Halfbakedideaslab@gmail.com">EMAIL US</a></div></article>
       </div>
       <div class="section-title" style="margin-top:34px"><h2>Or Send a Message</h2></div>
+      <article class="recipe-card">
         <div class="form-group"><label class="form-label">Name</label><input id="contactName" type="text" value="${escapeHtml(state.contact.name)}"></div>
         <div class="form-group"><label class="form-label">Email</label><input id="contactEmail" type="email" value="${escapeHtml(state.contact.email)}"></div>
         <div class="form-group"><label class="form-label">Message</label><textarea id="contactMessage" maxlength="3000" placeholder="How can we help?">${escapeHtml(state.contact.message)}</textarea></div>
@@ -250,9 +269,50 @@ function contact() {
   `);
 }
 
+function privacy() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>Privacy Policy</h2>
+      </div>
+      <article class="recipe-card">
+        <h3>What we collect</h3>
+        <p>Name and email when you submit your idea. Payment handled by Cash App/PayPal — we never see card details.</p>
+        <h3>How we use it</h3>
+        <p>To deliver your recipe and contact you about your submission. We don’t sell your data.</p>
+        <h3>Delete your data</h3>
+        <p>Email hello@halfbakedideaslab.com</p>
+        <p><em>Last updated: Sept 4, 2026</em></p>
+        <div class="action-stack" style="margin-top:24px">
+          <button class="btn ghost" data-route="home">← Back to Home</button>
+        </div>
+      </article>
+    </div>
+  `);
+}
+
+function terms() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>Terms of Service</h2>
+      </div>
+      <article class="recipe-card">
+        <p>By using Half Baked Ideas Lab, you agree not to submit illegal ideas. All digital product sales are final.</p>
+        <p>We reserve the right to refuse service.</p>
+        <p><em>Last updated: Sept 4, 2026</em></p>
+        <div class="action-stack" style="margin-top:24px">
+          <button class="btn ghost" data-route="home">← Back to Home</button>
+        </div>
+      </article>
+    </div>
+  `);
+}
+
 function render() {
   const routes = {
-    home, how, reviews, support, contact, "leave-review": leaveReview,
+    home, how, reviews, support, contact, 
+    "leave-review": leaveReview,
     "experiments": experiments,
     "privacy": privacy,
     "terms": terms
@@ -265,32 +325,6 @@ function render() {
 }
 
 function bindCurrent() {
-  if (state.route === "recipe") {
-    document.getElementById("recipeAnswer")?.addEventListener("input", e => {
-      state.answers[recipe[state.step].key] = e.target.value;
-    });
-    document.getElementById("backStep")?.addEventListener("click", () => {
-      if (state.step > 0) { state.step--; render(); }
-    });
-    document.getElementById("nextStep")?.addEventListener("click", () => {
-      state.answers[recipe[state.step].key] = document.getElementById("recipeAnswer").value.trim();
-      if (state.step < recipe.length - 1) { state.step++; render(); }
-      else { state.route = "review-recipe"; render(); }
-    });
-  }
-  if (state.route === "customer") {
-    document.getElementById("customerName")?.addEventListener("input", e => state.customer.name = e.target.value);
-    document.getElementById("customerEmail")?.addEventListener("input", e => state.customer.email = e.target.value);
-    document.getElementById("backCustomer")?.addEventListener("click", () => go("home"));
-    document.getElementById("toRecipe")?.addEventListener("click", () => {
-      const name = document.getElementById("customerName").value.trim();
-      const email = document.getElementById("customerEmail").value.trim();
-      if (!name ||!email) return alert("Please enter your name and email so we know where to send your finished ideas.");
-      state.customer = { name, email };
-      state.step = 0; state.route = "recipe"; render();
-    });
-  } 
-  
   if (state.route === "leave-review") {
     document.querySelectorAll("[data-rating]").forEach(b => b.addEventListener("click", () => { state.review.rating = Number(b.dataset.rating); render(); }));
     document.getElementById("sendReview")?.addEventListener("click", sendReview);
@@ -305,30 +339,6 @@ async function sendViaEmailJS(templateId, params) {
     throw new Error("EmailJS is not connected yet. Add your EmailJS public key, service ID, and template ID in config.js.");
   }
   return emailjs.send(C.EMAILJS_SERVICE_ID, templateId, params);
-}
-
-async function sendRecipe() {
-  const status = document.getElementById("sendStatus");
-  status.innerHTML = `<p class="hint">🧪 Sending your recipe to the Lab...</p>`;
-  const params = {
-    form_type: "IDEAS RECIPE",
-    customer_name: state.customer.name,
-    customer_email: state.customer.email,
-    tier: state.selectedTier || "none",
-    tier_name: state.selectedTier === "egg"? "Free - Idea Roast" : state.selectedTier === "half-baked"? "$49 - Reality Check Sprint" : state.selectedTier === "fully-baked"? "$299 - Fully Baked" : "No tier",
-    idea: state.answers.idea,
-    why: state.answers.why,
-    hungry: state.answers.hungry,
-    what_you_want: state.answers.want,
-    submitted_at: new Date().toLocaleString()
-  };
-  try {
-    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, params);
-    go("success");
-  } catch (err) {
-    status.innerHTML = `<div class="notice">We couldn't send the recipe yet. Please check your connection or text us at <strong>(575) 707-2480</strong>. The app is ready; EmailJS just needs to be connected.</div>`;
-    console.error(err);
-  }
 }
 
 async function sendReview() {
@@ -371,8 +381,7 @@ async function sendContact() {
       message: state.contact.message,
       submitted_at: new Date().toLocaleString()
     });
-    status.innerHTML = `<div class="notice">Sent! We'll get back to you
- ASAP.</div>`;
+    status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
     state.contact = { name: "", email: "", message: "" };
     document.getElementById("contactName").value = "";
     document.getElementById("contactEmail").value = "";
@@ -430,5 +439,4 @@ if (chatBubble && chatModal) {
   });
 }
 
-// 
 render();
