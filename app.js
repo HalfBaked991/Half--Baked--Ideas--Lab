@@ -635,16 +635,34 @@ async function sendViaEmailJS(templateId, params) {
 }
 
 async function sendReview() {
-  state.review.name = document.getElementById("reviewName").value.trim();
-  state.review.text = document.getElementById("reviewText").value.trim();
-  state.review.privateName = document.getElementById("privateName").checked;
+  const nameInput = document.getElementById("reviewName").value.trim();
+  const textInput = document.getElementById("reviewText").value.trim();
+  const privateName = document.getElementById("privateName").checked;
   const status = document.getElementById("reviewStatus");
-  if (!state.review.text) { status.innerHTML = `<p class="hint">Please tell us a little about your experience.</p>`; return; }
+  
+  // Update state
+  state.review.name = nameInput;
+  state.review.text = textInput;
+  state.review.privateName = privateName;
+  
+  if (!state.review.text) { 
+    status.innerHTML = `<p class="hint">Please tell us a little about your experience.</p>`; 
+    return; 
+  }
+  
+  // If name is blank and not private, default to "Anonymous"
+  let displayName = "Anonymous";
+  if (state.review.privateName) {
+    displayName = "Private";
+  } else if (state.review.name) {
+    displayName = state.review.name;
+  }
+  
   status.innerHTML = `<p class="hint">⭐ Sending your review...</p>`;
   try {
     await sendViaEmailJS(C.EMAILJS_REVIEW_TEMPLATE_ID, {
       form_type: "CUSTOMER REVIEW",
-      customer_name: state.review.privateName? "Private" : state.review.name,
+      customer_name: displayName, // This will never be blank now
       rating: state.review.rating,
       review: state.review.text,
       submitted_at: new Date().toLocaleString()
@@ -655,16 +673,37 @@ async function sendReview() {
     console.error(err);
   }
 }
-
 async function sendContact() {
   state.contact.name = document.getElementById("contactName").value.trim();
   state.contact.email = document.getElementById("contactEmail").value.trim();
   state.contact.message = document.getElementById("contactMessage").value.trim();
   const status = document.getElementById("contactStatus");
+  
   if (!state.contact.name ||!state.contact.email ||!state.contact.message) {
     status.innerHTML = `<p class="hint">Please enter your name, email, and message.</p>`;
     return;
   }
+  status.innerHTML = `<p class="hint">Sending...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+      form_type: "CONTACT MESSAGE",
+      tier_name: "General Inquiry", // This fills Product: in the email
+      customer_name: state.contact.name,
+      customer_email: state.contact.email,
+      idea: state.contact.message, // This fills THE DESCRIPTION in the email
+      message: "", // Vibe is blank for contact form
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
+    state.contact = { name: "", email: "", message: "" };
+    document.getElementById("contactName").value = "";
+    document.getElementById("contactEmail").value = "";
+    document.getElementById("contactMessage").value = "";
+  } catch (err) {
+    status.innerHTML = `<div class="notice">We couldn't send the message yet. Please text us at <strong>(575) 707-2480</strong>.</div>`;
+    console.error(err);
+  }
+}
   status.innerHTML = `<p class="hint">Sending...</p>`;
   try {
     await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
@@ -871,10 +910,36 @@ if (chatBubble && chatModal) {
     const contact = document.getElementById("chatContact").value.trim();
     const message = document.getElementById("chatMessage").value.trim();
     const status = document.getElementById("chatStatus");
+    
     if (!name ||!contact ||!message) {
       status.innerHTML = `<p class="hint">Please fill out all fields.</p>`;
       return;
     }
+    
+    status.innerHTML = `<p class="hint">Sending...</p>`;
+    try {
+      await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+        form_type: "LIVE CHAT QUESTION",
+        product: "Live Chat Inquiry", // Hardcode this since chat doesn't have a product
+        customer_name: name,
+        customer_email: contact, // Use 'customer_email' not 'customer_contact'
+        idea: message, // Your template uses 'idea' for the description
+        message: "", // Vibe is blank for chat
+        submitted_at: new Date().toLocaleString()
+      });
+      status.innerHTML = `<div class="notice">Sent! We'll text you back ASAP.</div>`;
+      setTimeout(() => {
+        chatModal.classList.remove("open");
+        document.getElementById("chatName").value = "";
+        document.getElementById("chatContact").value = "";
+        document.getElementById("chatMessage").value = "";
+        status.innerHTML = "";
+      }, 2000);
+    } catch (err) {
+      status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
+      console.error("Chat error:", err);
+    }
+});
     status.innerHTML = `<p class="hint">Sending...</p>`;
     try {
       await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
