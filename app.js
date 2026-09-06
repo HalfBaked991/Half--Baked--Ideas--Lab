@@ -139,7 +139,7 @@ function experiments() {
 
         <article class="card">
           <div class="roll-badge">🎲 MULTI-ROLL</div>
-          <h3>🌀 Logo Spawn — $7</h3>
+          <h3>🌀 Logo Spawn — $5</h3>
           <p>3 concepts → pick 1 final logo</p>
           <div class="action-stack">
             <button class="btn primary" data-route="paywall-logo">Start Experiment</button>
