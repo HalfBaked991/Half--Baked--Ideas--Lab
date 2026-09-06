@@ -86,7 +86,7 @@ function how() {
         <h2>How the Lab Works</h2>
         <p>Pick an experiment. We’ll make it real.</p>
       </div>
-      
+
       <div class="grid">
         <article class="card">
           <div style="font-size:2.4rem">🎲</div>
@@ -94,7 +94,7 @@ function how() {
           <p><strong>Stickers, Logos, Tees</strong><br>
           We make 2-3 options. You pick your fave. 1 tiny tweak included. 48hrs.</p>
         </article>
-        
+
         <article class="card">
           <div style="font-size:2.4rem">🎯</div>
           <h3>ONE-SHOT</h3>
@@ -126,7 +126,7 @@ function experiments() {
         <h2>🧪 PICK YOUR EXPERIMENT</h2>
         <p>Multi-Roll = you get options. One-Shot = lab speaks once.</p>
       </div>
-      
+
       <div class="grid">
         <article class="card">
           <div class="roll-badge">🎲 MULTI-ROLL</div>
@@ -165,30 +165,28 @@ function experiments() {
         </article>
       </div>
 
-      
       <div class="action-stack" style="margin-top:32px">
         <button class="btn ghost" data-route="how">← Back to How It Works</button>
       </div>
     </div>
   `);
 }
-    
 
-      function paywallSticker() {
+function paywallSticker() {
   return layout(`
     <div class="step-shell">
       <div class="section-title">
         <h2>🎨 Sticker Drop — $15</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
-      
+
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
           <a class="btn primary" href="https://cash.app/$Dreadnought1212/15" target="_blank">Pay $15 with Cash App</a>
-          <a class="btn" href="https://paypal.me/https://www.paypal.me/AmeliaBaDillia/15" target="_blank">Pay $15 with PayPal</a>
+          <a class="btn" href="https://paypal.me/AmeliaBaDillia/15" target="_blank">Pay $15 with PayPal</a>
         </div>
-        
+
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
           <h3>Step 2: Tell us your idea</h3>
           <p><strong>After payment, click below to submit your brief.</strong></p>
@@ -213,21 +211,18 @@ function paywallLogo() {
         <h2>🌀 Logo Spawn — $30</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
-      
+
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
-        <a class="btn primary" href="https://cash.app/$Dreadnought1212/15" target="_blank">Pay $15 with Cash App</a>
-          <a class="btn" href="https://paypal.me/https://www.paypal.me/AmeliaBaDillia/15" target="_blank">Pay $15 with PayPal</a>
+        <a class="btn primary" href="https://cash.app/$Dreadnought1212/30" target="_blank">Pay $30 with Cash App</a>
+          <a class="btn" href="https://paypal.me/AmeliaBaDillia/30" target="_blank">Pay $30 with PayPal</a>
         </div>
-        
+
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
           <h3>Step 2: Tell us your idea</h3>
           <p><strong>After payment, click below to submit your brief.</strong></p>
           <div class="action-stack">
-          
-          
-          
             <button class="btn primary" data-route="form-logo">I Paid, Continue to Form →</button>
           </div>
           <p class="hint"><small>We verify all payments before starting work. Put "Logo Spawn" in payment note so we can match it.</small></p>
@@ -248,14 +243,14 @@ function paywallTee() {
         <h2>👕 Tee Concept — $20</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
-      
+
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
           <a class="btn primary" href="https://cash.app/$Dreadnought1212/20" target="_blank">Pay $20 with Cash App</a>
-          <a class="btn" href="https://paypal.me/https://www.paypal.me/AmeliaBaDillia/20" target="_blank">Pay $20 with PayPal</a>
+          <a class="btn" href="https://paypal.me/AmeliaBaDillia/20" target="_blank">Pay $20 with PayPal</a>
         </div>
-        
+
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
           <h3>Step 2: Tell us your idea</h3>
           <p><strong>After payment, click below to submit your brief.</strong></p>
@@ -280,14 +275,14 @@ function paywallMascot() {
         <h2>😈 Mascot Birth — $35</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
-      
+
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
           <a class="btn primary" href="https://cash.app/$Dreadnought1212/35" target="_blank">Pay $35 with Cash App</a>
-          <a class="btn" href="https://paypal.me/https://www.paypal.me/AmeliaBaDillia/35" target="_blank">Pay $35 with PayPal</a>
+          <a class="btn" href="https://paypal.me/AmeliaBaDillia/35" target="_blank">Pay $35 with PayPal</a>
         </div>
-        
+
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
           <h3>Step 2: Tell us your idea</h3>
           <p><strong>After payment, click below to submit your brief.</strong></p>
@@ -304,6 +299,7 @@ function paywallMascot() {
     </div>
   `);
 }
+
 function formSticker() {
   return layout(`
     <div class="step-shell">
@@ -311,23 +307,23 @@ function formSticker() {
         <h2>🎨 Sticker Drop Brief</h2>
         <p>Step 2 of 2: Tell us what to make</p>
       </div>
-      
+
       <article class="recipe-card">
         <div class="form-group">
           <label class="form-label">1. Your name</label>
           <input id="stickerName" type="text" placeholder="What should we call you?">
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">2. Your email</label>
           <input id="stickerEmail" type="email" placeholder="Where we send your final">
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">3. What should your sticker be?</label>
-          <textarea id="stickerDesc" maxlength="500" placeholder="Ex: Angry raccoon with a taco, holding a tiny sword"></textarea>
+          <textarea id="stickerDesc" rows="6" placeholder="Go wild with detail! What's the character doing? Colors? Mood? Background? Props? The more you tell us, the better we can cook."></textarea>
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">4. Vibe/Style</label>
           <input id="stickerVibe" type="text" placeholder="Ex: Cute but deadly, retro cartoon, vaporwave">
@@ -351,28 +347,28 @@ function formLogo() {
         <h2>🌀 Logo Spawn Brief</h2>
         <p>Step 2 of 2: Tell us what to make</p>
       </div>
-      
+
       <article class="recipe-card">
         <div class="form-group">
           <label class="form-label">1. Your name</label>
           <input id="logoName" type="text" placeholder="What should we call you?">
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">2. Your email</label>
           <input id="logoEmail" type="email" placeholder="Where we send your final">
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">3. Business/Brand name</label>
           <input id="logoBrand" type="text" placeholder="Ex: Half Baked Ideas Lab">
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">4. What does it do/sell?</label>
           <textarea id="logoDesc" maxlength="500" placeholder="Ex: We turn dumb ideas into logos for meme pages"></textarea>
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">5. Vibe/Style</label>
           <input id="logoVibe" type="text" placeholder="Ex: Minimal, chaotic, retro gaming, corporate but unhinged">
@@ -396,23 +392,23 @@ function formTee() {
         <h2>👕 Tee Concept Brief</h2>
         <p>Step 2 of 2: Tell us what to make</p>
       </div>
-      
+
       <article class="recipe-card">
         <div class="form-group">
           <label class="form-label">1. Your name</label>
           <input id="teeName" type="text" placeholder="What should we call you?">
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">2. Your email</label>
           <input id="teeEmail" type="email" placeholder="Where we send your final">
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">3. Shirt idea/theme</label>
           <textarea id="teeDesc" maxlength="500" placeholder="Ex: A possum screaming 'I AM THE MANAGER' in bold text"></textarea>
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">4. Vibe/Style</label>
           <input id="teeVibe" type="text" placeholder="Ex: Vintage band tee, ironic, Y2K, metal font">
@@ -436,31 +432,26 @@ function formMascot() {
         <h2>😈 Mascot Birth Brief</h2>
         <p>Step 2 of 2: Tell us what to make</p>
       </div>
-      
+
       <article class="recipe-card">
         <div class="form-group">
           <label class="form-label">1. Your name</label>
           <input id="mascotName" type="text" placeholder="What should we call you?">
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">2. Your email</label>
           <input id="mascotEmail" type="email" placeholder="Where we send your final">
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">3. Describe your mascot</label>
           <textarea id="mascotDesc" maxlength="500" placeholder="Ex: A depressed wizard frog who runs a failing potion shop"></textarea>
         </div>
-        
+
         <div class="form-group">
           <label class="form-label">4. Personality/Vibe</label>
           <input id="mascotVibe" type="text" placeholder="Ex: Chaotic good, tired, secretly powerful, loves snacks">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">5. Where will you use them?</label>
-          <input id="mascotUse" type="text" placeholder="Ex: Twitch emotes, Discord pfp, brand character">
         </div>
 
         <button class="btn primary" id="sendMascot">SEND TO THE LAB →</button>
@@ -474,136 +465,6 @@ function formMascot() {
   `);
 }
 
-function formLogo() {
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title">
-        <h2>🌀 Logo Spawn Brief</h2>
-        <p>Step 2 of 2: Tell us what to make</p>
-      </div>
-      
-      <article class="recipe-card">
-        <div class="form-group">
-          <label class="form-label">1. Your name</label>
-          <input id="logoName" type="text" placeholder="What should we call you?">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">2. Your email</label>
-          <input id="logoEmail" type="email" placeholder="Where we send your final">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">3. Business/Brand name</label>
-          <input id="logoBrand" type="text" placeholder="Ex: Half Baked Ideas Lab">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">4. What does it do/sell?</label>
-          <textarea id="logoDesc" maxlength="500" placeholder="Ex: We turn dumb ideas into logos for meme pages"></textarea>
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">5. Vibe/Style</label>
-          <input id="logoVibe" type="text" placeholder="Ex: Minimal, chaotic, retro gaming, corporate but unhinged">
-        </div>
-
-        <button class="btn primary" id="sendLogo">SEND TO THE LAB →</button>
-        <div id="logoStatus"></div>
-      </article>
-
-      <div class="action-stack" style="margin-top:24px">
-        <button class="btn ghost" data-route="paywall-logo">← Back to Payment</button>
-      </div>
-    </div>
-  `);
-}
-
-function formTee() {
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title">
-        <h2>👕 Tee Concept Brief</h2>
-        <p>Step 2 of 2: Tell us what to make</p>
-      </div>
-      
-      <article class="recipe-card">
-        <div class="form-group">
-          <label class="form-label">1. Your name</label>
-          <input id="teeName" type="text" placeholder="What should we call you?">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">2. Your email</label>
-          <input id="teeEmail" type="email" placeholder="Where we send your final">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">3. Shirt idea/theme</label>
-          <textarea id="teeDesc" maxlength="500" placeholder="Ex: A possum screaming 'I AM THE MANAGER' in bold text"></textarea>
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">4. Vibe/Style</label>
-          <input id="teeVibe" type="text" placeholder="Ex: Vintage band tee, ironic, Y2K, metal font">
-        </div>
-
-        <button class="btn primary" id="sendTee">SEND TO THE LAB →</button>
-        <div id="teeStatus"></div>
-      </article>
-
-      <div class="action-stack" style="margin-top:24px">
-        <button class="btn ghost" data-route="paywall-tee">← Back to Payment</button>
-      </div>
-    </div>
-  `);
-}
-
-function formMascot() {
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title">
-        <h2>😈 Mascot Birth Brief</h2>
-        <p>Step 2 of 2: Tell us what to make</p>
-      </div>
-      
-      <article class="recipe-card">
-        <div class="form-group">
-          <label class="form-label">1. Your name</label>
-          <input id="mascotName" type="text" placeholder="What should we call you?">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">2. Your email</label>
-          <input id="mascotEmail" type="email" placeholder="Where we send your final">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">3. Describe your mascot</label>
-          <textarea id="mascotDesc" maxlength="500" placeholder="Ex: A depressed wizard frog who runs a failing potion shop"></textarea>
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">4. Personality/Vibe</label>
-          <input id="mascotVibe" type="text" placeholder="Ex: Chaotic good, tired, secretly powerful, loves snacks">
-        </div>
-        
-        <div class="form-group">
-          <label class="form-label">5. Where will you use them?</label>
-          <input id="mascotUse" type="text" placeholder="Ex: Twitch emotes, Discord pfp, brand character">
-        </div>
-
-        <button class="btn primary" id="sendMascot">SEND TO THE LAB →</button>
-        <div id="mascotStatus"></div>
-      </article>
-
-      <div class="action-stack" style="margin-top:24px">
-        <button class="btn ghost" data-route="paywall-mascot">← Back to Payment</button>
-      </div>
-    </div>
-  `);
-}
-      
 function reviews() {
   return layout(`
     <div class="section-title"><h2>What Are People Saying?</h2><p>Real experiences can be added here as your Lab grows.</p></div>
@@ -723,23 +584,22 @@ function terms() {
 
 function render() {
   const routes = {
-    home, how, reviews, support, contact, 
+    home, how, reviews, support, contact,
     "leave-review": leaveReview,
     "experiments": experiments,
-
     "paywall-sticker": paywallSticker,
-  "paywall-logo": paywallLogo,
-  "paywall-tee": paywallTee,
-  "paywall-mascot": paywallMascot,
-      "form-sticker": formSticker,
-  "form-logo": formLogo,
-  "form-tee": formTee,
-  "form-mascot": formMascot,
+    "paywall-logo": paywallLogo,
+    "paywall-tee": paywallTee,
+    "paywall-mascot": paywallMascot,
+    "form-sticker": formSticker,
+    "form-logo": formLogo,
+    "form-tee": formTee,
+    "form-mascot": formMascot,
     "privacy": privacy,
     "terms": terms
   };
   app.innerHTML = (routes[state.route] || home)();
-  document.querySelectorAll("[data-route]").forEach(el => el.addEventListener("click", 
+  document.querySelectorAll("[data-route]").forEach(el => el.addEventListener("click",
     (e) => { e.preventDefault(); go(el.dataset.route); }
   ));
   bindCurrent();
@@ -753,7 +613,7 @@ function bindCurrent() {
   if (state.route === "contact") {
     document.getElementById("sendContact")?.addEventListener("click", sendContact);
   }
-    if (state.route === "form-sticker") {
+  if (state.route === "form-sticker") {
     document.getElementById("sendSticker")?.addEventListener("click", sendStickerForm);
   }
   if (state.route === "form-logo") {
@@ -824,14 +684,15 @@ async function sendContact() {
     console.error(err);
   }
 }
+
 async function sendStickerForm() {
   const name = document.getElementById("stickerName").value.trim();
   const email = document.getElementById("stickerEmail").value.trim();
   const desc = document.getElementById("stickerDesc").value.trim();
   const vibe = document.getElementById("stickerVibe").value.trim();
   const status = document.getElementById("stickerStatus");
-  
-  if (!name || !email || !desc) {
+
+  if (!name ||!email ||!desc) {
     status.innerHTML = `<p class="hint">Please fill name, email, and description.</p>`;
     return;
   }
@@ -852,41 +713,6 @@ async function sendStickerForm() {
     console.error(err);
   }
 }
-  
-  if (!name || !email || !desc) {
-    status.innerHTML = `<p class="hint">Please fill name, email, and description.</p>`;
-    return;
-  }
-  status.innerHTML = `<p class="hint">🧪 Sending to the lab...</p>`;
-  try {
-      try {
-    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
-      form_type: "STICKER DROP ORDER",
-      tier_name: "Sticker Drop - $15",
-      customer_name: name,
-      customer_email: email,
-      idea: desc,
-      message: vibe,
-      submitted_at: new Date().toLocaleString()
-    });
-    status.innerHTML = `<div class="notice">LAB RECEIVED! 🎨 We'll verify payment and start cooking. Check your email in 48hrs.</div>`;
-  } catch (err) {
-    status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
-    console.error(err);
-  }
-  }
-  status.innerHTML = `<p class="hint">🧪 Sending to the lab...</p>`;
-  try {
-    
-    status.innerHTML = `<div class="notice">LAB RECEIVED! 🎨 We'll verify payment and start cooking. Check your email in 48hrs.</div>`;
-  } catch (err) {
-    status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
-    console.error(err);
-  }
-}
-  
-  
-  
 
 async function sendLogoForm() {
   const name = document.getElementById("logoName").value.trim();
@@ -895,8 +721,8 @@ async function sendLogoForm() {
   const desc = document.getElementById("logoDesc").value.trim();
   const vibe = document.getElementById("logoVibe").value.trim();
   const status = document.getElementById("logoStatus");
-  
-  if (!name || !email || !brand || !desc) {
+
+  if (!name ||!email ||!brand ||!desc) {
     status.innerHTML = `<p class="hint">Please fill name, email, brand name, and description.</p>`;
     return;
   }
@@ -904,12 +730,11 @@ async function sendLogoForm() {
   try {
     await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
       form_type: "LOGO SPAWN ORDER",
+              tier_name: "Logo Spawn - $30",
       customer_name: name,
       customer_email: email,
-      product: "Logo Spawn - $30",
-      brand_name: brand,
-      description: desc,
-      vibe: vibe,
+      idea: desc,
+      message: `Brand: ${brand} | Vibe: ${vibe}`,
       submitted_at: new Date().toLocaleString()
     });
     status.innerHTML = `<div class="notice">LAB RECEIVED! 🌀 We'll verify payment and spawn 3 options. Check your email in 48hrs.</div>`;
@@ -925,7 +750,7 @@ async function sendTeeForm() {
   const desc = document.getElementById("teeDesc").value.trim();
   const vibe = document.getElementById("teeVibe").value.trim();
   const status = document.getElementById("teeStatus");
-  
+
   if (!name || !email || !desc) {
     status.innerHTML = `<p class="hint">Please fill name, email, and shirt idea.</p>`;
     return;
@@ -934,11 +759,11 @@ async function sendTeeForm() {
   try {
     await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
       form_type: "TEE CONCEPT ORDER",
+      tier_name: "Tee Concept - $20",
       customer_name: name,
       customer_email: email,
-      product: "Tee Concept - $20",
-      description: desc,
-      vibe: vibe,
+      idea: desc,
+      message: vibe,
       submitted_at: new Date().toLocaleString()
     });
     status.innerHTML = `<div class="notice">LAB RECEIVED! 👕 We'll verify payment and mock up 2 concepts. Check your email in 48hrs.</div>`;
@@ -953,9 +778,8 @@ async function sendMascotForm() {
   const email = document.getElementById("mascotEmail").value.trim();
   const desc = document.getElementById("mascotDesc").value.trim();
   const vibe = document.getElementById("mascotVibe").value.trim();
-  const use = document.getElementById("mascotUse").value.trim();
   const status = document.getElementById("mascotStatus");
-  
+
   if (!name || !email || !desc) {
     status.innerHTML = `<p class="hint">Please fill name, email, and mascot description.</p>`;
     return;
@@ -964,12 +788,11 @@ async function sendMascotForm() {
   try {
     await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
       form_type: "MASCOT BIRTH ORDER",
+      tier_name: "Mascot Birth - $35",
       customer_name: name,
       customer_email: email,
-      product: "Mascot Birth - $35",
-      description: desc,
-      vibe: vibe,
-      usage: use,
+      idea: desc,
+      message: vibe,
       submitted_at: new Date().toLocaleString()
     });
     status.innerHTML = `<div class="notice">LAB RECEIVED! 😈 We'll verify payment and birth your mascot. One-shot only. Check email in 72hrs.</div>`;
@@ -978,6 +801,58 @@ async function sendMascotForm() {
     console.error(err);
   }
 }
+
+async function sendReview() {
+  state.review.name = document.getElementById("reviewName").value.trim();
+  state.review.text = document.getElementById("reviewText").value.trim();
+  state.review.privateName = document.getElementById("privateName").checked;
+  const status = document.getElementById("reviewStatus");
+  if (!state.review.text) { status.innerHTML = `<p class="hint">Please tell us a little about your experience.</p>`; return; }
+  status.innerHTML = `<p class="hint">⭐ Sending your review...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_REVIEW_TEMPLATE_ID, {
+      form_type: "CUSTOMER REVIEW",
+      customer_name: state.review.privateName? "Private" : state.review.name,
+      rating: state.review.rating,
+      review: state.review.text,
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">THANK YOU! ⭐ Your review has been sent to the Lab for review before publication.</div>`;
+  } catch (err) {
+    status.innerHTML = `<div class="notice">We couldn't send the review yet. Please text us at <strong>(575) 707-2480</strong>.</div>`;
+    console.error(err);
+  }
+}
+
+async function sendContact() {
+  state.contact.name = document.getElementById("contactName").value.trim();
+  state.contact.email = document.getElementById("contactEmail").value.trim();
+  state.contact.message = document.getElementById("contactMessage").value.trim();
+  const status = document.getElementById("contactStatus");
+  if (!state.contact.name ||!state.contact.email ||!state.contact.message) {
+    status.innerHTML = `<p class="hint">Please enter your name, email, and message.</p>`;
+    return;
+  }
+  status.innerHTML = `<p class="hint">Sending...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+      form_type: "CONTACT MESSAGE",
+      customer_name: state.contact.name,
+      customer_email: state.contact.email,
+      message: state.contact.message,
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
+    state.contact = { name: "", email: "", message: "" };
+    document.getElementById("contactName").value = "";
+    document.getElementById("contactEmail").value = "";
+    document.getElementById("contactMessage").value = "";
+  } catch (err) {
+    status.innerHTML = `<div class="notice">We couldn't send the message yet. Please text us at <strong>(575) 707-2480</strong>.</div>`;
+    console.error(err);
+  }
+}
+
 // Chat Widget Logic
 const chatBubble = document.getElementById("chatBubble");
 const chatModal = document.getElementById("chatModal");
@@ -1025,4 +900,4 @@ if (chatBubble && chatModal) {
   });
 }
 
-render();
+render();       
