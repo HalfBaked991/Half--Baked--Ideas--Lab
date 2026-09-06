@@ -498,7 +498,7 @@ function formMascot() {
         
         <div class="form-group">
           <label class="form-label">3. What should your sticker be?</label>
-          <textarea id="stickerDesc" maxlength="500" placeholder="Ex: Angry raccoon with a taco, holding a tiny sword"></textarea>
+          <textarea id="stickerDesc" rows="6" placeholder="Go wild with detail! What's the character doing? Colors? Mood? Background? Props? The more you tell us, the better we can cook."></textarea>
         </div>
         
         <div class="form-group">
