@@ -86,7 +86,7 @@ function how() {
         <h2>How the Lab Works</h2>
         <p>Pick an experiment. We’ll make it real.</p>
       </div>
-
+      
       <div class="grid">
         <article class="card">
           <div style="font-size:2.4rem">🎲</div>
@@ -94,7 +94,7 @@ function how() {
           <p><strong>Stickers, Logos, Tees</strong><br>
           We make 2-3 options. You pick your fave. 1 tiny tweak included. 48hrs.</p>
         </article>
-
+        
         <article class="card">
           <div style="font-size:2.4rem">🎯</div>
           <h3>ONE-SHOT</h3>
@@ -126,7 +126,7 @@ function experiments() {
         <h2>🧪 PICK YOUR EXPERIMENT</h2>
         <p>Multi-Roll = you get options. One-Shot = lab speaks once.</p>
       </div>
-
+      
       <div class="grid">
         <article class="card">
           <div class="roll-badge">🎲 MULTI-ROLL</div>
@@ -164,7 +164,7 @@ function experiments() {
           </div>
         </article>
       </div>
-
+      
       <div class="action-stack" style="margin-top:32px">
         <button class="btn ghost" data-route="how">← Back to How It Works</button>
       </div>
@@ -179,14 +179,14 @@ function paywallSticker() {
         <h2>🎨 Sticker Drop — $15</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
-
+      
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
           <a class="btn primary" href="https://cash.app/$Dreadnought1212/15" target="_blank">Pay $15 with Cash App</a>
           <a class="btn" href="https://paypal.me/AmeliaBaDillia/15" target="_blank">Pay $15 with PayPal</a>
         </div>
-
+        
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
           <h3>Step 2: Tell us your idea</h3>
           <p><strong>After payment, click below to submit your brief.</strong></p>
@@ -211,14 +211,14 @@ function paywallLogo() {
         <h2>🌀 Logo Spawn — $30</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
-
+      
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
         <a class="btn primary" href="https://cash.app/$Dreadnought1212/30" target="_blank">Pay $30 with Cash App</a>
           <a class="btn" href="https://paypal.me/AmeliaBaDillia/30" target="_blank">Pay $30 with PayPal</a>
         </div>
-
+        
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
           <h3>Step 2: Tell us your idea</h3>
           <p><strong>After payment, click below to submit your brief.</strong></p>
@@ -243,14 +243,14 @@ function paywallTee() {
         <h2>👕 Tee Concept — $20</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
-
+      
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
           <a class="btn primary" href="https://cash.app/$Dreadnought1212/20" target="_blank">Pay $20 with Cash App</a>
           <a class="btn" href="https://paypal.me/AmeliaBaDillia/20" target="_blank">Pay $20 with PayPal</a>
         </div>
-
+        
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
           <h3>Step 2: Tell us your idea</h3>
           <p><strong>After payment, click below to submit your brief.</strong></p>
@@ -275,14 +275,14 @@ function paywallMascot() {
         <h2>😈 Mascot Birth — $35</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
-
+      
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
           <a class="btn primary" href="https://cash.app/$Dreadnought1212/35" target="_blank">Pay $35 with Cash App</a>
           <a class="btn" href="https://paypal.me/AmeliaBaDillia/35" target="_blank">Pay $35 with PayPal</a>
         </div>
-
+        
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
           <h3>Step 2: Tell us your idea</h3>
           <p><strong>After payment, click below to submit your brief.</strong></p>
@@ -307,28 +307,28 @@ function formSticker() {
         <h2>🎨 Sticker Drop Brief</h2>
         <p>Step 2 of 2: Tell us what to make</p>
       </div>
-
+      
       <article class="recipe-card">
         <div class="form-group">
           <label class="form-label">1. Your name</label>
           <input id="stickerName" type="text" placeholder="What should we call you?">
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">2. Your email</label>
           <input id="stickerEmail" type="email" placeholder="Where we send your final">
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">3. What should your sticker be?</label>
           <textarea id="stickerDesc" rows="6" placeholder="Go wild with detail! What's the character doing? Colors? Mood? Background? Props? The more you tell us, the better we can cook."></textarea>
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">4. Vibe/Style</label>
           <input id="stickerVibe" type="text" placeholder="Ex: Cute but deadly, retro cartoon, vaporwave">
         </div>
-
+        
         <button class="btn primary" id="sendSticker">SEND TO THE LAB →</button>
         <div id="stickerStatus"></div>
       </article>
@@ -347,28 +347,28 @@ function formLogo() {
         <h2>🌀 Logo Spawn Brief</h2>
         <p>Step 2 of 2: Tell us what to make</p>
       </div>
-
+      
       <article class="recipe-card">
         <div class="form-group">
           <label class="form-label">1. Your name</label>
           <input id="logoName" type="text" placeholder="What should we call you?">
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">2. Your email</label>
           <input id="logoEmail" type="email" placeholder="Where we send your final">
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">3. Business/Brand name</label>
           <input id="logoBrand" type="text" placeholder="Ex: Half Baked Ideas Lab">
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">4. What does it do/sell?</label>
           <textarea id="logoDesc" maxlength="500" placeholder="Ex: We turn dumb ideas into logos for meme pages"></textarea>
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">5. Vibe/Style</label>
           <input id="logoVibe" type="text" placeholder="Ex: Minimal, chaotic, retro gaming, corporate but unhinged">
@@ -392,23 +392,23 @@ function formTee() {
         <h2>👕 Tee Concept Brief</h2>
         <p>Step 2 of 2: Tell us what to make</p>
       </div>
-
+      
       <article class="recipe-card">
         <div class="form-group">
           <label class="form-label">1. Your name</label>
           <input id="teeName" type="text" placeholder="What should we call you?">
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">2. Your email</label>
           <input id="teeEmail" type="email" placeholder="Where we send your final">
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">3. Shirt idea/theme</label>
           <textarea id="teeDesc" maxlength="500" placeholder="Ex: A possum screaming 'I AM THE MANAGER' in bold text"></textarea>
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">4. Vibe/Style</label>
           <input id="teeVibe" type="text" placeholder="Ex: Vintage band tee, ironic, Y2K, metal font">
@@ -432,23 +432,23 @@ function formMascot() {
         <h2>😈 Mascot Birth Brief</h2>
         <p>Step 2 of 2: Tell us what to make</p>
       </div>
-
+      
       <article class="recipe-card">
         <div class="form-group">
           <label class="form-label">1. Your name</label>
           <input id="mascotName" type="text" placeholder="What should we call you?">
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">2. Your email</label>
           <input id="mascotEmail" type="email" placeholder="Where we send your final">
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">3. Describe your mascot</label>
           <textarea id="mascotDesc" maxlength="500" placeholder="Ex: A depressed wizard frog who runs a failing potion shop"></textarea>
         </div>
-
+        
         <div class="form-group">
           <label class="form-label">4. Personality/Vibe</label>
           <input id="mascotVibe" type="text" placeholder="Ex: Chaotic good, tired, secretly powerful, loves snacks">
@@ -640,7 +640,6 @@ async function sendReview() {
   const privateName = document.getElementById("privateName").checked;
   const status = document.getElementById("reviewStatus");
   
-  // Update state
   state.review.name = nameInput;
   state.review.text = textInput;
   state.review.privateName = privateName;
@@ -650,7 +649,6 @@ async function sendReview() {
     return; 
   }
   
-  // If name is blank and not private, default to "Anonymous"
   let displayName = "Anonymous";
   if (state.review.privateName) {
     displayName = "Private";
@@ -662,7 +660,7 @@ async function sendReview() {
   try {
     await sendViaEmailJS(C.EMAILJS_REVIEW_TEMPLATE_ID, {
       form_type: "CUSTOMER REVIEW",
-      customer_name: displayName, // This will never be blank now
+      customer_name: displayName,
       rating: state.review.rating,
       review: state.review.text,
       submitted_at: new Date().toLocaleString()
@@ -673,6 +671,7 @@ async function sendReview() {
     console.error(err);
   }
 }
+
 async function sendContact() {
   state.contact.name = document.getElementById("contactName").value.trim();
   state.contact.email = document.getElementById("contactEmail").value.trim();
@@ -685,20 +684,15 @@ async function sendContact() {
   }
   status.innerHTML = `<p class="hint">Sending...</p>`;
   try {
-    
-    status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
-    state.contact = { name: "", email: "", message: "" };
-    document.getElementById("contactName").value = "";
-    document.getElementById("contactEmail").value = "";
-    document.getElementById("contactMessage").value = "";
-  } catch (err) {
-    status.innerHTML = `<div class="notice">We couldn't send the message yet. Please text us at <strong>(575) 707-2480</strong>.</div>`;
-    console.error(err);
-  }
-}
-  status.innerHTML = `<p class="hint">Sending...</p>`;
-  try {
-    
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+      form_type: "CONTACT MESSAGE",
+      tier_name: "General Inquiry",
+      customer_name: state.contact.name,
+      customer_email: state.contact.email,
+      idea: state.contact.message,
+      message: "",
+      submitted_at: new Date().toLocaleString()
+    });
     status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
     state.contact = { name: "", email: "", message: "" };
     document.getElementById("contactName").value = "";
@@ -755,7 +749,7 @@ async function sendLogoForm() {
   try {
     await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
       form_type: "LOGO SPAWN ORDER",
-              tier_name: "Logo Spawn - $30",
+      tier_name: "Logo Spawn - $30",
       customer_name: name,
       customer_email: email,
       idea: desc,
@@ -827,57 +821,6 @@ async function sendMascotForm() {
   }
 }
 
-async function sendReview() {
-  state.review.name = document.getElementById("reviewName").value.trim();
-  state.review.text = document.getElementById("reviewText").value.trim();
-  state.review.privateName = document.getElementById("privateName").checked;
-  const status = document.getElementById("reviewStatus");
-  if (!state.review.text) { status.innerHTML = `<p class="hint">Please tell us a little about your experience.</p>`; return; }
-  status.innerHTML = `<p class="hint">⭐ Sending your review...</p>`;
-  try {
-    await sendViaEmailJS(C.EMAILJS_REVIEW_TEMPLATE_ID, {
-      form_type: "CUSTOMER REVIEW",
-      customer_name: state.review.privateName? "Private" : state.review.name,
-      rating: state.review.rating,
-      review: state.review.text,
-      submitted_at: new Date().toLocaleString()
-    });
-    status.innerHTML = `<div class="notice">THANK YOU! ⭐ Your review has been sent to the Lab for review before publication.</div>`;
-  } catch (err) {
-    status.innerHTML = `<div class="notice">We couldn't send the review yet. Please text us at <strong>(575) 707-2480</strong>.</div>`;
-    console.error(err);
-  }
-}
-
-async function sendContact() {
-  state.contact.name = document.getElementById("contactName").value.trim();
-  state.contact.email = document.getElementById("contactEmail").value.trim();
-  state.contact.message = document.getElementById("contactMessage").value.trim();
-  const status = document.getElementById("contactStatus");
-  if (!state.contact.name ||!state.contact.email ||!state.contact.message) {
-    status.innerHTML = `<p class="hint">Please enter your name, email, and message.</p>`;
-    return;
-  }
-  status.innerHTML = `<p class="hint">Sending...</p>`;
-  try {
-    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
-      form_type: "CONTACT MESSAGE",
-      customer_name: state.contact.name,
-      customer_email: state.contact.email,
-      message: state.contact.message,
-      submitted_at: new Date().toLocaleString()
-    });
-    status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
-    state.contact = { name: "", email: "", message: "" };
-    document.getElementById("contactName").value = "";
-    document.getElementById("contactEmail").value = "";
-    document.getElementById("contactMessage").value = "";
-  } catch (err) {
-    status.innerHTML = `<div class="notice">We couldn't send the message yet. Please text us at <strong>(575) 707-2480</strong>.</div>`;
-    console.error(err);
-  }
-}
-
 // Chat Widget Logic
 const chatBubble = document.getElementById("chatBubble");
 const chatModal = document.getElementById("chatModal");
@@ -906,29 +849,13 @@ if (chatBubble && chatModal) {
     try {
       await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
         form_type: "LIVE CHAT QUESTION",
-        product: "Live Chat Inquiry", // Hardcode this since chat doesn't have a product
+        tier_name: "Live Chat Inquiry",
         customer_name: name,
-        customer_email: contact, // Use 'customer_email' not 'customer_contact'
-        idea: message, // Your template uses 'idea' for the description
-        message: "", // Vibe is blank for chat
+        customer_email: contact,
+        idea: message,
+        message: "",
         submitted_at: new Date().toLocaleString()
       });
-      status.innerHTML = `<div class="notice">Sent! We'll text you back ASAP.</div>`;
-      setTimeout(() => {
-        chatModal.classList.remove("open");
-        document.getElementById("chatName").value = "";
-        document.getElementById("chatContact").value = "";
-        document.getElementById("chatMessage").value = "";
-        status.innerHTML = "";
-      }, 2000);
-    } catch (err) {
-      status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
-      console.error("Chat error:", err);
-    }
-});
-    status.innerHTML = `<p class="hint">Sending...</p>`;
-    try {
-      
       status.innerHTML = `<div class="notice">Sent! We'll text you back ASAP.</div>`;
       setTimeout(() => {
         chatModal.classList.remove("open");
@@ -944,4 +871,4 @@ if (chatBubble && chatModal) {
   });
 }
 
-render();       
+render();
