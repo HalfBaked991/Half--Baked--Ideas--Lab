@@ -216,10 +216,10 @@ function paywallLogo() {
       
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
-        
-          <a class="btn primary" href="https://cash.app/$Dreadnought1212/15" target="_blank">Pay $15 with Cash App</a>
+        <div class="action-stack">
+        <a class="btn primary" href="https://cash.app/$Dreadnought1212/15" target="_blank">Pay $15 with Cash App</a>
           <a class="btn" href="https://paypal.me/https://www.paypal.me/AmeliaBaDillia/15" target="_blank">Pay $15 with PayPal</a>
-        
+        </div>
         
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
           <h3>Step 2: Tell us your idea</h3>
