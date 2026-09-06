@@ -185,8 +185,8 @@ function experiments() {
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
-          <a class="btn primary" href="https://cash.app/$YOURCASHTAG/15" target="_blank">Pay $15 with Cash App</a>
-          <a class="btn" href="https://paypal.me/YOURPAYPAL/15" target="_blank">Pay $15 with PayPal</a>
+          <a class="btn primary" href="https://cash.app/$Dreadnought1212/15" target="_blank">Pay $15 with Cash App</a>
+          <a class="btn" href="https://paypal.me/https://www.paypal.me/AmeliaBaDillia/15" target="_blank">Pay $15 with PayPal</a>
         </div>
         
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
@@ -246,8 +246,8 @@ function paywallTee() {
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
-          <a class="btn primary" href="https://cash.app/$YOURCASHTAG/20" target="_blank">Pay $20 with Cash App</a>
-          <a class="btn" href="https://paypal.me/YOURPAYPAL/20" target="_blank">Pay $20 with PayPal</a>
+          <a class="btn primary" href="https://cash.app/$Dreadnought1212/20" target="_blank">Pay $20 with Cash App</a>
+          <a class="btn" href="https://paypal.me/https://www.paypal.me/AmeliaBaDillia/20" target="_blank">Pay $20 with PayPal</a>
         </div>
         
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
@@ -278,8 +278,8 @@ function paywallMascot() {
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
-          <a class="btn primary" href="https://cash.app/$YOURCASHTAG/35" target="_blank">Pay $35 with Cash App</a>
-          <a class="btn" href="https://paypal.me/YOURPAYPAL/35" target="_blank">Pay $35 with PayPal</a>
+          <a class="btn primary" href="https://cash.app/$Dreadnought1212/35" target="_blank">Pay $35 with Cash App</a>
+          <a class="btn" href="https://paypal.me/https://www.paypal.me/AmeliaBaDillia/35" target="_blank">Pay $35 with PayPal</a>
         </div>
         
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
