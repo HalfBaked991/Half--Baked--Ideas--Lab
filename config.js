@@ -13,11 +13,11 @@ window.HB_CONFIG = {
   EMAILJS_SERVICE_ID: "service_588z9pc",
   EMAILJS_TEMPLATE_ID: "template_fwmif7p",
   EMAILJS_REVIEW_TEMPLATE_ID: "template_14ko9ev",
-  EMAILJS_CONTACT_TEMPLATE_ID: "YOUR_CONTACT_TEMPLATE_ID",
+  
 
   // Add your actual donation destinations when ready.
   CASH_APP_URL: "https://cash.app/$Dreadnought1212",
-  PAYPAL_URL: "https://https://www.paypal.me/AmeliaBaDillia",
+  PAYPAL_URL: "https://www.paypal.me/AmeliaBaDillia",
 
   BUSINESS_EMAIL: "Halfbakedideaslab@gmail.com",
   TEXT_NUMBER: "+15757072480"
