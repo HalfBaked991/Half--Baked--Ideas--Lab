@@ -867,13 +867,30 @@ async function sendStickerForm() {
   const name = document.getElementById("stickerName").value.trim();
   const email = document.getElementById("stickerEmail").value.trim();
   const desc = document.getElementById("stickerDesc").value.trim();
-  
+  const vibe = document.getElementById("stickerVibe").value.trim(); // Keep this
   const status = document.getElementById("stickerStatus");
   
   if (!name || !email || !desc) {
     status.innerHTML = `<p class="hint">Please fill name, email, and description.</p>`;
     return;
   }
+  status.innerHTML = `<p class="hint">🧪 Sending to the lab...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+      form_type: "STICKER DROP ORDER",
+      tier_name: "Sticker Drop - $15",
+      customer_name: name,
+      customer_email: email,
+      idea: desc,
+      message: vibe, // ONLY VIBE NOW - no usage
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">LAB RECEIVED! 🎨 We'll verify payment and start cooking. Check your email in 48hrs.</div>`;
+  } catch (err) {
+    status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
+    console.error(err);
+  }
+}
   status.innerHTML = `<p class="hint">🧪 Sending to the lab...</p>`;
   try {
     await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
