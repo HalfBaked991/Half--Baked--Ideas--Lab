@@ -132,13 +132,8 @@ function experiments() {
           <div class="roll-badge">🎲 MULTI-ROLL</div>
           <h3>🎨 Sticker Drop — $15</h3>
           <p>3 concepts → pick 1 final sticker</p>
-          <ul>
-            <li>48hr turnaround</li>
-            <li>1 tiny tweak included</li>
-            <li>PNG, transparent bg</li>
-          </ul>
           <div class="action-stack">
-            <button class="btn primary" onclick="window.open('https://gumroad.com/l/sticker','_blank')">Start Experiment</button>
+            <button class="btn primary" data-route="paywall-sticker">Start Experiment</button>
           </div>
         </article>
 
@@ -146,13 +141,8 @@ function experiments() {
           <div class="roll-badge">🎲 MULTI-ROLL</div>
           <h3>🌀 Logo Spawn — $30</h3>
           <p>3 concepts → pick 1 final logo</p>
-          <ul>
-            <li>48hr turnaround</li>
-            <li>Color + B&W versions</li>
-            <li>1 tiny tweak included</li>
-          </ul>
           <div class="action-stack">
-            <button class="btn primary" onclick="window.open('https://gumroad.com/l/logo','_blank')">Start Experiment</button>
+            <button class="btn primary" data-route="paywall-logo">Start Experiment</button>
           </div>
         </article>
 
@@ -160,13 +150,8 @@ function experiments() {
           <div class="roll-badge">🎲 MULTI-ROLL</div>
           <h3>👕 Tee Concept — $20</h3>
           <p>2 mockups → pick 1 final</p>
-          <ul>
-            <li>48hr turnaround</li>
-            <li>Front/back shown</li>
-            <li>Print-ready +$5</li>
-          </ul>
           <div class="action-stack">
-            <button class="btn primary" onclick="window.open('https://gumroad.com/l/tee','_blank')">Start Experiment</button>
+            <button class="btn primary" data-route="paywall-tee">Start Experiment</button>
           </div>
         </article>
 
@@ -174,16 +159,18 @@ function experiments() {
           <div class="roll-badge">🎯 ONE-SHOT</div>
           <h3>😈 Mascot Birth — $35</h3>
           <p>1 finished character. One-Shot Only.</p>
-          <ul>
-            <li>72hr turnaround</li>
-            <li>Name + backstory included</li>
-            <li>No redos. New birth = $35</li>
-          </ul>
           <div class="action-stack">
-            <button class="btn primary" onclick="window.open('https://gumroad.com/l/mascot','_blank')">Start Experiment</button>
+            <button class="btn primary" data-route="paywall-mascot">Start Experiment</button>
           </div>
         </article>
       </div>
+
+      <div class="action-stack" style="margin-top:32px">
+        <button class="btn ghost" data-route="how">← Back to How It Works</button>
+      </div>
+    </div>
+  `);
+}
 
       <div class="action-stack" style="margin-top:32px">
         <button class="btn ghost" data-route="how">← Back to How It Works</button>
