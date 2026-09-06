@@ -685,15 +685,7 @@ async function sendContact() {
   }
   status.innerHTML = `<p class="hint">Sending...</p>`;
   try {
-    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
-      form_type: "CONTACT MESSAGE",
-      tier_name: "General Inquiry", // This fills Product: in the email
-      customer_name: state.contact.name,
-      customer_email: state.contact.email,
-      idea: state.contact.message, // This fills THE DESCRIPTION in the email
-      message: "", // Vibe is blank for contact form
-      submitted_at: new Date().toLocaleString()
-    });
+    
     status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
     state.contact = { name: "", email: "", message: "" };
     document.getElementById("contactName").value = "";
@@ -706,13 +698,7 @@ async function sendContact() {
 }
   status.innerHTML = `<p class="hint">Sending...</p>`;
   try {
-    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
-      form_type: "CONTACT MESSAGE",
-      customer_name: state.contact.name,
-      customer_email: state.contact.email,
-      message: state.contact.message,
-      submitted_at: new Date().toLocaleString()
-    });
+    
     status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
     state.contact = { name: "", email: "", message: "" };
     document.getElementById("contactName").value = "";
@@ -942,14 +928,7 @@ if (chatBubble && chatModal) {
 });
     status.innerHTML = `<p class="hint">Sending...</p>`;
     try {
-      await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
-        form_type: "LIVE CHAT QUESTION",
-        customer_name: name,
-        customer_contact: contact,
-        message: message,
-        page: state.route,
-        submitted_at: new Date().toLocaleString()
-      });
+      
       status.innerHTML = `<div class="notice">Sent! We'll text you back ASAP.</div>`;
       setTimeout(() => {
         chatModal.classList.remove("open");
