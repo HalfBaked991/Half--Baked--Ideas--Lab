@@ -801,6 +801,18 @@ function bindCurrent() {
   if (state.route === "contact") {
     document.getElementById("sendContact")?.addEventListener("click", sendContact);
   }
+    if (state.route === "form-sticker") {
+    document.getElementById("sendSticker")?.addEventListener("click", sendStickerForm);
+  }
+  if (state.route === "form-logo") {
+    document.getElementById("sendLogo")?.addEventListener("click", sendLogoForm);
+  }
+  if (state.route === "form-tee") {
+    document.getElementById("sendTee")?.addEventListener("click", sendTeeForm);
+  }
+  if (state.route === "form-mascot") {
+    document.getElementById("sendMascot")?.addEventListener("click", sendMascotForm);
+  }
 }
 
 async function sendViaEmailJS(templateId, params) {
@@ -860,7 +872,127 @@ async function sendContact() {
     console.error(err);
   }
 }
+async function sendStickerForm() {
+  const name = document.getElementById("stickerName").value.trim();
+  const email = document.getElementById("stickerEmail").value.trim();
+  const desc = document.getElementById("stickerDesc").value.trim();
+  const vibe = document.getElementById("stickerVibe").value.trim();
+  const use = document.getElementById("stickerUse").value.trim();
+  const status = document.getElementById("stickerStatus");
+  
+  if (!name || !email || !desc) {
+    status.innerHTML = `<p class="hint">Please fill name, email, and description.</p>`;
+    return;
+  }
+  status.innerHTML = `<p class="hint">🧪 Sending to the lab...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+      form_type: "STICKER DROP ORDER",
+      customer_name: name,
+      customer_email: email,
+      product: "Sticker Drop - $15",
+      description: desc,
+      vibe: vibe,
+      usage: use,
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">LAB RECEIVED! 🎨 We'll verify payment and start cooking. Check your email in 48hrs.</div>`;
+  } catch (err) {
+    status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
+    console.error(err);
+  }
+}
 
+async function sendLogoForm() {
+  const name = document.getElementById("logoName").value.trim();
+  const email = document.getElementById("logoEmail").value.trim();
+  const brand = document.getElementById("logoBrand").value.trim();
+  const desc = document.getElementById("logoDesc").value.trim();
+  const vibe = document.getElementById("logoVibe").value.trim();
+  const status = document.getElementById("logoStatus");
+  
+  if (!name || !email || !brand || !desc) {
+    status.innerHTML = `<p class="hint">Please fill name, email, brand name, and description.</p>`;
+    return;
+  }
+  status.innerHTML = `<p class="hint">🧪 Sending to the lab...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+      form_type: "LOGO SPAWN ORDER",
+      customer_name: name,
+      customer_email: email,
+      product: "Logo Spawn - $30",
+      brand_name: brand,
+      description: desc,
+      vibe: vibe,
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">LAB RECEIVED! 🌀 We'll verify payment and spawn 3 options. Check your email in 48hrs.</div>`;
+  } catch (err) {
+    status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
+    console.error(err);
+  }
+}
+
+async function sendTeeForm() {
+  const name = document.getElementById("teeName").value.trim();
+  const email = document.getElementById("teeEmail").value.trim();
+  const desc = document.getElementById("teeDesc").value.trim();
+  const vibe = document.getElementById("teeVibe").value.trim();
+  const status = document.getElementById("teeStatus");
+  
+  if (!name || !email || !desc) {
+    status.innerHTML = `<p class="hint">Please fill name, email, and shirt idea.</p>`;
+    return;
+  }
+  status.innerHTML = `<p class="hint">🧪 Sending to the lab...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+      form_type: "TEE CONCEPT ORDER",
+      customer_name: name,
+      customer_email: email,
+      product: "Tee Concept - $20",
+      description: desc,
+      vibe: vibe,
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">LAB RECEIVED! 👕 We'll verify payment and mock up 2 concepts. Check your email in 48hrs.</div>`;
+  } catch (err) {
+    status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
+    console.error(err);
+  }
+}
+
+async function sendMascotForm() {
+  const name = document.getElementById("mascotName").value.trim();
+  const email = document.getElementById("mascotEmail").value.trim();
+  const desc = document.getElementById("mascotDesc").value.trim();
+  const vibe = document.getElementById("mascotVibe").value.trim();
+  const use = document.getElementById("mascotUse").value.trim();
+  const status = document.getElementById("mascotStatus");
+  
+  if (!name || !email || !desc) {
+    status.innerHTML = `<p class="hint">Please fill name, email, and mascot description.</p>`;
+    return;
+  }
+  status.innerHTML = `<p class="hint">🧪 Sending to the lab...</p>`;
+  try {
+    await sendViaEmailJS(C.EMAILJS_TEMPLATE_ID, {
+      form_type: "MASCOT BIRTH ORDER",
+      customer_name: name,
+      customer_email: email,
+      product: "Mascot Birth - $35",
+      description: desc,
+      vibe: vibe,
+      usage: use,
+      submitted_at: new Date().toLocaleString()
+    });
+    status.innerHTML = `<div class="notice">LAB RECEIVED! 😈 We'll verify payment and birth your mascot. One-shot only. Check email in 72hrs.</div>`;
+  } catch (err) {
+    status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
+    console.error(err);
+  }
+}
 // Chat Widget Logic
 const chatBubble = document.getElementById("chatBubble");
 const chatModal = document.getElementById("chatModal");
