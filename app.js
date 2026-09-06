@@ -869,5 +869,5 @@ if (chatBubble && chatModal) {
       console.error("Chat error:", err);
     }
 });
-
+}
 render();
