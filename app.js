@@ -165,6 +165,15 @@ function experiments() {
         </article>
       </div>
 
+      
+      <div class="action-stack" style="margin-top:32px">
+        <button class="btn ghost" data-route="how">← Back to How It Works</button>
+      </div>
+    </div>
+  `);
+}
+    
+
       function paywallSticker() {
   return layout(`
     <div class="step-shell">
@@ -207,10 +216,7 @@ function paywallLogo() {
       
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
-        <div class="action-stack">
-          <a class="btn primary" href="https://cash.app/$YOURCASHTAG/30" target="_blank">Pay $30 with Cash App</a>
-          <a class="btn" href="https://paypal.me/YOURPAYPAL/30" target="_blank">Pay $30 with PayPal</a>
-        </div>
+        
         
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
           <h3>Step 2: Tell us your idea</h3>
