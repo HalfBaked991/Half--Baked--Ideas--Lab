@@ -92,7 +92,7 @@ function how() {
           <div style="font-size:2.4rem">🎲</div>
           <h3>MULTI-ROLL</h3>
           <p><strong>Stickers, Logos, Tees</strong><br>
-          We make 2-3 options. You pick your fave. 1 tiny tweak included. Delivery:24- 48hrs.</p>
+          We make 2-3 options. You pick your fave. 1 tiny tweak included. Delivery:24-48hrs.</p>
         </article>
         
         <article class="card">
@@ -183,8 +183,8 @@ function paywallSticker() {
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
-          <a class="btn primary" href="https://cash.app/$Dreadnought1212/15" target="_blank">Pay $15 with Cash App</a>
-          <a class="btn" href="https://paypal.me/AmeliaBaDillia/15" target="_blank">Pay $15 with PayPal</a>
+          <a class="btn primary" href="https://cash.app/$Dreadnought1212/15" target="_blank">Pay $5 with Cash App</a>
+          <a class="btn" href="https://paypal.me/AmeliaBaDillia/15" target="_blank">Pay $5 with PayPal</a>
         </div>
         
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
@@ -215,8 +215,8 @@ function paywallLogo() {
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
-        <a class="btn primary" href="https://cash.app/$Dreadnought1212/30" target="_blank">Pay $30 with Cash App</a>
-          <a class="btn" href="https://paypal.me/AmeliaBaDillia/30" target="_blank">Pay $30 with PayPal</a>
+        <a class="btn primary" href="https://cash.app/$Dreadnought1212/30" target="_blank">Pay $5 with Cash App</a>
+          <a class="btn" href="https://paypal.me/AmeliaBaDillia/30" target="_blank">Pay $5 with PayPal</a>
         </div>
         
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
@@ -247,8 +247,8 @@ function paywallTee() {
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
-          <a class="btn primary" href="https://cash.app/$Dreadnought1212/20" target="_blank">Pay $20 with Cash App</a>
-          <a class="btn" href="https://paypal.me/AmeliaBaDillia/20" target="_blank">Pay $20 with PayPal</a>
+          <a class="btn primary" href="https://cash.app/$Dreadnought1212/20" target="_blank">Pay $5 with Cash App</a>
+          <a class="btn" href="https://paypal.me/AmeliaBaDillia/20" target="_blank">Pay $5 with PayPal</a>
         </div>
         
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
@@ -272,15 +272,15 @@ function paywallMascot() {
   return layout(`
     <div class="step-shell">
       <div class="section-title">
-        <h2>😈 Mascot Birth — $5</h2>
+        <h2>😈 Mascot Birth — $7</h2>
         <p>Step 1 of 2: Payment</p>
       </div>
       
       <article class="recipe-card">
         <h3>Pay with Cash App or PayPal</h3>
         <div class="action-stack">
-          <a class="btn primary" href="https://cash.app/$Dreadnought1212/35" target="_blank">Pay $35 with Cash App</a>
-          <a class="btn" href="https://paypal.me/AmeliaBaDillia/35" target="_blank">Pay $35 with PayPal</a>
+          <a class="btn primary" href="https://cash.app/$Dreadnought1212/35" target="_blank">Pay $7 with Cash App</a>
+          <a class="btn" href="https://paypal.me/AmeliaBaDillia/35" target="_blank">Pay $7 with PayPal</a>
         </div>
         
         <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
