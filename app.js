@@ -690,7 +690,7 @@ async function sendContact() {
       customer_name: state.contact.name,
       customer_email: state.contact.email,
       idea: state.contact.message,
-      message: "",
+      message: state.contact.message,
       submitted_at: new Date().toLocaleString()
     });
     status.innerHTML = `<div class="notice">Sent! We'll get back to you ASAP.</div>`;
@@ -853,7 +853,7 @@ if (chatBubble && chatModal) {
         customer_name: name,
         customer_email: contact,
         idea: message,
-        message: "",
+        message: message,
         submitted_at: new Date().toLocaleString()
       });
       status.innerHTML = `<div class="notice">Sent! We'll text you back ASAP.</div>`;
@@ -868,7 +868,6 @@ if (chatBubble && chatModal) {
       status.innerHTML = `<div class="notice">Couldn't send. Text us: (575) 707-2480</div>`;
       console.error("Chat error:", err);
     }
-  });
-}
+});
 
 render();
