@@ -298,7 +298,353 @@ function paywallMascot() {
     </div>
   `);
 }
+function formSticker() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>🎨 Sticker Drop Brief</h2>
+        <p>Step 2 of 2: Tell us what to make</p>
+      </div>
+      
+      <article class="recipe-card">
+        <div class="form-group">
+          <label class="form-label">1. Your name</label>
+          <input id="stickerName" type="text" placeholder="What should we call you?">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">2. Your email</label>
+          <input id="stickerEmail" type="email" placeholder="Where we send your final">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">3. What should your sticker be?</label>
+          <textarea id="stickerDesc" maxlength="500" placeholder="Ex: Angry raccoon with a taco, holding a tiny sword"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">4. Vibe/Style</label>
+          <input id="stickerVibe" type="text" placeholder="Ex: Cute but deadly, retro cartoon, vaporwave">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">5. Where will you use it?</label>
+          <input id="stickerUse" type="text" placeholder="Ex: Laptop, water bottle, Discord server">
+        </div>
 
+        <button class="btn primary" id="sendSticker">SEND TO THE LAB →</button>
+        <div id="stickerStatus"></div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="paywall-sticker">← Back to Payment</button>
+      </div>
+    </div>
+  `);
+}
+
+function formLogo() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>🌀 Logo Spawn Brief</h2>
+        <p>Step 2 of 2: Tell us what to make</p>
+      </div>
+      
+      <article class="recipe-card">
+        <div class="form-group">
+          <label class="form-label">1. Your name</label>
+          <input id="logoName" type="text" placeholder="What should we call you?">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">2. Your email</label>
+          <input id="logoEmail" type="email" placeholder="Where we send your final">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">3. Business/Brand name</label>
+          <input id="logoBrand" type="text" placeholder="Ex: Half Baked Ideas Lab">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">4. What does it do/sell?</label>
+          <textarea id="logoDesc" maxlength="500" placeholder="Ex: We turn dumb ideas into logos for meme pages"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">5. Vibe/Style</label>
+          <input id="logoVibe" type="text" placeholder="Ex: Minimal, chaotic, retro gaming, corporate but unhinged">
+        </div>
+
+        <button class="btn primary" id="sendLogo">SEND TO THE LAB →</button>
+        <div id="logoStatus"></div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="paywall-logo">← Back to Payment</button>
+      </div>
+    </div>
+  `);
+}
+
+function formTee() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>👕 Tee Concept Brief</h2>
+        <p>Step 2 of 2: Tell us what to make</p>
+      </div>
+      
+      <article class="recipe-card">
+        <div class="form-group">
+          <label class="form-label">1. Your name</label>
+          <input id="teeName" type="text" placeholder="What should we call you?">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">2. Your email</label>
+          <input id="teeEmail" type="email" placeholder="Where we send your final">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">3. Shirt idea/theme</label>
+          <textarea id="teeDesc" maxlength="500" placeholder="Ex: A possum screaming 'I AM THE MANAGER' in bold text"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">4. Vibe/Style</label>
+          <input id="teeVibe" type="text" placeholder="Ex: Vintage band tee, ironic, Y2K, metal font">
+        </div>
+
+        <button class="btn primary" id="sendTee">SEND TO THE LAB →</button>
+        <div id="teeStatus"></div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="paywall-tee">← Back to Payment</button>
+      </div>
+    </div>
+  `);
+}
+
+function formMascot() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>😈 Mascot Birth Brief</h2>
+        <p>Step 2 of 2: Tell us what to make</p>
+      </div>
+      
+      <article class="recipe-card">
+        <div class="form-group">
+          <label class="form-label">1. Your name</label>
+          <input id="mascotName" type="text" placeholder="What should we call you?">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">2. Your email</label>
+          <input id="mascotEmail" type="email" placeholder="Where we send your final">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">3. Describe your mascot</label>
+          <textarea id="mascotDesc" maxlength="500" placeholder="Ex: A depressed wizard frog who runs a failing potion shop"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">4. Personality/Vibe</label>
+          <input id="mascotVibe" type="text" placeholder="Ex: Chaotic good, tired, secretly powerful, loves snacks">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">5. Where will you use them?</label>
+          <input id="mascotUse" type="text" placeholder="Ex: Twitch emotes, Discord pfp, brand character">
+        </div>
+
+        <button class="btn primary" id="sendMascot">SEND TO THE LAB →</button>
+        <div id="mascotStatus"></div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="paywall-mascot">← Back to Payment</button>
+      </div>
+    </div>
+  `);
+}function formSticker() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>🎨 Sticker Drop Brief</h2>
+        <p>Step 2 of 2: Tell us what to make</p>
+      </div>
+      
+      <article class="recipe-card">
+        <div class="form-group">
+          <label class="form-label">1. Your name</label>
+          <input id="stickerName" type="text" placeholder="What should we call you?">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">2. Your email</label>
+          <input id="stickerEmail" type="email" placeholder="Where we send your final">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">3. What should your sticker be?</label>
+          <textarea id="stickerDesc" maxlength="500" placeholder="Ex: Angry raccoon with a taco, holding a tiny sword"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">4. Vibe/Style</label>
+          <input id="stickerVibe" type="text" placeholder="Ex: Cute but deadly, retro cartoon, vaporwave">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">5. Where will you use it?</label>
+          <input id="stickerUse" type="text" placeholder="Ex: Laptop, water bottle, Discord server">
+        </div>
+
+        <button class="btn primary" id="sendSticker">SEND TO THE LAB →</button>
+        <div id="stickerStatus"></div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="paywall-sticker">← Back to Payment</button>
+      </div>
+    </div>
+  `);
+}
+
+function formLogo() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>🌀 Logo Spawn Brief</h2>
+        <p>Step 2 of 2: Tell us what to make</p>
+      </div>
+      
+      <article class="recipe-card">
+        <div class="form-group">
+          <label class="form-label">1. Your name</label>
+          <input id="logoName" type="text" placeholder="What should we call you?">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">2. Your email</label>
+          <input id="logoEmail" type="email" placeholder="Where we send your final">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">3. Business/Brand name</label>
+          <input id="logoBrand" type="text" placeholder="Ex: Half Baked Ideas Lab">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">4. What does it do/sell?</label>
+          <textarea id="logoDesc" maxlength="500" placeholder="Ex: We turn dumb ideas into logos for meme pages"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">5. Vibe/Style</label>
+          <input id="logoVibe" type="text" placeholder="Ex: Minimal, chaotic, retro gaming, corporate but unhinged">
+        </div>
+
+        <button class="btn primary" id="sendLogo">SEND TO THE LAB →</button>
+        <div id="logoStatus"></div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="paywall-logo">← Back to Payment</button>
+      </div>
+    </div>
+  `);
+}
+
+function formTee() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>👕 Tee Concept Brief</h2>
+        <p>Step 2 of 2: Tell us what to make</p>
+      </div>
+      
+      <article class="recipe-card">
+        <div class="form-group">
+          <label class="form-label">1. Your name</label>
+          <input id="teeName" type="text" placeholder="What should we call you?">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">2. Your email</label>
+          <input id="teeEmail" type="email" placeholder="Where we send your final">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">3. Shirt idea/theme</label>
+          <textarea id="teeDesc" maxlength="500" placeholder="Ex: A possum screaming 'I AM THE MANAGER' in bold text"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">4. Vibe/Style</label>
+          <input id="teeVibe" type="text" placeholder="Ex: Vintage band tee, ironic, Y2K, metal font">
+        </div>
+
+        <button class="btn primary" id="sendTee">SEND TO THE LAB →</button>
+        <div id="teeStatus"></div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="paywall-tee">← Back to Payment</button>
+      </div>
+    </div>
+  `);
+}
+
+function formMascot() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>😈 Mascot Birth Brief</h2>
+        <p>Step 2 of 2: Tell us what to make</p>
+      </div>
+      
+      <article class="recipe-card">
+        <div class="form-group">
+          <label class="form-label">1. Your name</label>
+          <input id="mascotName" type="text" placeholder="What should we call you?">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">2. Your email</label>
+          <input id="mascotEmail" type="email" placeholder="Where we send your final">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">3. Describe your mascot</label>
+          <textarea id="mascotDesc" maxlength="500" placeholder="Ex: A depressed wizard frog who runs a failing potion shop"></textarea>
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">4. Personality/Vibe</label>
+          <input id="mascotVibe" type="text" placeholder="Ex: Chaotic good, tired, secretly powerful, loves snacks">
+        </div>
+        
+        <div class="form-group">
+          <label class="form-label">5. Where will you use them?</label>
+          <input id="mascotUse" type="text" placeholder="Ex: Twitch emotes, Discord pfp, brand character">
+        </div>
+
+        <button class="btn primary" id="sendMascot">SEND TO THE LAB →</button>
+        <div id="mascotStatus"></div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="paywall-mascot">← Back to Payment</button>
+      </div>
+    </div>
+  `);
+}
       
 function reviews() {
   return layout(`
