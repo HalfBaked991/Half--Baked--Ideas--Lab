@@ -1,17 +1,6 @@
 const C = window.HB_CONFIG || {};
 const app = document.getElementById("app");
 
-const recipe = [
-  { label: "IDEA:", question: "What are we cooking?", icon: "💡", key: "idea" },
-  { label: "THE WHY:", question: "Why does this idea matter?", icon: "🧠", key: "why" },
-  { label: "WHO'S HUNGRY:", question: "Who might actually want this?", icon: "👥", key: "hungry" },
-  { 
-    label: "WHAT DO YOU WANT FROM US:", 
-    question: "In a few sentences, tell us what you want us to do for you specifically.", 
-    icon: "🎯", 
-    key: "want" 
-  }
-];
 
 const state = {
   route: "home",
@@ -164,244 +153,21 @@ function how() {
       </article>
     </div>
     
-    <div class="section-title" style="margin-top:34px"><h2>How far can we take it?</h2></div>
-    <div class="grid">
-      <article class="card pink tier-card" data-tier="egg">
-        <h3>🥚 Just an Idea</h3>
-        <p>"I have this thought..."</p>
-      </article>
-      <article class="card pink tier-card" data-tier="half-baked">
-        <h3>🥣 Half Baked</h3>
-        <p>"I think there's something here."</p>
-      </article>
-      <article class="card pink tier-card" onclick="showFullyBakedPage()">
-  <h3>🍞 Fully Baked</h3>
-  <p>"Let's develop this into a real concept."</p>
-</article>
-      
-    <div class="notice" style="margin-top:16px;text-align:center">Pick a tier above to start your recipe.</div>
-  `);
-}
-
-function tierEgg() {
-  return layout(`
-    <div class="section-title">
-      <h2>🥚 Tier (Free) - Just an Idea</h2>
-      <p>This is the IDEA ROAST. No fluff, no follow-ups, just signal.</p>
-    </div>
-    <article class="card">
-      <h3>You get:</h3>
-      <div class="tier-spec">
-        <p><strong>1. Gut Reaction:</strong><br>
-        This is my honest, no-BS first impression of your idea. I'll tell you if the core problem feels real, who'd actually care, and what similar ideas have tried before — good or bad. You'll know in 30 seconds if you're onto something or if there's a landmine you didn't see.</p>
-        <p><strong>2. 3 ways this could go:</strong><br>
-        • <strong>The lazy test:</strong> How to test in 1 day, $0<br>
-        • <strong>The scrappy version:</strong> What a v1 could look like if you built it this weekend<br>
-        • <strong>The “if you had money” version:</strong> Big picture if this actually worked</p>
-        <p><strong>3. Do THIS next:</strong><br>
-        This is the exact, single action I'd take today if I were you. Not "research your market" — I mean the one click, post, email, or conversation that moves you from thinking to knowing. It'll be specific to your idea and take under 15 minutes. Do this before you spend another dollar or hour on it.</p>
-        <p><strong>4. Biggest risk to watch:</strong><br>
-        This is the #1 reason your idea would fail that most people miss. I'll call out the legal, demand, or competition landmine you're most likely to hit. You get 1 sentence that could save you months of wasted work. If you only avoid one mistake, avoid this one.</p>
-      </div>
-      <div class="notice">
-        <strong>Delivery:</strong> 12-24 hours • <strong>Follow-ups:</strong> 1 clarification email max if needed • <strong>Price:</strong> Free • Donations appreciated but never required
-      </div>
-      <div class="action-stack" style="margin-top:24px">
-        <button class="btn primary" data-route="customer" data-selected-tier="egg">🥣 START MY IDEA ROAST</button>
-        <button class="btn ghost" data-route="how">← BACK TO TIERS</button>
-      </div>
-    </article>
-  `);
-}
-
-function tierHalfBaked() {
-  return layout(`
-    <div class="section-title">
-      <h2>🥣 Tier ($49) - Half Baked: Reality Check Sprint</h2>
-      <p><em>"I think there's something here."</em></p>
-    </div>
-    <article class="card">
-      <h3>What you get:</h3>
-      <p>We spend 7 days figuring out if real people would actually pay for your idea.</p>
-      <h3>Here's how it works:</h3>
-      <p><strong>1. We find your first customers</strong><br>
-      You get the exact words to post on Reddit, LinkedIn, or wherever your customers hang out. 
-      It asks one question: <em>"If this existed, would you pay for it?"</em> You post it.</p>
-      <p><strong>2. We build your test page</strong><br>
-      We make you a 1-page test site in 24 hours using free tools. It explains your idea and has one button: "Join waitlist" or "Pre-order." Nobody gets charged. We're just counting how many people click.</p>
-      <p><strong>3. We run the test together</strong><br>
-      You share the post. You share the page. We watch what happens for 5 days. 
-      How many people visited? How many clicked? What did they say?</p>
-      <p><strong>4. You get the verdict</strong><br>
-      We send you a <strong>Demand Results email</strong>. It tells you 3 things:</p>
-      <ul>
-        <li><strong>Do people actually want this?</strong> Yes or no.</li>
-        <li><strong>What did they really ask for?</strong></li>
-        <li><strong>Should you kill it, change it, or go all in?</strong> No guessing.</li>
-      </ul>
-      <h3>What you keep forever:</h3>
-      <ol>
-        <li>The exact post that got people talking</li>
-        <li>The test site + all the clicks/emails you collected</li>
-        <li>The Demand Results write-up with customer comments + next steps</li>
-      </ol>
-      <h3>What this IS NOT:</h3>
-      <p>We don't build your app. We don't become your lawyer, accountant, or developer. We don't promise you'll make money. We test if strangers care enough to click "buy."</p>
-      <p><strong>Time from you:</strong> About 2 hours total over 7 days. Post once. Share a link. Read the results in your email and make your kill it, change it, or go all in decision!</p>
-      <div class="action-stack" style="margin-top:24px">
-  <button class="btn primary" data-selected-tier="half-baked">
-    🥪 START MY RECIPE
-  </button>
-  <button class="btn ghost" data-route="how">← Back to tiers</button>
-</div>
     
-    </article>
-  `);
-}
-
-function paywallFullyBaked() {
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title">
-        <h2>🍞 Fully Baked - $299 Plan</h2>
-        <p>Complete your $299 payment to get your 1-page concept plan.</p>
-      </div>
-      <article class="recipe-card">
-        <div class="notice" style="margin-bottom:20px">
-          <strong>What happens next:</strong> After payment, you'll fill out your Ideas Recipe + a short form we email you. Your plan arrives in 5-7 days.
-        </div>
-        <h3 style="text-align:center;margin-bottom:20px">Pay $299 to Continue</h3>
-        <div class="action-stack">
-          <button class="btn primary" onclick="window.open('https://paypal.me/halfbakedideaslab/299','_blank','noopener')">💙 PAY WITH PAYPAL</button>
-          <button class="btn" onclick="window.open('https://cash.app/$HalfBakedIdeasLab/299','_blank','noopener')">💵 PAY WITH CASH APP</button>
-        </div>
-        <div class="notice" style="margin-top:20px;text-align:center;background:#fff3cd;border:1px solid #ffe69c;padding:12px;border-radius:8px;color:#000;">
-          <strong>Important:</strong> After paying, come back to this page and tap the button below to continue to your recipe.
-        </div>
-        <button class="btn" data-selected-tier="fully-baked" style="width:100%;margin-top:12px">I'VE PAID → START MY RECIPE</button>
-        <button class="btn ghost" data-route="tier-fully-baked" style="width:100%;margin-top:8px">← BACK</button>
-      </article>
-    </div>
-  `);
-}
 
 
-function tierFullyBaked() {
-  return layout(`
-    <div class="section-title">
-      <h2>🍞 Tier ($299) - Fully Baked</h2>
-      <p><em>"Let's develop this into a real concept."</em></p>
-    </div>
-    <article class="card">
-      <h3>What you get:</h3>
-      <p><strong>1. We use your Idea Recipe from the app.</strong><br>
-      You've told us your idea and who it's for. We start there.</p>
-      
-      <p><strong>2. You answer 8 short questions</strong><br>
-      We email you a form. Takes 20 minutes. No calls.</p>
-      
-      <p><strong>3. We send you a 1-page plan in 5-7 days.</strong><br>
-      Shows why people buy, what to charge, what could go wrong, and who you're up against.</p>
-      
-      <p><strong>4. We send you a 1-page cheat sheet</strong><br>
-      Shows first 3 steps to take, and when to quit if it's not working.</p>
-      
-      <p><strong>5. You can ask 3 questions by email</strong><br>
-      For 7 days after we send your plan. Then email help ends.</p>
-      
-      <div class="action-stack" style="margin-top:24px">
-  <button class="btn primary" data-route="paywall-fully-baked">
-    Start My $299 Plan →
-  </button>
-  <button class="btn ghost" data-route="how">← Pick a different tier</button>
-</div>
-      
-      
-    </article>
-  `);
-}
 
-function recipeStep() {
-  const r = recipe[state.step];
-  const pct = ((state.step + 1) / recipe.length) * 100;
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title">
-        <h2>Your Half Baked Idea Recipe</h2>
-        <p>Don't overthink it. Give us the messy version.</p>
-      </div>
-      <div class="progress-label"><span>STEP ${String(state.step+1).padStart(2,"0")} / ${recipe.length}</span><span>${Math.round(pct)}%</span></div>
-      <div class="progress"><span style="width:${pct}%"></span></div>
-      <article class="recipe-card">
-        <div class="recipe-icon">${r.icon}</div>
-        <div class="recipe-label">${r.label}</div>
-        <div class="recipe-question">${r.question}</div>
-        <textarea id="recipeAnswer" maxlength="5000" placeholder="Type your answer here...">${escapeHtml(state.answers[r.key])}</textarea>
-        <div class="hint">No perfect answers. No grammar test. No bad ideas.</div>
-        <div class="nav-row">
-          ${state.step > 0? `<button class="btn ghost" id="backStep">← BACK</button>` : `<button class="btn ghost" data-route="home">← CANCEL</button>`}
-          <button class="btn" id="nextStep">${state.step === recipe.length-1? "RECIPE COMPLETE ✓" : "NEXT INGREDIENT →"}</button>
-        </div>
-      </article>
-    </div>
-  `);
-}
 
-function customerInfo() {
-  let tierLabel = "No tier selected";
-  if (state.selectedTier === "egg") tierLabel = "🥚 Free Tier - Idea Roast";
-  if (state.selectedTier === "half-baked") tierLabel = "🥣 $49 Tier - Reality Check Sprint";
-  if (state.selectedTier === "fully-baked") tierLabel = "🍞 $299 Tier - Fully Baked";
 
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title"><h2>Who's Cooking?</h2><p>Give us a way to get your finished ideas back to you.</p></div>
-      <div class="notice" style="margin-bottom:16px">
-        <strong>Selected:</strong> ${tierLabel}
-      </div>
-      <article class="recipe-card">
-        <div class="form-group"><label class="form-label" for="customerName">Your name</label><input id="customerName" type="text" value="${escapeHtml(state.customer.name)}" autocomplete="name" required></div>
-        <div class="form-group"><label class="form-label" for="customerEmail">Best email address</label><input id="customerEmail" type="email" value="${escapeHtml(state.customer.email)}" autocomplete="email" required></div>
-        <div class="notice">We use your email to send your completed work and important submission information.</div>
-        <div class="nav-row"><button class="btn ghost" id="backCustomer">← BACK</button><button class="btn" id="toRecipe">NEXT: MY IDEA →</button></div>
-      </article>
-    </div>
-  `);
-}
 
-function reviewRecipe() {
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title"><h2>Let's Review Your Recipe</h2><p>Take a look at what you've cooked up. You can go back and edit anything before sending it to the Lab.</p></div>
-      <article class="recipe-card">
-        <div class="summary-list">
-          ${recipe.map(r => `<div class="summary-item"><strong>${r.icon} ${r.label}</strong><p>${escapeHtml(state.answers[r.key]) || "<em>Nothing entered.</em>"}</p></div>`).join("")}
-        </div>
-        <div class="nav-row">
-          <button class="btn ghost" id="editRecipe">← EDIT RECIPE</button>
-          <button class="btn primary" id="sendRecipe">🧪 SEND TO THE LAB</button>
-        </div>
-        <p class="hint">By submitting this recipe, you're asking Half Baked Ideas Lab to review and develop your idea. We do not promise a particular outcome.</p>
-        <div id="sendStatus"></div>
-      </article>
-    </div>
-  `);
-}
 
-function success() {
-  return layout(`
-    <div class="success">
-      <div class="big">🔥</div>
-      <h2>IT'S IN THE OVEN!</h2>
-      <p>Your Half Baked Idea Recipe has been delivered to the Lab. Our idea cooks can now begin working on it.</p>
-      <p><strong>Please allow 3–7 business days for your idea to cook.</strong></p>
-      <div class="action-stack">
-        <button class="btn" data-route="home">🏠 BACK TO THE LAB</button>
-        <button class="btn primary" data-route="recipe">🥣 START ANOTHER RECIPE</button>
-      </div>
-    </div>
-  `);
-}
+
+
+
+
+
+
+
 
 function reviews() {
   return layout(`
@@ -470,7 +236,6 @@ function contact() {
         <article class="card" style="text-align:center"><h3>✉️ Email Us</h3><p style="font-size:1.05rem;color:var(--cyan)">Halfbakedideaslab@gmail.com</p><div class="action-stack"><a class="btn" href="mailto:Halfbakedideaslab@gmail.com">EMAIL US</a></div></article>
       </div>
       <div class="section-title" style="margin-top:34px"><h2>Or Send a Message</h2></div>
-      <article class="recipe-card">
         <div class="form-group"><label class="form-label">Name</label><input id="contactName" type="text" value="${escapeHtml(state.contact.name)}"></div>
         <div class="form-group"><label class="form-label">Email</label><input id="contactEmail" type="email" value="${escapeHtml(state.contact.email)}"></div>
         <div class="form-group"><label class="form-label">Message</label><textarea id="contactMessage" maxlength="3000" placeholder="How can we help?">${escapeHtml(state.contact.message)}</textarea></div>
@@ -479,61 +244,6 @@ function contact() {
       </article>
     </div>
   `);
-}
-
-function paywallHalfBaked() {
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title">
-        <h2>🥣 Half Baked - Reality Check Sprint</h2>
-        <p>Complete your $49 payment to start your 7-day test.</p>
-      </div>
-      <article class="recipe-card">
-        <div class="notice" style="margin-bottom:20px">
-          <strong>What happens next:</strong> After payment, you'll fill out your Ideas Recipe. We'll email you within 24 hours to kick off your Reality Check Sprint.
-        </div>
-        <h3 style="text-align:center;margin-bottom:20px">Pay $49 to Continue</h3>
-        <div class="action-stack">
-          <button class="btn primary" onclick="window.open('https://paypal.me/halfbakedideaslab/49','_blank','noopener')">💙 PAY WITH PAYPAL</button>
-          <button class="btn" onclick="window.open('https://cash.app/$HalfBakedIdeasLab/49','_blank','noopener')">💵 PAY WITH CASH APP</button>
-        </div>
-        <div class="notice" style="margin-top:20px;text-align:center;background:#fff3cd;border:1px solid #ffe69c;padding:12px;border-radius:8px;color:#000;">
-          <strong>Important:</strong> After paying, come back to this page and tap the button below to continue to your recipe.
-        </div>
-        <button class="btn" id="skipPaywall" style="width:100%;margin-top:12px">I'VE PAID → START MY RECIPE</button>
-        <button class="btn ghost" data-route="tier-half-baked" style="width:100%;margin-top:8px">← BACK</button>
-      </article>
-    </div>
-  `);
-}
-function paywallFullyBaked() {
-  return layout(`
-    <div class="step-shell">
-      <div class="section-title">
-        <h2>🍞 Fully Baked - $299 Plan</h2>
-        <p>Complete your $299 payment to get your 1-page concept plan.</p>
-      </div>
-      <article class="recipe-card">
-        <div class="notice" style="margin-bottom:20px">
-          <strong>What happens next:</strong> After payment, you'll fill out your Ideas Recipe + a short form we email you. Your plan arrives in 5-7 days.
-        </div>
-        <h3 style="text-align:center;margin-bottom:20px">Pay $299 to Continue</h3>
-        <div class="action-stack">
-          <button class="btn primary" onclick="window.open('https://paypal.me/halfbakedideaslab/299','_blank','noopener')">💙 PAY WITH PAYPAL</button>
-          <button class="btn" onclick="window.open('https://cash.app/$HalfBakedIdeasLab/299','_blank','noopener')">💵 PAY WITH CASH APP</button>
-        </div>
-        <div class="notice" style="margin-top:20px;text-align:center;background:#fff3cd;border:1px solid #ffe69c;padding:12px;border-radius:8px;color:#000;">
-          <strong>Important:</strong> After paying, come back to this page and tap the button below to continue to your recipe.
-        </div>
-        <button class="btn" data-selected-tier="fully-baked" style="width:100%;margin-top:12px">I'VE PAID → START MY RECIPE</button>
-        <button class="btn ghost" data-route="tier-fully-baked" style="width:100%;margin-top:8px">← BACK</button>
-      </article>
-    </div>
-  `);
-}
-function showFullyBakedPage() {
-  state.route = "tier-fully-baked";
-  render();
 }
 
 function render() {
