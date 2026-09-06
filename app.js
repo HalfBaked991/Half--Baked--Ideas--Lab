@@ -773,7 +773,10 @@ function render() {
   "paywall-logo": paywallLogo,
   "paywall-tee": paywallTee,
   "paywall-mascot": paywallMascot,
-    
+      "form-sticker": formSticker,
+  "form-logo": formLogo,
+  "form-tee": formTee,
+  "form-mascot": formMascot,
     "privacy": privacy,
     "terms": terms
   };
