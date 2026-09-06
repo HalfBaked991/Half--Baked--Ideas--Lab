@@ -165,6 +165,134 @@ function experiments() {
         </article>
       </div>
 
+      function paywallSticker() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>🎨 Sticker Drop — $15</h2>
+        <p>Step 1 of 2: Payment</p>
+      </div>
+      
+      <article class="recipe-card">
+        <h3>Pay with Cash App or PayPal</h3>
+        <div class="action-stack">
+          <a class="btn primary" href="https://cash.app/$YOURCASHTAG/15" target="_blank">Pay $15 with Cash App</a>
+          <a class="btn" href="https://paypal.me/YOURPAYPAL/15" target="_blank">Pay $15 with PayPal</a>
+        </div>
+        
+        <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
+          <h3>Step 2: Tell us your idea</h3>
+          <p><strong>After payment, click below to submit your brief.</strong></p>
+          <div class="action-stack">
+            <button class="btn primary" data-route="form-sticker">I Paid, Continue to Form →</button>
+          </div>
+          <p class="hint"><small>We verify all payments before starting work. Put "Sticker Drop" in payment note so we can match it.</small></p>
+        </div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="experiments">← Back to Experiments</button>
+      </div>
+    </div>
+  `);
+}
+
+function paywallLogo() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>🌀 Logo Spawn — $30</h2>
+        <p>Step 1 of 2: Payment</p>
+      </div>
+      
+      <article class="recipe-card">
+        <h3>Pay with Cash App or PayPal</h3>
+        <div class="action-stack">
+          <a class="btn primary" href="https://cash.app/$YOURCASHTAG/30" target="_blank">Pay $30 with Cash App</a>
+          <a class="btn" href="https://paypal.me/YOURPAYPAL/30" target="_blank">Pay $30 with PayPal</a>
+        </div>
+        
+        <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
+          <h3>Step 2: Tell us your idea</h3>
+          <p><strong>After payment, click below to submit your brief.</strong></p>
+          <div class="action-stack">
+            <button class="btn primary" data-route="form-logo">I Paid, Continue to Form →</button>
+          </div>
+          <p class="hint"><small>We verify all payments before starting work. Put "Logo Spawn" in payment note so we can match it.</small></p>
+        </div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="experiments">← Back to Experiments</button>
+      </div>
+    </div>
+  `);
+}
+
+function paywallTee() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>👕 Tee Concept — $20</h2>
+        <p>Step 1 of 2: Payment</p>
+      </div>
+      
+      <article class="recipe-card">
+        <h3>Pay with Cash App or PayPal</h3>
+        <div class="action-stack">
+          <a class="btn primary" href="https://cash.app/$YOURCASHTAG/20" target="_blank">Pay $20 with Cash App</a>
+          <a class="btn" href="https://paypal.me/YOURPAYPAL/20" target="_blank">Pay $20 with PayPal</a>
+        </div>
+        
+        <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
+          <h3>Step 2: Tell us your idea</h3>
+          <p><strong>After payment, click below to submit your brief.</strong></p>
+          <div class="action-stack">
+            <button class="btn primary" data-route="form-tee">I Paid, Continue to Form →</button>
+          </div>
+          <p class="hint"><small>We verify all payments before starting work. Put "Tee Concept" in payment note so we can match it.</small></p>
+        </div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="experiments">← Back to Experiments</button>
+      </div>
+    </div>
+  `);
+}
+
+function paywallMascot() {
+  return layout(`
+    <div class="step-shell">
+      <div class="section-title">
+        <h2>😈 Mascot Birth — $35</h2>
+        <p>Step 1 of 2: Payment</p>
+      </div>
+      
+      <article class="recipe-card">
+        <h3>Pay with Cash App or PayPal</h3>
+        <div class="action-stack">
+          <a class="btn primary" href="https://cash.app/$YOURCASHTAG/35" target="_blank">Pay $35 with Cash App</a>
+          <a class="btn" href="https://paypal.me/YOURPAYPAL/35" target="_blank">Pay $35 with PayPal</a>
+        </div>
+        
+        <div style="margin-top:32px; padding-top:24px; border-top:1px solid #333;">
+          <h3>Step 2: Tell us your idea</h3>
+          <p><strong>After payment, click below to submit your brief.</strong></p>
+          <div class="action-stack">
+            <button class="btn primary" data-route="form-mascot">I Paid, Continue to Form →</button>
+          </div>
+          <p class="hint"><small>We verify all payments before starting work. Put "Mascot Birth" in payment note so we can match it.</small></p>
+        </div>
+      </article>
+
+      <div class="action-stack" style="margin-top:24px">
+        <button class="btn ghost" data-route="experiments">← Back to Experiments</button>
+      </div>
+    </div>
+  `);
+}
+
       <div class="action-stack" style="margin-top:32px">
         <button class="btn ghost" data-route="how">← Back to How It Works</button>
       </div>
@@ -301,6 +429,12 @@ function render() {
     home, how, reviews, support, contact, 
     "leave-review": leaveReview,
     "experiments": experiments,
+
+    "paywall-sticker": paywallSticker,
+  "paywall-logo": paywallLogo,
+  "paywall-tee": paywallTee,
+  "paywall-mascot": paywallMascot,
+    
     "privacy": privacy,
     "terms": terms
   };
